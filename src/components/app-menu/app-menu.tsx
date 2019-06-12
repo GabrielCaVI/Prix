@@ -39,6 +39,7 @@ export class appMenu {
   }
 
 
+
   render() {
     return (
       <div id="color">
@@ -52,13 +53,50 @@ export class appMenu {
           <div id="inner-menu">
             <div id="content" class="hide center">
               <p>{this.value}</p>
-              <ul>
-                <li><a href="#">Menu <span>Option 1</span></a></li>
-                <li><a href="#">Menu <span>Option 2</span></a></li>
-                <li><a href="#">Menu <span>Option 3</span></a></li>
-                <li><a href="#">Menu <span>Option 4</span></a></li>
-                <li><a href="#"><span class="far"></span>Help Center</a></li>
-              </ul>
+
+              <div class="item">
+              <input type="checkbox" id="A" value="Item1" class="center" />
+                <label htmlFor="A">ITEM 1</label>
+                <ul>
+                  <li><a href="#">Menu <span>Option 1</span></a></li>
+                  <li><a href="#">Menu <span>Option 2</span></a></li>
+                  <li><a href="#">Menu <span>Option 3</span></a></li>
+                  <li><a href="#">Menu <span>Option 4</span></a></li>
+
+                </ul>
+              </div>
+              <div class="item">
+                <input type="checkbox" id="B" value="Item2" />
+                <label htmlFor="B">ITEM 2</label>
+                <ul>
+                  <li><a href="#">Menu <span>Option 5</span></a></li>
+                  <li><a href="#">Menu <span>Option 6</span></a></li>
+                  <li><a href="#">Menu <span>Option 7</span></a></li>
+                  <li><a href="#">Menu <span>Option 8</span></a></li>
+
+                </ul>
+              </div>
+
+              <div class="item">
+                <input type="checkbox" id="C" value="Item3" />
+                <label htmlFor="C">ITEM 3</label>
+                <ul>
+                  <li><a href="#">Menu <span>Option 9</span></a></li>
+                  <li><a href="#">Menu <span>Option 10</span></a></li>
+                  <li><a href="#">Menu <span>Option 11</span></a></li>
+                  <li><a href="#">Menu <span>Option 12</span></a></li>
+
+                </ul>
+              </div>
+
+              <div class="item" id="help">
+                <ul>
+                  <li><a href="#"><span class="far"></span>Help Center</a></li>
+                </ul>
+
+
+              </div>
+
             </div>
           </div>
         </div>

@@ -6,17 +6,11 @@
 
 
 import { HTMLStencilElement, JSXBase } from '@stencil/core/internal';
-import {
-  MatchResults,
-} from '@stencil/router';
 
 
 export namespace Components {
   interface AppMenu {
     'message': string;
-  }
-  interface AppProfile {
-    'match': MatchResults;
   }
 }
 
@@ -28,15 +22,8 @@ declare global {
     prototype: HTMLAppMenuElement;
     new (): HTMLAppMenuElement;
   };
-
-  interface HTMLAppProfileElement extends Components.AppProfile, HTMLStencilElement {}
-  var HTMLAppProfileElement: {
-    prototype: HTMLAppProfileElement;
-    new (): HTMLAppProfileElement;
-  };
   interface HTMLElementTagNameMap {
     'app-menu': HTMLAppMenuElement;
-    'app-profile': HTMLAppProfileElement;
   }
 }
 
@@ -44,13 +31,9 @@ declare namespace LocalJSX {
   interface AppMenu extends JSXBase.HTMLAttributes<HTMLAppMenuElement> {
     'message'?: string;
   }
-  interface AppProfile extends JSXBase.HTMLAttributes<HTMLAppProfileElement> {
-    'match'?: MatchResults;
-  }
 
   interface IntrinsicElements {
     'app-menu': AppMenu;
-    'app-profile': AppProfile;
   }
 }
 
