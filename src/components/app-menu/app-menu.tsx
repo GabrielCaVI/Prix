@@ -38,6 +38,16 @@ export class appMenu {
 
   }
 
+  menuToggle (){
+
+    let item = document.getElementById('item')
+    item.classList.toggle('toggle');
+    item.classList.toggle('transition');
+    setTimeout(function () {
+      item.classList.toggle("transition");
+    }, 350);
+  }
+
 
 
   render() {
@@ -53,9 +63,9 @@ export class appMenu {
           <div id="inner-menu">
             <div id="content" class="hide center">
               <p>{this.value}</p>
-
-              <div class="item">
-              <input type="checkbox" id="A" value="Item1" class="center" />
+              <div id="item">
+              <input type="checkbox" onClick={() => this.menuToggle()} id="A" value="Item1" class="center" />
+              <div class="chevron "></div>
                 <label htmlFor="A">ITEM 1</label>
                 <ul>
                   <li><a href="#">Menu <span>Option 1</span></a></li>
@@ -65,7 +75,7 @@ export class appMenu {
 
                 </ul>
               </div>
-              <div class="item">
+              <div id="item">
                 <input type="checkbox" id="B" value="Item2" />
                 <label htmlFor="B">ITEM 2</label>
                 <ul>
@@ -77,19 +87,19 @@ export class appMenu {
                 </ul>
               </div>
 
-              <div class="item">
-                <input type="checkbox" id="C" value="Item3" />
-                <label htmlFor="C">ITEM 3</label>
-                <ul>
-                  <li><a href="#">Menu <span>Option 9</span></a></li>
-                  <li><a href="#">Menu <span>Option 10</span></a></li>
-                  <li><a href="#">Menu <span>Option 11</span></a></li>
-                  <li><a href="#">Menu <span>Option 12</span></a></li>
+              <div id="item">
+            <input type="checkbox" id="C" value="Item3" />
+            <label htmlFor="C">ITEM 3</label>
+            <ul>
+              <li><a href="#">Menu <span>Option 9</span></a></li>
+              <li><a href="#">Menu <span>Option 10</span></a></li>
+              <li><a href="#">Menu <span>Option 11</span></a></li>
+              <li><a href="#">Menu <span>Option 12</span></a></li>
 
-                </ul>
-              </div>
+            </ul>
+          </div>
 
-              <div class="item" id="help">
+              <div class="help22" id="help">
                 <ul>
                   <li><a href="#"><span class="far"></span>Help Center</a></li>
                 </ul>
