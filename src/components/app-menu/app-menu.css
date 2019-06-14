@@ -182,12 +182,12 @@ body {
 
   from{
     opacity: 0%;
-    transform: rotate(-90deg) translateY(-30px)
+    transform:  translateY(-30px)
   }
 
   to{
     opacity: 100%;
-    transform: rotate(0deg) translateY(-5px)
+    transform:  translateY(-5px)
     }
   
 }
