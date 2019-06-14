@@ -169,8 +169,7 @@ body {
   display: none;
 }
 #item ul {
-  display: none;
- 
+  display: none; 
 }
 
 #item input:checked ~ ul{
@@ -189,8 +188,12 @@ body {
     opacity: 100%;
     transform:  translateY(-5px)
     }
+
+
   
 }
+
+
 
 
 
