@@ -64,7 +64,7 @@ export class appMenu {
             <div id="content" class="hide center">
               <p>{this.value}</p>
               <div id="item">
-              <input type="checkbox" onClick={() => this.menuToggle()} id="A" value="Item1" class="center" />
+              <input type="checkbox"  id="A" value="Item1" />
               <div class="chevron "></div>
                 <label htmlFor="A">ITEM 1</label>
                 <ul>

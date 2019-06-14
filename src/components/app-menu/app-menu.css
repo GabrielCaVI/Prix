@@ -156,6 +156,7 @@ body {
 #content ul li a {
   color: #ffffff;
   text-decoration: none;
+  animation: rota 3s ease-in 0.3s 2 reverse forwards;
 }
 #contentul li a span.far {
   margin-right: 10px;
@@ -164,13 +165,31 @@ body {
   text-transform: uppercase;
 }
 
-
+#item input[type="checkbox"]{
+  display: none;
+}
 #item ul {
   display: none;
+ 
 }
 
 #item input:checked ~ ul{
   display: block;
+  animation: menu3 300ms ease-in-out forwards;
+}
+
+@keyframes menu3 {
+
+  from{
+    opacity: 0%;
+    transform: rotate(-90deg) translateY(-30px)
+  }
+
+  to{
+    opacity: 100%;
+    transform: rotate(0deg) translateY(-5px)
+    }
+  
 }
 
 
