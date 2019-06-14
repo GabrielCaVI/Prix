@@ -9,31 +9,22 @@ import { HTMLStencilElement, JSXBase } from '@stencil/core/internal';
 
 
 export namespace Components {
-  interface AppMenu {
-    'message': string;
-  }
+
 }
 
 declare global {
 
 
-  interface HTMLAppMenuElement extends Components.AppMenu, HTMLStencilElement {}
-  var HTMLAppMenuElement: {
-    prototype: HTMLAppMenuElement;
-    new (): HTMLAppMenuElement;
-  };
   interface HTMLElementTagNameMap {
-    'app-menu': HTMLAppMenuElement;
+
   }
 }
 
 declare namespace LocalJSX {
-  interface AppMenu extends JSXBase.HTMLAttributes<HTMLAppMenuElement> {
-    'message'?: string;
-  }
+
 
   interface IntrinsicElements {
-    'app-menu': AppMenu;
+
   }
 }
 
