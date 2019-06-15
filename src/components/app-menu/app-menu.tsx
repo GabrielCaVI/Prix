@@ -38,7 +38,7 @@ export class appMenu {
 
   }
 
-  menuToggle (){
+  menuToggle() {
 
     let item = document.getElementById('item')
     item.classList.toggle('toggle');
@@ -64,8 +64,8 @@ export class appMenu {
             <div id="content" class="hide center">
               <p>{this.value}</p>
               <div id="item">
-              <input type="checkbox"  id="A" value="Item1" />
-              <div class="chevron "></div>
+                <input type="checkbox" id="A" value="Item1" />
+                <span class="inner-chevron "></span>
                 <label htmlFor="A">ITEM 1</label>
                 <ul>
                   <li><a href="#">Menu <span>Option 1</span></a></li>
@@ -77,6 +77,7 @@ export class appMenu {
               </div>
               <div id="item">
                 <input type="checkbox" id="B" value="Item2" />
+                <span class="inner-chevron "></span>
                 <label htmlFor="B">ITEM 2</label>
                 <ul>
                   <li><a href="#">Menu <span>Option 5</span></a></li>
@@ -88,23 +89,22 @@ export class appMenu {
               </div>
 
               <div id="item">
-            <input type="checkbox" id="C" value="Item3" />
-            <label htmlFor="C">ITEM 3</label>
-            <ul>
-              <li><a href="#">Menu <span>Option 9</span></a></li>
-              <li><a href="#">Menu <span>Option 10</span></a></li>
-              <li><a href="#">Menu <span>Option 11</span></a></li>
-              <li><a href="#">Menu <span>Option 12</span></a></li>
+                <input type="checkbox" id="C" value="Item3" />
+                <span class="inner-chevron "></span>
+                <label htmlFor="C">ITEM 3</label>
+                <ul>
+                  <li><a href="#">Menu <span>Option 9</span></a></li>
+                  <li><a href="#">Menu <span>Option 10</span></a></li>
+                  <li><a href="#">Menu <span>Option 11</span></a></li>
+                  <li><a href="#">Menu <span>Option 12</span></a></li>
 
-            </ul>
-          </div>
+                </ul>
+              </div>
 
               <div class="help22" id="help">
                 <ul>
                   <li><a href="#"><span class="far"></span>Help Center</a></li>
                 </ul>
-
-
               </div>
 
             </div>
