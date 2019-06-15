@@ -70,19 +70,23 @@ body {
   top: 50%;
   }
 #inner-menu {
-  border-top: 120px;
+  border-top:13px;
   background-color:#e20177;
   position: fixed;
   left: calc(-30vw + 34px);
   top: 120px;
   border-right: 1px solid rgba(0, 0, 0, 0.14);
   width: 30vw;
-  height: 100%;
+  height: 86%;
   z-index: 999;
+  overflow-y: scroll;
+
+
 }
 
 #content{
   transform: translateX(-20%);
+
 }
 
 
@@ -165,6 +169,8 @@ body {
   text-transform: uppercase;
 }
 
+
+
 #item input[type="checkbox"]{
   display: none;
 }
@@ -172,9 +178,28 @@ body {
   display: none; 
 }
 
-#item input:checked ~ ul{
+#item input:checked ~ ul {
   display: block;
+  transition: 0.35s;
   animation: menu3 300ms ease-in-out forwards;
+}
+
+.inner-chevron{
+  display: block;
+  margin: auto;
+  align: middle;
+  width: 2rem;
+  height: 2rem;
+  background-repeat: no-repeat;
+  transition: 0.35s;
+  transform: rotate(90deg);
+  background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAASCAYAAAE79V5PAAAABGdBTUEAALGPC/xhBQAAAdBJREFUSA2llTtLA0EQx42CbyEWamNSCVainYWVxF7FRhD8AFbBwsoPYBcUKz+Ahdhai9gIWonYCDYqgigYEF+YxN9cdo69vb1cQhaGmfk/Zo7ccuno8J1a/XzFOPCFGBgAxlLTpuyXgUaUtsol6E8MlrV1MmEoAmgDkTWOa8WCDLhqiILJn0qcGaBXHaavdQJcZurnW0lptfZm3Hkz4dkr8IEYpnStk+98+gBDWHLEeRWD3ztc/bEBly2iqgZfRrdtaSs+TYghHAybVgqMH2ZL9DWnDcH0YIya+tM8AY/6UR1Onmg4APGPZShTr1i9lIuxAYAZR3SrIvBJh9tRTq653mbVHIekKSAGlDT5NKBoqhax5Rrt3tJJuaQDpCnYwqQanfwWpSQ+Fcc8Q8g9eCXGUw3tClgySshTu0euRl+782N+huaIG3ebp78AG4kNaBVgyDzx7lkg0B9RSeBewGdb3SfXdZOwb509/4lmWodSzxFvtsCq5cE2VOvNCHqII8vklucAw14zINwYceWarP6Qujv006S9vz008p/R1EHbRRwQSUfuSi4YRlF0VPIdWmtqUwMRM9aJX2d2MWKBlO/XLhG+v4igjUZmEvtE+Mv9A1JJWhptGVPRAAAAAElFTkSuQmCC");
+}
+
+
+#item input:checked + .inner-chevron{
+transition: 0.35s;
+transform: rotate(180deg)
 }
 
 @keyframes menu3 {
@@ -188,14 +213,7 @@ body {
     opacity: 100%;
     transform:  translateY(-5px)
     }
-
-
-  
 }
-
-
-
-
 
 
 @media (min-width: 601fpx) and (max-width: 960px) {
@@ -280,11 +298,16 @@ body {
     top: 0px;
   }
 
-  /* #content ul li:last-child {
-    bottom: 16px;
-    position: relative;
-    bottom: auto;
-  } */
+  .inner-chevron{
+  
+    transition: 0.35s;
+    transform: rotate(180deg);
+  }
+
+  #item input:checked + .inner-chevron{
+    transition: 0.35s;
+    transform: rotate(0deg)
+    }
 
   #content ul li a {
     color: #ffffff;
