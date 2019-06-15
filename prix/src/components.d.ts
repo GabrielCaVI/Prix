@@ -10,7 +10,11 @@ import { HTMLStencilElement, JSXBase } from '@stencil/core/internal';
 
 export namespace Components {
   interface PrixDirectory {
-    'field': string;
+    'configuration'?: any;
+    /**
+    * Common attributes
+    */
+    'data'?: any;
   }
 }
 
@@ -29,7 +33,11 @@ declare global {
 
 declare namespace LocalJSX {
   interface PrixDirectory extends JSXBase.HTMLAttributes<HTMLPrixDirectoryElement> {
-    'field'?: string;
+    'configuration'?: any;
+    /**
+    * Common attributes
+    */
+    'data'?: any;
   }
 
   interface IntrinsicElements {

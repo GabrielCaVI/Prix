@@ -4,13 +4,17 @@ import { Component, h, Prop} from '@stencil/core';
     styleUrl: 'directory.scss'
 })
 export class Directory{
-    @Prop() field: string;
+    //Props
+    /**
+     * Common attributes
+     */
+    @Prop() data?: any = {};
+
+    @Prop({ mutable: true }) configuration?: any = {};
 
     render(){
         return (
             <span>
-                <label>{this.field}</label>
-                <input type="text"/>
             </span>
         )
     }
