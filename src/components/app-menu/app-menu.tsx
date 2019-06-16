@@ -52,9 +52,8 @@ export class appMenu {
 
   render() {
     return (
-      <div id="color">
+      <div id="menu">
         <div id="bg-opacity">
-
         </div>
         <div id="wrapper" class="center">
           <button id="openButton" onClick={() => this.handleToggle()} class="float hide noselect">
@@ -63,9 +62,10 @@ export class appMenu {
           <div id="inner-menu">
             <div id="content" class="hide center">
               <p>{this.value}</p>
-              <div id="item">
+              <div class="item">
                 <input type="checkbox" id="A" value="Item1" />
-                <span class="inner-chevron "></span>
+                <span class= "inner-chevron">
+                <label htmlFor="A"class="fas fa-chevron-up"></label></span>
                 <label htmlFor="A">ITEM 1</label>
                 <ul>
                   <li><a href="#">Menu <span>Option 1</span></a></li>
@@ -75,9 +75,10 @@ export class appMenu {
 
                 </ul>
               </div>
-              <div id="item">
+              <div class="item">
                 <input type="checkbox" id="B" value="Item2" />
-                <span class="inner-chevron "></span>
+                <span class= "inner-chevron">
+                <label htmlFor="B" class="fas fa-chevron-up"></label></span>
                 <label htmlFor="B">ITEM 2</label>
                 <ul>
                   <li><a href="#">Menu <span>Option 5</span></a></li>
@@ -88,10 +89,25 @@ export class appMenu {
                 </ul>
               </div>
 
-              <div id="item">
+              <div class="item">
                 <input type="checkbox" id="C" value="Item3" />
-                <span class="inner-chevron "></span>
+                <span class= "inner-chevron">
+                <label htmlFor="C" class="fas fa-chevron-up"></label></span>
                 <label htmlFor="C">ITEM 3</label>
+                <ul>
+                  <li><a href="#">Menu <span>Option 9</span></a></li>
+                  <li><a href="#">Menu <span>Option 10</span></a></li>
+                  <li><a href="#">Menu <span>Option 11</span></a></li>
+                  <li><a href="#">Menu <span>Option 12</span></a></li>
+
+                </ul>
+              </div>
+
+              <div class="item">
+                <input type="checkbox" id="D" value="Item4" />
+                <span class= "inner-chevron">
+                < label htmlFor="D"class="fas fa-chevron-up"></label></span>
+                <label htmlFor="D">ITEM 4</label>
                 <ul>
                   <li><a href="#">Menu <span>Option 9</span></a></li>
                   <li><a href="#">Menu <span>Option 10</span></a></li>
