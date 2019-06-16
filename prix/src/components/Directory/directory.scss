@@ -1,7 +1,7 @@
 
 body{
     background-color:white;
-    font-size: 13px;
+    font-size: 15px;
     line-height: 19px;
     color: #111;
     font-family: Arial,sans-serif;
@@ -25,6 +25,9 @@ body{
     padding: 14px 16px;
     text-decoration: none;
     font-size: 17px;
+  }
+  .pagnLink a{
+    font-size: 10px;
   }
   
   /* Change the color of links on hover */
@@ -86,9 +89,6 @@ body{
   }
 
    /* BODY */
-    .s-see-all-refinement-header .pagn {
-        padding: 8px 0;
-    }
     div.pagn {
         height: auto!important;
         height: 13px;
@@ -105,7 +105,10 @@ body{
     .a-text-center {
         text-align: center!important;
     }
-
+    .rule{
+      height: 2px;
+      background-color: black;
+    }
     .a-row:after, .a-row:before {
         display: table;
         content: "";
