@@ -179,6 +179,18 @@ export class Directory{
                     </div>
                 </div>
                 <div class="item-container">
+                    {items.splice(0,3).map((item) => (
+                        <div class="item">
+                            <p>{item.index}</p>
+                            <div class="rule"></div>
+                            <ul>
+                                {item.content.forEach(contentItem => {
+                                    <li><a href={contentItem.url}>{contentItem.title}</a></li>
+                                })}
+                            </ul>
+                        </div>
+                    ))}
+
                     <div class="item">
                         <p>TEST</p>
                         <div class="rule"></div>
@@ -188,7 +200,6 @@ export class Directory{
                             ))}
                         </ul>
                     </div>
-                    
                 </div>
                 <div class="item">
                     <p>A</p>
