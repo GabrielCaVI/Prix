@@ -15,6 +15,7 @@ export namespace Components {
     * Common attributes
     */
     'data'?: any;
+    'styling'?: any;
   }
 }
 
@@ -38,6 +39,7 @@ declare namespace LocalJSX {
     * Common attributes
     */
     'data'?: any;
+    'styling'?: any;
   }
 
   interface IntrinsicElements {

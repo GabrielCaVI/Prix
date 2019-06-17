@@ -1,4 +1,4 @@
-import { Component, Element, h, Prop} from '@stencil/core';
+import { Component, Element, h, Prop, State} from '@stencil/core';
 @Component({
     tag: 'prix-directory',
     styleUrl: 'directory.scss'
@@ -10,8 +10,14 @@ export class Directory{
      * Common attributes
      */
     @Prop() data?: any = {};
-
     @Prop({ mutable: true }) configuration?: any = {};
+    @Prop({ mutable: true }) styling?: any = {};
+
+    /** 
+    *   STATE
+    */
+   @State() internalItems = [];
+    
 
     /* allSelected(list){
         let all = true;
@@ -22,7 +28,6 @@ export class Directory{
         }
         return all;
     } */
-
     toggleSelection(){
         let selectAllBtn = document.getElementById('select-all') as any;
         let selectLabel = document.getElementById('select-all-label') as HTMLLabelElement;
@@ -40,7 +45,14 @@ export class Directory{
         }
     }
 
+    init(){
+        this.internalItems = this.data.items;
+    }
+    componentWillLoad(){
+        this.init();
+    }
     render(){
+        const items = this.internalItems;
         return (
             <span>
                 <div class="topnav">
@@ -54,119 +66,133 @@ export class Directory{
                         <div class="a-colum a-span12 a-text-center">
                             <div class="a-row a-spacing-none pagn">
                                 <span class="pagnLink">
-                                    <input type ="checkbox" class="checkInput" id="#"></input>
+                                    <input type ="checkbox" class="checkInput" id="#"/>
                                     <label htmlFor="#" class="checkLabel">#</label>
                                 </span>
                                 <span class="pagnLink">
-                                    <input type ="checkbox" class="checkInput" id="A"></input>
+                                    <input type ="checkbox" class="checkInput" id="A"/>
                                     <label htmlFor="A" class="checkLabel">A</label>
                                 </span>
                                 <span class="pagnLink">
-                                    <input type ="checkbox" class="checkInput" id="B"></input>
+                                    <input type ="checkbox" class="checkInput" id="B"/>
                                     <label htmlFor="B" class="checkLabel">B</label>
                                 </span>
                                 <span class="pagnLink">
-                                    <input type ="checkbox" class="checkInput" id="C"></input>
+                                    <input type ="checkbox" class="checkInput" id="C"/>
                                     <label htmlFor="C" class="checkLabel">C</label>
                                 </span>
                                 <span class="pagnLink">
-                                    <input type ="checkbox" class="checkInput" id="D"></input>
+                                    <input type ="checkbox" class="checkInput" id="D"/>
                                     <label htmlFor="D" class="checkLabel">D</label>
                                 </span>
                                 <span class="pagnLink">
-                                    <input type ="checkbox" class="checkInput" id="E"></input>
+                                    <input type ="checkbox" class="checkInput" id="E"/>
                                     <label htmlFor="E" class="checkLabel">E</label>
                                 </span>
                                 <span class="pagnLink">
-                                    <input type ="checkbox" class="checkInput" id="F"></input>
+                                    <input type ="checkbox" class="checkInput" id="F"/>
                                     <label htmlFor="F" class="checkLabel">F</label>
                                 </span>
                                 <span class="pagnLink">
-                                    <input type ="checkbox" class="checkInput" id="G"></input>
+                                    <input type ="checkbox" class="checkInput" id="G"/>
                                     <label htmlFor="G" class="checkLabel">G</label>
                                 </span>
                                 <span class="pagnLink">
-                                    <input type ="checkbox" class="checkInput" id="H"></input>
+                                    <input type ="checkbox" class="checkInput" id="H"/>
                                     <label htmlFor="H" class="checkLabel">H</label>
                                 </span>
                                 <span class="pagnLink">
-                                    <input type ="checkbox" class="checkInput" id="I"></input>
+                                    <input type ="checkbox" class="checkInput" id="I"/>
                                     <label htmlFor="I" class="checkLabel">I</label>
                                 </span>
                                 <span class="pagnLink">
-                                    <input type ="checkbox" class="checkInput" id="J"></input>
+                                    <input type ="checkbox" class="checkInput" id="J"/>
                                     <label htmlFor="J" class="checkLabel">J</label>
                                 </span>
                                 <span class="pagnLink">
-                                    <input type ="checkbox" class="checkInput" id="K"></input>
+                                    <input type ="checkbox" class="checkInput" id="K"/>
                                     <label htmlFor="K" class="checkLabel">K</label>
                                 </span>
                                 <span class="pagnLink">
-                                    <input type ="checkbox" class="checkInput" id="L"></input>
+                                    <input type ="checkbox" class="checkInput" id="L"/>
                                     <label htmlFor="L" class="checkLabel">L</label>
                                 </span>
                                 <span class="pagnLink">
-                                    <input type ="checkbox" class="checkInput" id="M"></input>
+                                    <input type ="checkbox" class="checkInput" id="M"/>
                                     <label htmlFor="M" class="checkLabel">M</label>
                                 </span>
                                 <span class="pagnLink">
-                                    <input type ="checkbox" class="checkInput" id="N"></input>
+                                    <input type ="checkbox" class="checkInput" id="N"/>
                                     <label htmlFor="N" class="checkLabel">N</label>
                                 </span>
                                 <span class="pagnLink">
-                                    <input type ="checkbox" class="checkInput" id="O"></input>
+                                    <input type ="checkbox" class="checkInput" id="O"/>
                                     <label htmlFor="O" class="checkLabel">O</label>
                                 </span>
                                 <span class="pagnLink">
-                                    <input type ="checkbox" class="checkInput" id="P"></input>
+                                    <input type ="checkbox" class="checkInput" id="P"/>
                                     <label htmlFor="P" class="checkLabel">P</label>
                                 </span>
                                 <span class="pagnLink">
-                                    <input type ="checkbox" class="checkInput" id="Q"></input>
+                                    <input type ="checkbox" class="checkInput" id="Q"/>
                                     <label htmlFor="Q" class="checkLabel">Q</label>
                                 </span>
                                 <span class="pagnLink">
-                                    <input type ="checkbox" class="checkInput" id="R"></input>
+                                    <input type ="checkbox" class="checkInput" id="R"/>
                                     <label htmlFor="R" class="checkLabel">R</label>
                                 </span>
                                 <span class="pagnLink">
-                                    <input type ="checkbox" class="checkInput" id="S"></input>
+                                    <input type ="checkbox" class="checkInput" id="S"/>
                                     <label htmlFor="S" class="checkLabel">S</label>
                                 </span>
                                 <span class="pagnLink">
-                                    <input type ="checkbox" class="checkInput" id="T"></input>
+                                    <input type ="checkbox" class="checkInput" id="T"/>
                                     <label htmlFor="T" class="checkLabel">T</label>
                                 </span>
                                 <span class="pagnLink">
-                                    <input type ="checkbox" class="checkInput" id="U"></input>
+                                    <input type ="checkbox" class="checkInput" id="U"/>
                                     <label htmlFor="U" class="checkLabel">U</label>
                                 </span>
                                 <span class="pagnLink">
-                                    <input type ="checkbox" class="checkInput" id="V"></input>
+                                    <input type ="checkbox" class="checkInput" id="V"/>
                                     <label htmlFor="V" class="checkLabel">V</label>
                                 </span>
                                 <span class="pagnLink">
-                                    <input type ="checkbox" class="checkInput" id="W"></input>
+                                    <input type ="checkbox" class="checkInput" id="W"/>
                                     <label htmlFor="W" class="checkLabel">W</label>
                                 </span>
                                 <span class="pagnLink">
-                                    <input type ="checkbox" class="checkInput" id="X"></input>
+                                    <input type ="checkbox" class="checkInput" id="X"/>
                                     <label htmlFor="X" class="checkLabel">X</label>
                                 </span>
                                 <span class="pagnLink">
-                                    <input type ="checkbox" class="checkInput" id="Y"></input>
+                                    <input type ="checkbox" class="checkInput" id="Y"/>
                                     <label htmlFor="Y" class="checkLabel">Y</label>
                                 </span>
                                 <span class="pagnLink">
-                                    <input type ="checkbox" class="checkInput" id="Z"></input>
+
+                                    <input type ="checkbox" class="checkInput" id="Z"/>
                                     <label htmlFor="Z" class="checkLabel">Z</label>
                                 </span>
                             </div>
                         </div>
                     </div>
                 </div>
-                <p>A</p>
-                <div class="rule"></div>
+                <div class="item-container">
+                    <div class="item">
+                        <p>TEST</p>
+                        <div class="rule"></div>
+                        <ul>
+                            {items.map((item) => (
+                                <li><a href={item.url}>{item.title}</a></li>
+                            ))}
+                        </ul>
+                    </div>
+                    
+                </div>
+                <div class="item">
+                    <p>A</p>
+                    <div class="rule"></div>
                     <ul>
                         <li>Item</li>
                         <li>Item</li>
@@ -174,8 +200,10 @@ export class Directory{
                         <li>Item</li>
                         <li>Item</li>
                     </ul>
-                <p>B</p>
-                <div class="rule"></div>
+                </div>
+                <div class="item">
+                    <p>B</p>
+                    <div class="rule"></div>
                     <ul>
                         <li>Item</li>
                         <li>Item</li>
@@ -183,8 +211,10 @@ export class Directory{
                         <li>Item</li>
                         <li>Item</li>
                     </ul>
-                <p>C</p>
-                <div class="rule"></div>
+                </div>
+                <div class="item">
+                    <p>C</p>
+                    <div class="rule"></div>
                     <ul>
                         <li>Item</li>
                         <li>Item</li>
@@ -192,8 +222,10 @@ export class Directory{
                         <li>Item</li>
                         <li>Item</li>
                     </ul>
+                </div>
+                <div class="item">
                     <p>D</p>
-                <div class="rule"></div>
+                    <div class="rule"></div>
                     <ul>
                         <li>Item</li>
                         <li>Item</li>
@@ -201,6 +233,7 @@ export class Directory{
                         <li>Item</li>
                         <li>Item</li>
                     </ul>
+                </div>
             </span>
         )
     }
