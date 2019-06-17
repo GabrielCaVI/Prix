@@ -1,9 +1,9 @@
 body{
-    background-color:white;
+    background-color: rgb(255, 255, 255);
     font-size: 15px;
     line-height: 19px;
-    color: #111;
-    font-family: Arial,sans-serif;
+    color: #031F51;
+    font-family: 'Montserrat', sans-serif;
 
     ul{
         list-style:none;
@@ -12,16 +12,16 @@ body{
     /* Add a black background color to the top navigation bar */
     .topnav {
         overflow: hidden;
-        background-color: #e9e9e9;
+        background-color: #F0FCFF;
         display: block;
   }
     /* Style the links inside the navigation bar */
    .topnav input, .topnav label {
     float: left;
     display: block;
-    color: black;
+    color: #093F9B;
     text-align: center;
-    padding: 14px 16px;
+    padding: 14px 13px;
     text-decoration: none;
     font-size: 17px;
   }
@@ -34,7 +34,7 @@ body{
     position: absolute;
   }
   .pagnLink input[type="checkbox"]:checked + label{
-    color: orange;
+    color: black;
     font-weight: bold;
   }
   .pagnLink a{
@@ -43,18 +43,18 @@ body{
   
   /* Change the color of links on hover */
   .topnav label.active:hover {
-    background-color: #085696;
+    background-color: #031F51;
     color: white;
   }
   .allSelected{
     color: white;
-    background-color: #085696
+    background-color: #093F9B
   }
   
   /* Style the "active" element to highlight the current page */
   .topnav label.active {
     cursor: pointer;
-    background-color: #2196F3;
+    background-color: #093F9B;
     color: white;
   }
   
@@ -72,7 +72,7 @@ body{
   }
   .topnav .search-container button {
     float: right;
-    padding: 6px 10px;
+    padding: 6px 6px;
     margin-top: 8px;
     margin-right: 16px;
     background: #d7d7d7;

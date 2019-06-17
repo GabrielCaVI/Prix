@@ -184,7 +184,7 @@ export class Directory{
                         <div class="rule"></div>
                         <ul>
                             {items.map((item) => (
-                                <li><a href={item.url}>{item.title}</a></li>
+                                <li><a href={item.content[0].url}>{item.content[0].title}</a></li>
                             ))}
                         </ul>
                     </div>
