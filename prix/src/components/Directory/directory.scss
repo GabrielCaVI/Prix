@@ -1,110 +1,102 @@
-body{
-    background-color: rgb(255, 255, 255);
-    font-size: 15px;
-    line-height: 19px;
-    color: #031F51;
-    font-family: 'Montserrat', sans-serif;
+@media screen and (min-width: 1408px){
+  body{
+      background-color: rgb(255, 255, 255);
+      font-size: 15px;
+      line-height: 19px;
+      color: #031F51;
+      font-family: 'Montserrat', sans-serif;
 
     ul{
         list-style:none;
     }
-
-    /* Add a black background color to the top navigation bar */
     .topnav {
-        overflow: hidden;
-        background-color: #F0FCFF;
-        display: block;
-  }
-    /* Style the links inside the navigation bar */
-   .topnav input, .topnav label {
-    float: left;
-    display: block;
-    color: #093F9B;
-    text-align: center;
-    padding: 14px 13px;
-    text-decoration: none;
-    font-size: 17px;
-  }
-  .pagnLink label{
-    cursor: pointer;
-  }
-  .pagnLink input[type="checkbox"], .topnav input[type="checkbox"]{
-    cursor: pointer;
-    opacity: 0;
-    position: absolute;
-  }
-  .pagnLink input[type="checkbox"]:checked + label{
-    color: black;
-    font-weight: bold;
-  }
-  .pagnLink a{
-    font-size: 10px;
-  }
-  
-  /* Change the color of links on hover */
-  .topnav label.active:hover {
-    background-color: #031F51;
-    color: white;
-  }
-  .allSelected{
-    color: white;
-    background-color: #093F9B
-  }
-  
-  /* Style the "active" element to highlight the current page */
-  .topnav label.active {
-    cursor: pointer;
-    background-color: #093F9B;
-    color: white;
-  }
-  
-  /* Style the search box inside the navigation bar */
-  .topnav input[type=text] {
-    float: right;
-    padding: 6px;
-    border: none;
-    margin-top: 8px;
-    margin-right: 16px;
-    font-size: 17px;
-  }
-  .topnav .search-container{
-      float: right;
-  }
-  .topnav .search-container button {
-    float: right;
-    padding: 6px 6px;
-    margin-top: 8px;
-    margin-right: 16px;
-    background: #d7d7d7;
-    font-size: 17px;
-    border: none;
-    cursor: pointer;
-}
-.rule{
-  height: 2px;
-  background-color: black;
-}
-.fas {
-    display: inline-block;
-    font-size: inherit;
-    text-rendering: auto;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    transform: translate(0, 0);
-}
-  
-  /* When the screen is less than 600px wide, stack the links and the search field vertically instead of horizontally */
-  @media screen and (max-width: 600px) {
-    .topnav a, .topnav input[type=text] {
-      float: none;
+      overflow: hidden;
+      background-color: #F0FCFF;
       display: block;
-      text-align: left;
-      width: 100%;
-      margin: 0;
-      padding: 14px;
     }
+    .topnav input, .topnav label {
+      float: left;
+      display: block;
+      color: #093F9B;
+      text-align: center;
+      padding: 14px 13px;
+      text-decoration: none;
+      font-size: 17px;
+      border-radius: 10px
+    }
+    .pagnLink label{
+      cursor: pointer;
+    }
+    .pagnLink input[type="checkbox"], .topnav input[type="checkbox"]{
+      cursor: pointer;
+      opacity: 0;
+      position: absolute;
+    }
+    .pagnLink input[type="checkbox"]:checked + label{
+      color: black;
+      font-weight: bold;
+    }
+    .pagnLink a{
+      font-size: 10px;
+    }
+    
+    /* Change the color of links on hover */
+    .topnav label.active:hover {
+      background-color: #031F51;
+      color: white;
+    }
+    .allSelected{
+      color: white;
+      background-color: #093F9B
+    }
+    
+    /* Style the "active" element to highlight the current page */
+    .topnav label.active {
+      cursor: pointer;
+      background-color: #093F9B;
+      color: white;
+    }
+    
+    /* Style the search box inside the navigation bar */
     .topnav input[type=text] {
-      border: 1px solid #ccc;
+      float: right;
+      padding: 6px;
+      border: none;
+      margin-top: 8px;
+      margin-right: 16px;
+      font-size: 17px;
+    }
+    .topnav .search-container{
+        float: right;
+    }
+    .topnav .search-container button {
+      float: right;
+      padding: 6px 6px;
+      margin-top: 8px;
+      margin-right: 16px;
+      background: #d7d7d7;
+      font-size: 17px;
+      border: none;
+      cursor: pointer;
+    }
+    .rule{
+      height: 2px;
+      background-color: black;
+    }
+    .fas {
+      display: inline-block;
+      font-size: inherit;
+      text-rendering: auto;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      transform: translate(0, 0);
+    }
+  }
+}
+@media screen and (max-width: 600px) {
+  body{
+    .topnav{
+      display: none;
     }
   }
 }

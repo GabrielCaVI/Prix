@@ -24,5 +24,8 @@
     "@stencil/core": "1.0.4",
     "@stencil/sass": "^1.0.0"
   },
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "@bentoboxes/nova-utils": "0.0.15"
+  }
 }
