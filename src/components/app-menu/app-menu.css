@@ -88,6 +88,10 @@ body {
 
 }
 
+.arrow {
+  padding-left: 5%;
+}
+
 #content{
   transform: translateX(-20%);
 

@@ -68,11 +68,16 @@ export class appMenu {
           <div id="inner-menu" style={{ backgroundColor: this.color }}>
             <div id="content" class="hide center">
               <p>{this.value}</p>
+
+
+
+
+
               <div class="item">
                 <input type="checkbox" id="A" value="Item1" />
-                <span class= "inner-chevron">
-                <label htmlFor="A"class="fas fa-chevron-up"></label></span>
-                <label htmlFor="A">ITEM 1</label>
+                
+                
+                <label htmlFor="A">ITEM 1 <span class="fas fa-chevron-right arrow"></span></label>
                 <ul>
                   <li><a href="#">Menu <span>Option 1</span></a></li>
                   <li><a href="#">Menu <span>Option 2</span></a></li>
@@ -81,11 +86,15 @@ export class appMenu {
 
                 </ul>
               </div>
+
+
+
+
               <div class="item">
                 <input type="checkbox" id="B" value="Item2" />
-                <span class= "inner-chevron">
-                <label htmlFor="B" class="fas fa-chevron-up"></label></span>
-                <label htmlFor="B">ITEM 2</label>
+
+                
+                <label htmlFor="B">ITEM 2 <span class="fas fa-chevron-right arrow"></span></label>
                 <ul>
                   <li><a href="#">Menu <span>Option 5</span></a></li>
                   <li><a href="#">Menu <span>Option 6</span></a></li>
@@ -95,11 +104,13 @@ export class appMenu {
                 </ul>
               </div>
 
+
+
+
               <div class="item">
                 <input type="checkbox" id="C" value="Item3" />
-                <span class= "inner-chevron">
-                <label htmlFor="C" class="fas fa-chevron-up"></label></span>
-                <label htmlFor="C">ITEM 3</label>
+                
+                <label htmlFor="C">ITEM 3 <span class="fas fa-chevron-right arrow"></span></label>
                 <ul>
                   <li><a href="#">Menu <span>Option 9</span></a></li>
                   <li><a href="#">Menu <span>Option 10</span></a></li>
@@ -108,12 +119,13 @@ export class appMenu {
 
                 </ul>
               </div>
+
+
 
               <div class="item">
                 <input type="checkbox" id="D" value="Item4" />
-                <span class= "inner-chevron">
-                < label htmlFor="D"class="fas fa-chevron-up"></label></span>
-                <label htmlFor="D">ITEM 4</label>
+                
+                <label htmlFor="D">ITEM 4 <span class="fas fa-chevron-right arrow"></span></label>
                 <ul>
                   <li><a href="#">Menu <span>Option 9</span></a></li>
                   <li><a href="#">Menu <span>Option 10</span></a></li>
@@ -122,6 +134,10 @@ export class appMenu {
 
                 </ul>
               </div>
+
+
+
+
 
               <div class="help22" id="help">
                 <ul>
