@@ -207,7 +207,6 @@ body {
 
 .inner-chevron > i{
   display: block;
-  align-content: center;
   padding: 10%;
   margin: 10%;
 }
@@ -216,7 +215,10 @@ body {
 
 .item input:checked + .inner-chevron{
 transition: 0.35s;
-transform: rotate(180deg)translateY(-25px);
+transform: 
+rotate(180deg)
+translateY(-25px);
+margin-inline: 2px;
 }
 
 @keyframes menu3 {
@@ -250,7 +252,7 @@ transform: rotate(180deg)translateY(-25px);
   }
 
 
-
+ 
  
 }
 
@@ -274,7 +276,7 @@ transform: rotate(180deg)translateY(-25px);
   }
 
   .toggle-inner-menu {
-    transform: translateY(-50vh) translateY(-60px);
+    transform: translateY(-40vh) translateY(-60px);
   }
 
   .toggle > .chevron {
@@ -289,21 +291,20 @@ transform: rotate(180deg)translateY(-25px);
     border-right: 1px solid rgba(0, 0, 0, 0.14);
     height: 80%;
     width: 100%;
-    overflow-y: scroll;
    
   }
 
   #content {
     left:0;
     height: 100%;
-    overflow: inherit;
+    overflow: scroll;
   }
 
   .center {
     position: relative;
   }
   #content{
-    transform: translateY(-5%);
+    transform: translateY(0%);
   }
 
   #content p {
@@ -338,4 +339,5 @@ transform: rotate(180deg)translateY(-25px);
   #content ul li a span {
     text-transform: uppercase;
   }
+
 }

@@ -6,11 +6,12 @@ import { Component, Prop, h, State } from '@stencil/core';
 export class appMenu {
 
   @Prop() message: string;
+  @Prop() color: string;
+
   @State() value: string = this.message;
 
-  // handleClicek(){
-  //   window.alert('Hola')
-  // }
+  @State() colour: string = this.color;
+  
 
   handleToggle = () => {
 
@@ -48,6 +49,10 @@ export class appMenu {
     }, 350);
   }
 
+  setValue(color) {
+    this.color = color;
+  }
+
 
 
   render() {
@@ -56,10 +61,11 @@ export class appMenu {
         <div id="bg-opacity">
         </div>
         <div id="wrapper" class="center">
-          <button id="openButton" onClick={() => this.handleToggle()} class="float hide noselect">
+          <button id="openButton" onClick={() => this.handleToggle()} 
+         style={{ backgroundColor: this.color}}class="float hide noselect">
             <div class="chevron"></div>
           </button>
-          <div id="inner-menu">
+          <div id="inner-menu" style={{ backgroundColor: this.color }}>
             <div id="content" class="hide center">
               <p>{this.value}</p>
               <div class="item">

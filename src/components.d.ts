@@ -10,6 +10,7 @@ import { HTMLStencilElement, JSXBase } from '@stencil/core/internal';
 
 export namespace Components {
   interface AppMenu {
+    'color': string;
     'message': string;
   }
 }
@@ -29,6 +30,7 @@ declare global {
 
 declare namespace LocalJSX {
   interface AppMenu extends JSXBase.HTMLAttributes<HTMLAppMenuElement> {
+    'color'?: string;
     'message'?: string;
   }
 
