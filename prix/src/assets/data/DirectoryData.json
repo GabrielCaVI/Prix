@@ -16,6 +16,14 @@
                     {
                         "title": "Amazon",
                         "url" : "https://www.amazon.com.mx/ref=nav_logo"
+                    },
+                    {
+                        "title": "Aeromexico",
+                        "url": "https://www.aeromexico.com"
+                    },
+                    {
+                        "title":"Antara",
+                        "url": "http://www.antara.com.mx/"
                     }
                 ]
             },
@@ -25,6 +33,10 @@
                     {
                        "title": "Base22",
                         "url" : "https://base22.com/" 
+                    },
+                    {
+                        "title": "Bootstrap",
+                        "url": "https://getbootstrap.com/"
                     }
                 ]
             },
@@ -34,6 +46,22 @@
                     {
                         "title": "Casetify",
                         "url" : "https://www.casetify.com/es_ES/"
+                    },
+                    {
+                        "title": "Costco",
+                        "url": "https://www.costco.com.mx/"
+                    },
+                    {
+                        "title":"Cisco",
+                        "url":"https://www.cisco.com/"
+                    },
+                    {
+                        "title":"Cortana",
+                        "url":"https://www.microsoft.com/es-mx/windows/cortana"
+                    },
+                    {
+                        "title":"CitizenFour",
+                        "url":"https://citizenfourfilm.com/"
                     }
                 ]
             },
