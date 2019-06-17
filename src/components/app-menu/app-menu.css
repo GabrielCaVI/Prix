@@ -161,8 +161,7 @@ body {
   border-radius: 4px;
   width: 80%;
   background: hsla(360, 100%, 100%, 0.3);
-  margin-top: 10%;
-  margin-left: 10%;
+  margin: 10%;
   position: relative;
 }
 
