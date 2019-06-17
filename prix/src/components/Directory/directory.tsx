@@ -179,60 +179,17 @@ export class Directory{
                     </div>
                 </div>
                 <div class="item-container">
-                    <div class="item">
-                        <p>TEST</p>
-                        <div class="rule"></div>
-                        <ul>
-                            {items.map((item) => (
-                                <li><a href={item.content[0].url}>{item.content[0].title}</a></li>
-                            ))}
-                        </ul>
-                    </div>
-                    
-                </div>
-                <div class="item">
-                    <p>A</p>
-                    <div class="rule"></div>
-                    <ul>
-                        <li>Item</li>
-                        <li>Item</li>
-                        <li>Item</li>
-                        <li>Item</li>
-                        <li>Item</li>
-                    </ul>
-                </div>
-                <div class="item">
-                    <p>B</p>
-                    <div class="rule"></div>
-                    <ul>
-                        <li>Item</li>
-                        <li>Item</li>
-                        <li>Item</li>
-                        <li>Item</li>
-                        <li>Item</li>
-                    </ul>
-                </div>
-                <div class="item">
-                    <p>C</p>
-                    <div class="rule"></div>
-                    <ul>
-                        <li>Item</li>
-                        <li>Item</li>
-                        <li>Item</li>
-                        <li>Item</li>
-                        <li>Item</li>
-                    </ul>
-                </div>
-                <div class="item">
-                    <p>D</p>
-                    <div class="rule"></div>
-                    <ul>
-                        <li>Item</li>
-                        <li>Item</li>
-                        <li>Item</li>
-                        <li>Item</li>
-                        <li>Item</li>
-                    </ul>
+                    {items.map((item) => (
+                        <div class="item">
+                            <p>{item.index}</p>
+                            <div class="rule"></div>
+                            <ul>
+                                {item.content.map(contentItem => (
+                                    <li><a href={contentItem.url}>{contentItem.title}</a></li>
+                                ))}
+                            </ul>
+                        </div>
+                    ))}
                 </div>
             </span>
         )
