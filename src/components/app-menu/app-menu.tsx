@@ -126,15 +126,54 @@ export class appMenu {
                 <input type="checkbox" id="D" value="Item4" />
                 
                 <label htmlFor="D">ITEM 4 <span class="fas fa-chevron-right arrow"></span></label>
-                <ul>
-                  <li><a href="#">Menu <span>Option 9</span></a></li>
-                  <li><a href="#">Menu <span>Option 10</span></a></li>
-                  <li><a href="#">Menu <span>Option 11</span></a></li>
-                  <li><a href="#">Menu <span>Option 12</span></a></li>
+                <ul id="ListItemD">
+                  <li><a href="#">Menu <span>Option 13</span></a></li>
+                  <li><a href="#">Menu <span>Option 14</span></a></li>
+                  <li><a href="#">Menu <span>Option 15</span></a></li>
+                  <li><a href="#">Menu <span>Option 16</span></a></li>
 
                 </ul>
               </div>
 
+              {/*Se agregaron más items para probar el menú*/}
+              <div class="item">
+                <input type="checkbox" id="E" value="Item5" />
+                
+                <label htmlFor="E">ITEM 5 <span class="fas fa-chevron-right arrow"></span></label>
+                <ul id="ListItemE">
+                  <li><a href="#">Menu <span>Option 17</span></a></li>
+                  <li><a href="#">Menu <span>Option 18</span></a></li>
+                  <li><a href="#">Menu <span>Option 19</span></a></li>
+                  <li><a href="#">Menu <span>Option 20</span></a></li>
+
+                </ul>
+              </div>
+
+              <div class="item">
+                <input type="checkbox" id="F" value="Item6" />
+                
+                <label htmlFor="F">ITEM 6 <span class="fas fa-chevron-right arrow"></span></label>
+                <ul id="ListItemF">
+                  <li><a href="#">Menu <span>Option 21</span></a></li>
+                  <li><a href="#">Menu <span>Option 22</span></a></li>
+                  <li><a href="#">Menu <span>Option 23</span></a></li>
+                  <li><a href="#">Menu <span>Option 24</span></a></li>
+
+                </ul>
+              </div>
+
+              <div class="item">
+                <input type="checkbox" id="G" value="Item7" />
+                
+                <label htmlFor="G">ITEM 7 <span class="fas fa-chevron-right arrow"></span></label>
+                <ul id="ListItemG">
+                  <li><a href="#">Menu <span>Option 25</span></a></li>
+                  <li><a href="#">Menu <span>Option 26</span></a></li>
+                  <li><a href="#">Menu <span>Option 27</span></a></li>
+                  <li><a href="#">Menu <span>Option 28</span></a></li>
+
+                </ul>
+              </div>
 
 
 

@@ -83,6 +83,9 @@ body {
   width: 30vw;
   height: 100%;
   z-index: 999;
+  /*hace que el scroll del menú cambie cuando es toggled*/
+  max-height: calc(100vh - 9rem);
+  overflow-y: auto;
   
 }
 
@@ -92,7 +95,7 @@ body {
 
 #content{
   transform: translateX(-20%);
-  overflow-y: scroll;
+  
   overflow-x: hidden;
 }
 
@@ -198,6 +201,11 @@ body {
   padding: 5% 10%;
 }
 
+.item input:not(:checked) ~ label span {
+  transition: 0.35s;
+  transform: rotate(0deg);
+  padding-left: 5%;
+}
 
 .item input:checked {
 transition: 0.35s;
@@ -226,6 +234,11 @@ margin-inline: 2px;
     left: calc(-35vw + 34px);
     width: 35vw;
     height: 100%;
+
+    /*hace que el scroll del menú cambie cuando es toggled*/
+    max-height: calc(100vh - 9rem);
+    overflow-y: auto;
+    
   }
   .toggle,
   .toggle-inner-menu {
@@ -235,6 +248,7 @@ margin-inline: 2px;
   #content{
     border-left: 30%;
     left: 7%;
+    
   }
 
 
@@ -258,7 +272,8 @@ margin-inline: 2px;
   }
 
   .toggle {
-    transform: translateY(-50vh);
+    /*cambió cantidad de transform para que el menú sea visualizado*/
+    transform: translateY(-80vh);
   }
 
   .toggle-inner-menu {
@@ -277,8 +292,11 @@ margin-inline: 2px;
     border-right: 1px solid rgba(0, 0, 0, 0.14);
     height: 80%;
     width: 100%;
-
-   
+    
+    /*hace que el scroll del menú cambie cuando es toggled*/
+    max-height: calc(100vh - 9rem);
+    overflow-y: auto;
+    
   }
 
   #content {
