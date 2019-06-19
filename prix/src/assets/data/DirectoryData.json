@@ -1,8 +1,12 @@
 {
     "configuration":{
         "sort":{
-            "direction": "asc",
-            "byField": "title"
+                "direction": "asc",
+                "byField": "index"
+        },
+        "sort-level":{
+            "direction":"asc",
+            "byField":"title"
         }
     },
     "styling":{

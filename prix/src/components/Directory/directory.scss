@@ -1,10 +1,16 @@
-@media screen and (min-width: 1408px){
+@media screen and (min-width: 1025px){
   body{
       background-color: rgb(255, 255, 255);
       font-size: 15px;
       line-height: 19px;
       color: #031F51;
       font-family: 'Montserrat', sans-serif;
+      .topnav-tablet{
+        display: none;
+      }
+      .topnav-mobile{
+        display: none;
+      }
 
     ul{
         list-style:none;
@@ -93,10 +99,24 @@
     }
   }
 }
-@media screen and (max-width: 600px) {
+@media screen and (min-width: 601px) and (max-width: 1024px){
   body{
-    .topnav{
+    .topnav, .topnav-mobile{
       display: none;
     }
+    .topnav-tablet{
+      display: block;
+    }
+  }
+}
+@media screen and (max-width: 600px) {
+  body{
+    .topnav, .topnav-tablet{
+      display: none;
+    }
+    .topnav-mobile{
+      display: block;
+    }
+    
   }
 }
