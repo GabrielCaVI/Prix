@@ -1,4 +1,9 @@
-import { Component, Element, h, Prop, State} from '@stencil/core';
+import { Component, Element, h, Prop, State} from '@stencil/core'
+
+import {
+  sortItemsByField
+} from "../../utils/utils";
+
 @Component({
     tag: 'prix-directory',
     styleUrl: 'directory.scss'
@@ -46,11 +51,13 @@ export class Directory{
     }
     
     init(){
+        this.sortItems();
         this.internalItems = this.data.items;
     }
     componentWillLoad(){
         this.init();
     }
+
     render(){
         const items = this.internalItems;
         return (
@@ -349,4 +356,27 @@ export class Directory{
             </span>
         )
     }
+
+    sortItems() {
+      const { sort } = this.configuration;
+      const { direction, byField } = sort;
+      const { content } = this.data.items;
+
+      try {
+        this.data.items.content = sortItemsByField(
+          content,
+          byField,
+          direction
+        );
+      } catch (e) {
+        console.error(
+          "Oops something went wrong, please double check your sort property in your JSON configuration",
+      e
+      );
+    }
+  }
+
+
+
+
 }
