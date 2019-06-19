@@ -1,14 +1,14 @@
 @media screen and (min-width: 1025px){
   body{
-      background-color: rgb(255, 255, 255);
+      background-color: white;
       font-size: 15px;
       line-height: 19px;
       color: #031F51;
       font-family: 'Montserrat', sans-serif;
-      .topnav-tablet{
+      .topnav-md{
         display: none;
       }
-      .topnav-mobile{
+      .topnav-sm{
         display: none;
       }
 
@@ -101,20 +101,20 @@
 }
 @media screen and (min-width: 601px) and (max-width: 1024px){
   body{
-    .topnav, .topnav-mobile{
+    .container-lg, .container-sm{
       display: none;
     }
-    .topnav-tablet{
+    .container-md{
       display: block;
     }
   }
 }
 @media screen and (max-width: 600px) {
   body{
-    .topnav, .topnav-tablet{
+    .container-lg, .container-md{
       display: none;
     }
-    .topnav-mobile{
+    .container-sm{
       display: block;
     }
     
