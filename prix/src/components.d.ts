@@ -17,6 +17,14 @@ export namespace Components {
     'data'?: any;
     'styling'?: any;
   }
+  interface PrixModal {
+    'configuration'?: any;
+    /**
+    * Common attributes
+    */
+    'data'?: any;
+    'styling'?: any;
+  }
 }
 
 declare global {
@@ -27,8 +35,15 @@ declare global {
     prototype: HTMLPrixDirectoryElement;
     new (): HTMLPrixDirectoryElement;
   };
+
+  interface HTMLPrixModalElement extends Components.PrixModal, HTMLStencilElement {}
+  var HTMLPrixModalElement: {
+    prototype: HTMLPrixModalElement;
+    new (): HTMLPrixModalElement;
+  };
   interface HTMLElementTagNameMap {
     'prix-directory': HTMLPrixDirectoryElement;
+    'prix-modal': HTMLPrixModalElement;
   }
 }
 
@@ -41,9 +56,18 @@ declare namespace LocalJSX {
     'data'?: any;
     'styling'?: any;
   }
+  interface PrixModal extends JSXBase.HTMLAttributes<HTMLPrixModalElement> {
+    'configuration'?: any;
+    /**
+    * Common attributes
+    */
+    'data'?: any;
+    'styling'?: any;
+  }
 
   interface IntrinsicElements {
     'prix-directory': PrixDirectory;
+    'prix-modal': PrixModal;
   }
 }
 
