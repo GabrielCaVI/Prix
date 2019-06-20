@@ -1,122 +1,127 @@
-@media screen and (min-width: 1025px){
-  body{
-      background-color: white;
-      font-size: 15px;
-      line-height: 19px;
-      color: #031F51;
-      font-family: 'Montserrat', sans-serif;
-      .topnav-md{
-        display: none;
-      }
-      .topnav-sm{
-        display: none;
-      }
+body {
+  background-color: white;
+  font-size: 15px;
+  line-height: 19px;
+  color: #031f51;
+  font-family: "Montserrat", sans-serif;
+}
+.topnav-md {
+  display: none;
+}
+.topnav-sm {
+  display: none;
+}
 
-    ul{
-        list-style:none;
-    }
-    .topnav {
-      overflow: hidden;
-      background-color: #F0FCFF;
-      display: block;
-    }
-    .topnav input, .topnav label {
-      float: left;
-      display: block;
-      color: #093F9B;
-      text-align: center;
-      padding: 14px 13px;
-      text-decoration: none;
-      font-size: 17px;
-      border-radius: 10px
-    }
-    .pagnLink label{
-      cursor: pointer;
-    }
-    .pagnLink input[type="checkbox"], .topnav input[type="checkbox"]{
-      cursor: pointer;
-      opacity: 0;
-      position: absolute;
-    }
-    .pagnLink input[type="checkbox"]:checked + label{
-      color: black;
-      font-weight: bold;
-    }
-    .pagnLink a{
-      font-size: 10px;
-    }
-    
-    /* Change the color of links on hover */
-    .topnav label.active:hover {
-      background-color: #031F51;
-      color: white;
-    }
-    .allSelected{
-      color: white;
-      background-color: #093F9B
-    }
-    
-    /* Style the "active" element to highlight the current page */
-    .topnav label.active {
-      cursor: pointer;
-      background-color: #093F9B;
-      color: white;
-    }
-    
-    /* Style the search box inside the navigation bar */
-    .topnav input[type=text] {
-      float: right;
-      padding: 6px;
-      border: none;
-      margin-top: 8px;
-      margin-right: 16px;
-      font-size: 17px;
-    }
-    .topnav .search-container{
-        float: right;
-    }
-    .topnav .search-container button {
-      float: right;
-      padding: 6px 6px;
-      margin-top: 8px;
-      margin-right: 16px;
-      background: #d7d7d7;
-      font-size: 17px;
-      border: none;
-      cursor: pointer;
-    }
-    .rule{
-      height: 2px;
-      background-color: black;
-    }
-    .fas {
-      display: inline-block;
-      font-size: inherit;
-      text-rendering: auto;
-      -webkit-font-smoothing: antialiased;
-      -moz-osx-font-smoothing: grayscale;
-      transform: translate(0, 0);
-    }
+.topnav {
+  overflow: hidden;
+  background-color: #f0fcff;
+  display: block;
+}
+.topnav input,
+.topnav label {
+  float: left;
+  display: block;
+  color: #093f9b;
+  text-align: center;
+  padding: 14px 13px;
+  text-decoration: none;
+  font-size: 17px;
+  border-radius: 10px;
+}
+
+.pagnLink input[type="checkbox"],
+.topnav input[type="checkbox"] {
+  opacity: 0;
+  cursor: pointer;
+  padding: 0;
+  margin: 0;
+}
+
+.pagnLink label {
+  margin: 0%;
+  padding: 0.05%;
+}
+
+#letters ul {
+  list-style: none;
+}
+#letters ul li {
+  margin: 0;
+  padding: 0;
+}
+
+.pagnLink input[type="checkbox"]:checked + label {
+  color: black;
+  font-weight: bold;
+}
+
+/* Change the color of links on hover */
+.topnav label.active:hover {
+  background-color: #031f51;
+  color: white;
+}
+.allSelected {
+  color: white;
+  background-color: #093f9b;
+}
+
+/* Style the "active" element to highlight the current page */
+.topnav label.active {
+  cursor: pointer;
+  background-color: #093f9b;
+  color: white;
+}
+
+/* Style the search box inside the navigation bar */
+.topnav input[type="text"] {
+  float: right;
+  padding: 6px;
+  border: none;
+  margin-top: 8px;
+  margin-right: 16px;
+  font-size: 17px;
+}
+.topnav .search-container {
+  float: right;
+}
+.topnav .search-container button {
+  float: right;
+  padding: 6px 6px;
+  margin-top: 8px;
+  margin-right: 16px;
+  background: #d7d7d7;
+  font-size: 17px;
+  border: none;
+  cursor: pointer;
+}
+.rule {
+  height: 2px;
+  background-color: black;
+}
+.fas {
+  display: inline-block;
+  font-size: inherit;
+  text-rendering: auto;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  transform: translate(0, 0);
+}
+
+@media screen and (min-width: 991px) and (max-width: 11px) {
+  .topnav {
+    display: none;
   }
 }
-@media screen and (min-width: 601px) and (max-width: 1024px){
-  body{
-    .container-lg, .container-sm{
-      display: none;
-    }
-    .container-md{
-      display: block;
-    }
+
+@media screen and (min-width: 601px) and (max-width: 990px) {
+  .topnav {
+    display: none;
   }
 }
 @media screen and (max-width: 600px) {
-  body{
-    .container-lg, .container-md{
-      display: none;
-    }
-    .container-sm{
-      display: block;
-    }
-    
+  #letters, #select-all, #select-all-label{
+    display: none;
   }
+
+
 }
