@@ -49,6 +49,13 @@ export class Directory{
     toggleModal(){
         console.log('showing modal...')
     }
+
+    filterByInput(){
+
+    }
+    filterByCheckbox(){
+
+    }
     
     init(){
         this.sortItems();
@@ -67,7 +74,7 @@ export class Directory{
                         <input type="checkbox" class="active" id="select-all" onClick={()=> this.toggleSelection()}/>
                         <label class="active" htmlFor="select-all" id="select-all-label">All Items</label>
                         <div class = "search-container">
-                            <input type="text" placeholder="Search..."/>
+                            <input type="text" placeholder="Search..." id="searchbox"/>
                             <button type="button"><i class="fas fa-search"></i></button>
                         </div>
                         <div id="indexBarHeader" class="a-row a-spacing-none s-see-all-refinement-header">
@@ -185,7 +192,6 @@ export class Directory{
                                 </div>
                             </div>
                         </div>
-                        
                     </div>
                     <div class="item-container">
                             {items.map((item) => (
@@ -363,27 +369,23 @@ export class Directory{
             </span>
         )
     }
-
     sortItems() {
-      const { sort } = this.configuration;
-      const { direction, byField } = sort;
-      const { content } = this.data.items;
-
-      try {
-        this.data.items.content = sortItemsByField(
-          content,
-          byField,
-          direction
-        );
-      } catch (e) {
-        console.error(
-          "Oops something went wrong, please double check your sort property in your JSON configuration",
-      e
-      );
+        const { sort } = this.configuration;
+        const { direction, byField } = sort;
+        const { items } = this.data;
+        if (sort) {
+            try {
+                this.data.items = sortItemsByField(
+                items,
+                byField,
+                direction
+                );
+            } catch (e) {
+                console.error(
+                "Oops something went wrong, please double check your sort property in your JSON configuration",
+                e
+                );
+            }
+        }
     }
-  }
-
-
-
-
 }
