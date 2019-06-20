@@ -51,7 +51,27 @@ export class Directory {
     }
 
     filterByInput(){
+        let input = document.getElementById("searchbox") as HTMLInputElement
+        let filterString = input.value.toUpperCase() as string;
+        let letters = document.getElementsByClassName("") as HTMLCollectionOf<HTML>
+        // Declare variables 
+        /* var input, filter, table, tr, td, i, txtValue;
+        input = document.getElementById("myInput");
+        filter = input.value.toUpperCase();
+        table = document.getElementById("myTable");
 
+        // Loop through all table rows, and hide those who don't match the search query
+         for (i = 0; i < tr.length; i++) {
+            td = tr[i].getElementsByTagName("td")[0];
+            if (td) {
+            txtValue = td.textContent || td.innerText;
+            if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                tr[i].style.display = "";
+            } else {
+                tr[i].style.display = "none";
+            }
+            } 
+        } */
     }
     filterByCheckbox(){
 
@@ -76,7 +96,7 @@ export class Directory {
                         <input type="checkbox" class="active" id="select-all" onClick={() => this.toggleSelection()} />
                         <label class="active" htmlFor="select-all" id="select-all-label">All Items</label>
                         <div class="search-container">
-                            <input type="text" placeholder="Search..." />
+                            <input id="searchbox" type="text" placeholder="Search..." onKeyDown={() => this.filterByInput()} />
                         </div>
 
                             <div id="letters">
