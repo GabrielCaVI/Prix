@@ -21,38 +21,26 @@ export class Directory {
     *   STATE
     */
     @State() internalItems = [];
-    /* allSelected(list){
-        let all = true;
-        for (var i = 0; i < list.length; i++) {
-            if(list[i].checked = false){
-                all = false;
-            }
-        }
-        return all;
-    } */
     toggleSelection() {
-        var txt;
         let selectAllBtn = document.getElementById('select-all') as HTMLInputElement;
         let selectLabel = document.getElementById('select-all-label') as HTMLLabelElement;
         let letterItems = document.getElementsByClassName('checkInput') as HTMLCollectionOf<HTMLInputElement>;
-        let letterLabels = document.getElementsByClassName('checkLabel') as HTMLCollectionOf<HTMLLabelElement>;
+        let items = document.getElementsByClassName("item") as HTMLCollectionOf<HTMLDivElement>;
+
         if (selectAllBtn.checked) {
             selectLabel.innerHTML = 'Unselect all';
             for (var i = 0; i < letterItems.length; i++) {
-                txt = letterLabels[i].textContent || letterLabels[i].innerText;
                 letterItems[i].checked = true;
-                this.filterByCheckbox(txt);
+                items[i].style.display="contents";
+
             }
         } else {
             selectLabel.innerHTML = 'All items';
-            for (var i = 0; i < letterItems.length; i++) {txt = letterLabels[i].textContent || letterLabels[i].innerText;
+            for (var i = 0; i < letterItems.length; i++) {
                 letterItems[i].checked = false;
-                this.filterByCheckbox(txt);
+                items[i].style.display="none";
             }
         }
-    }
-    toggleModal() {
-       
     }
 
     filterByInput(){
@@ -62,9 +50,9 @@ export class Directory {
         let items = document.getElementsByClassName("item") as HTMLCollectionOf<HTMLDivElement>; //To hide the complete <div class=item>
         for(let i = 0; i < items.length; i++){ // iterate over labels to match input
             p = items[i].getElementsByTagName("p")[0].textContent || items[i].getElementsByTagName("p")[0].innerText;
-            if(p.toUpperCase().indexOf(filter) > -1){
-                items[i].style.display = "none"
-                this.filterLinks();
+            if(p.toUpperCase().indexOf(filter[0]) > -1){
+                items[i].style.display = "contents";
+                this.filterLinks(items[i],filter);
             }else{
                 items[i].style.display = "";
             }
@@ -76,7 +64,7 @@ export class Directory {
         for(let i = 0; i < items.length; i++){
             p = items[i].getElementsByTagName("p")[0].textContent || items[i].getElementsByTagName("p")[0].innerText;
             if(p.toUpperCase().indexOf(check) > -1){
-                items[i].style.display = items[i].style.display===''? 'none': '';
+                items[i].style.display = items[i].style.display===''? 'contents': '';
             }
         }
     }
@@ -255,7 +243,17 @@ export class Directory {
             }
         }
     }
-    private filterLinks(){
-
+    private filterLinks(item, filter){
+        var a;
+        let nodes = item.getElementsByTagName("a") as HTMLCollectionOf<HTMLAnchorElement>;
+        for(let i = 0; i < nodes.length; i++){
+            a=nodes[i].textContent || nodes[i].innerText;
+            if (a.toUpperCase().indexOf(filter) > -1){
+                console.log(nodes[i])
+                nodes[i].style.display = "contents";
+            }else{
+                nodes[i].style.display = "none";
+            }
+        }
     }
 }

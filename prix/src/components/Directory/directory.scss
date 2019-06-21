@@ -5,6 +5,9 @@ body {
   color: #031f51;
   font-family: "Montserrat", sans-serif;
 }
+ul{
+  list-style: none;
+}
 .topnav-md {
   display: none;
 }
@@ -27,6 +30,9 @@ body {
   text-decoration: none;
   font-size: 17px;
   border-radius: 10px;
+}
+.item{
+  display: none;
 }
 
 #showGrid{
@@ -53,6 +59,9 @@ body {
 #letters ul li {
   margin: 0;
   padding: 0;
+}
+.checkLabel{
+  cursor: pointer;
 }
 
 .pagnLink input[type="checkbox"]:checked + label {
@@ -90,16 +99,6 @@ body {
   float: right;
   
 }
-// .topnav .search-container button {
-//   float: right;
-//   padding: 6px 6px;
-//   margin-top: 8px;
-//   margin-right: 16px;
-//   background: #d7d7d7;
-//   font-size: 17px;
-//   border: none;
-//   cursor: pointer;
-// }
 .rule {
   height: 2px;
   background-color: black;
