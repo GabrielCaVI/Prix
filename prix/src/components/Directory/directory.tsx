@@ -38,7 +38,7 @@ export class Directory {
             selectLabel.innerHTML = 'All items';
             for (var i = 0; i < letterItems.length; i++) {
                 letterItems[i].checked = false;
-                items[i].style.display="none";
+                items[i].style.display="";
             }
         }
     }
@@ -61,6 +61,18 @@ export class Directory {
     filterByCheckbox(check){
         var p;
         let items = document.getElementsByClassName("item") as HTMLCollectionOf<HTMLDivElement>;
+        let checkboxes = document.getElementsByClassName('checkInput') as HTMLCollectionOf<HTMLInputElement>;
+        let selectAllBtn = document.getElementById('select-all') as HTMLInputElement;
+        let selectLabel = document.getElementById('select-all-label') as HTMLLabelElement;
+        for(let i = 0; i < checkboxes.length; i++){
+            if(checkboxes[i].checked){
+                selectLabel.innerHTML = "Unselect all"
+                selectAllBtn.checked=true;
+            }else{
+                selectAllBtn.checked = false;
+                selectLabel.innerHTML = 'All items';
+            }
+        }
         for(let i = 0; i < items.length; i++){
             p = items[i].getElementsByTagName("p")[0].textContent || items[i].getElementsByTagName("p")[0].innerText;
             if(p.toUpperCase().indexOf(check) > -1){
