@@ -30,6 +30,10 @@ export class Directory {
         }
         return all;
     } */
+  
+
+   
+
     toggleSelection() {
         var txt;
         let selectAllBtn = document.getElementById('select-all') as HTMLInputElement;
@@ -51,9 +55,7 @@ export class Directory {
             }
         }
     }
-    toggleModal() {
-       
-    }
+
 
     filterByInput(){
         var p;
@@ -91,22 +93,17 @@ export class Directory {
 
     render() {
         const items = this.internalItems;
-        const show = false;
+        // var show = false;
         return (
             <span>
                 <div class="container-lg">
                     <div class="topnav">
-                        <button id="showGrid">ABC</button>
                         <input type="checkbox" class="active" id="select-all" onClick={() => this.toggleSelection()} />
                         <label class="active" htmlFor="select-all" id="select-all-label">All Items</label>
                         <div class="search-container">
                             <input id="searchbox" type="text" placeholder="Search..." onKeyUp={() => this.filterByInput()} />
                         </div>
                             <div id="letters">
-                                {show?
-                                <prix-modal></prix-modal>:
-                                ""
-                                }
                                 <ul id="lettersList">
                                     <li class="pagnLink">
                                         <input type="checkbox" class="checkInput" id="#" onChange={() => this.filterByCheckbox("#")}/>

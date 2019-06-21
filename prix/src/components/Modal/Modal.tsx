@@ -1,4 +1,4 @@
-import { Component, Element, h, Prop} from '@stencil/core'
+import { Component, Element,  h, Prop} from '@stencil/core'
 @Component({
     tag: 'prix-modal',
     styleUrl: 'modal.css'
@@ -14,22 +14,24 @@ export class Modal {
     @Prop({ mutable: true }) styling?: any = {};
 
 
+    ovelayOn(){
+    let boton =   document.getElementById('boton')
+    let cortina = document.getElementById('modal')
 
-    toggleOverlay() {
-        let over = document.getElementById('overlay')
-        let pop = document.getElementById('pop')
-        over.classList.toggle('on')
+    boton.classList.toggle('overlay')
 
-        if (over.classList.contains('on')) {
-            over.style.display = "block"
-            pop.style.display ="block"
-        }
+    if (boton.classList.contains('overlay')){
+       cortina.style.display = "block"
     }
 
+        
+    }
+  
 
 
-    off(){
-        let over = document.getElementById('overlay')
+
+    overlayOff(){
+        let over = document.getElementById('modal')
         over.style.display = "none"
         over.classList.toggle('on')
     }
@@ -37,13 +39,12 @@ export class Modal {
 
     render() {
         return [
-                <div id="overlay" onClick={() => this.off()}></div>,
+                <div class= "overlay" id="modal">
+                    <span class="dismiss" onClick={() => this.overlayOff()}><i class="fa fa-window-close" aria-hidden="true"></i></span>
+                </div>,
+                <button id="boton" onClick={() => this.ovelayOn()} >hey</button>,
 
-                <button onClick={() => this.toggleOverlay()}>hey</button>,
-
-                <div id="pop">
-                    <h1>hey</h1>
-                </div>
+                
         ]
     }
 

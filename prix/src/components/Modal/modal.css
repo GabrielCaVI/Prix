@@ -1,4 +1,4 @@
-#overlay{
+.overlay{
     position: fixed; 
     display: none; 
     width: 100%; 
@@ -12,4 +12,17 @@
     cursor: pointer; 
     transition: 0.35s;
     }
-  
+  .dismiss{
+      color: white;
+      top: -40%;
+      right: 20%;
+      margin: 5%;
+      padding: 5%;
+  }
+
+   @media screen and (max-width: 600px) {
+
+    #showGrid{
+        display: block;
+    }
+   }
