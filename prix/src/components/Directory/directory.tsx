@@ -21,6 +21,7 @@ export class Directory {
     *   STATE
     */
     @State() internalItems = [];
+
     toggleSelection() {
         let selectAllBtn = document.getElementById('select-all') as HTMLInputElement;
         let selectLabel = document.getElementById('select-all-label') as HTMLLabelElement;
@@ -81,12 +82,16 @@ export class Directory {
         }
     }
     
+    /** 
+    * Lifecycle methods
+    */
     init(){
         this.sortItems();
         this.internalItems = this.data.items;
     }
     componentWillLoad() {
         this.init();
+        this.sortItems();
     }
 
     render() {
