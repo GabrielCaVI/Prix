@@ -18,11 +18,14 @@ export namespace Components {
     'styling'?: any;
   }
   interface PrixModal {
+    'acceptLabel': string;
+    'canceLabel': string;
     'configuration'?: any;
     /**
     * Common attributes
     */
     'data'?: any;
+    'label': string;
     'styling'?: any;
   }
 }
@@ -57,11 +60,14 @@ declare namespace LocalJSX {
     'styling'?: any;
   }
   interface PrixModal extends JSXBase.HTMLAttributes<HTMLPrixModalElement> {
+    'acceptLabel'?: string;
+    'canceLabel'?: string;
     'configuration'?: any;
     /**
     * Common attributes
     */
     'data'?: any;
+    'label'?: string;
     'styling'?: any;
   }
 

@@ -10,15 +10,46 @@
     background-color: rgba(0,0,0,0.5); 
     z-index: 2; 
     cursor: pointer; 
-    transition: 0.35s;
+    transition: 1s;
     }
+
+    .prix-modal-box{
+        position: fixed; 
+        display: none; 
+        width: 80%; 
+        height: 80%; 
+        top: 10%;
+        left: 10%;
+        right: 5%;
+        bottom: 0%;
+        background-color: rgba(255, 255, 255, 0.911); 
+        z-index: 2; 
+        cursor: pointer; 
+        transition: 1s;
+  }
+
   .dismiss{
       color: white;
       top: -40%;
       right: 20%;
       margin: 5%;
       padding: 5%;
+      transition: 1s;
   }
+
+  .prix-button{
+      position: relative;
+      display: block;
+      height: 25px;
+      width: auto; 
+      color: white;
+      margin: 1%;
+      background-color:#e20177;
+      border-radius: 25px;
+  }
+
+  
+
 
    @media screen and (max-width: 600px) {
 

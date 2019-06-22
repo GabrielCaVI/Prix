@@ -100,6 +100,7 @@ export class Directory {
                     <div class="topnav">
                         <input type="checkbox" class="active" id="select-all" onClick={() => this.toggleSelection()} />
                         <label class="active" htmlFor="select-all" id="select-all-label">All Items</label>
+                         <prix-modal canceLabel="Cancel" acceptLabel="Done" label="ABC" id="showGrid"></prix-modal>
                         <div class="search-container">
                             <input id="searchbox" type="text" placeholder="Search..." onKeyUp={() => this.filterByInput()} />
                         </div>
