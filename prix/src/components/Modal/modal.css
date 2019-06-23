@@ -28,6 +28,12 @@
         transition: 1s;
   }
 
+  .prix-modal-message{
+      align-content: center;
+      margin: 20%;
+      padding: 2%;
+  }
+
   .dismiss{
       color: white;
       top: -40%;
@@ -55,5 +61,6 @@
 
     #showGrid{
         display: block;
+        margin: 0.5%;
     }
    }
