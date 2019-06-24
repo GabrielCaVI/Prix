@@ -1,0 +1,39 @@
+{   
+    "data" : {
+        "items" : [
+            {
+                "title" : "HOME",
+                "levels" : [],
+                "options" : [
+                    
+                    {
+                        "title" : "Opción 1",
+                        "url" : "https://base22.com/"
+                    },
+
+                    {
+                        "title" : "Opción 2",
+                        "url" : "https://base22.com/"
+                    }
+                   
+                
+                ]
+            },
+            {
+                "title" : "HOME 2",
+                "levels" : [
+                    {
+                        "title" : "Opción 1",
+                        "options" : [
+                            {
+                                "title" : "Subnivel 1",
+                                "url" : "https://base22.com/"
+                            }
+                        ]
+                    }
+                ],
+                "options" : []
+            }
+        ]
+    }
+}

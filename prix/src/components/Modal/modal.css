@@ -36,10 +36,10 @@
 
   .dismiss{
       color: white;
-      top: -40%;
-      right: 20%;
+      font-size: 200%;
       margin: 5%;
-      padding: 5%;
+      padding: 2%;
+      float: right;     
       transition: 1s;
   }
 
@@ -54,9 +54,27 @@
       border-radius: 25px;
   }
 
+
   .prix-modal-button{
-      position: absoulute;
-      bottom: 2%; 
+      background-color: transparent;
+      border-radius: 2px;
+      text-align: center;
+      align-content: center;
+      font-size: 100%;
+      padding: 1% 5%;
+      bottom: 3%;
+      margin: 0% 2%
+  }
+  #accept.prix-modal-button{
+      position: absolute;
+      right: 2%; 
+      margin-right: 2%;
+  }
+
+  #cancel.prix-modal-button{
+    position: absolute;
+    left: 3%; 
+    margin: 0 0.5%;
   }
 
   
