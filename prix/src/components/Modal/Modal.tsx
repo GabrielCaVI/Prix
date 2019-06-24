@@ -61,7 +61,7 @@ export class Modal {
                 <div class ="prix-modal-box" id="prix-box">
                     <div class="prix-modal-message">
                         <p>{this.label}</p>
-                        <button onClick={() => this.overlayOff()} >{this.canceLabel}</button> <button>{this.acceptLabel}</button>
+                        <button class="prix-modal-button" onClick={() => this.overlayOff()} >{this.canceLabel}</button> <button class="prix-modal-button">{this.acceptLabel}</button>
                     </div>
                 </div>
 

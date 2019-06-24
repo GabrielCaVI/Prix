@@ -54,6 +54,11 @@
       border-radius: 25px;
   }
 
+  .prix-modal-button{
+      position: absoulute;
+      bottom: 2%; 
+  }
+
   
 
 
