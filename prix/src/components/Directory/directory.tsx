@@ -129,6 +129,9 @@ export class Directory {
             }
         }
     }
+    toggleModal(){
+        
+    }
     
     init(){
         this.sortItems();
@@ -144,6 +147,7 @@ export class Directory {
             <span>
                 <div class="container-lg">
                     <div class="topnav">
+                        <button onClick={}> show modal</button>
                         <input type="checkbox" class="active" id="select-all" onClick={() => this.toggleSelection()} />
                         <label class="active" htmlFor="select-all" id="select-all-label">All Items</label>
                         <prix-modal  canceLabel="Cancel" acceptLabel="Done" label="ShowModal" id="showGrid">

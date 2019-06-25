@@ -26,6 +26,7 @@ export namespace Components {
     */
     'data'?: any;
     'label': string;
+    'modalOn': Boolean;
     'styling'?: any;
   }
 }
@@ -68,6 +69,7 @@ declare namespace LocalJSX {
     */
     'data'?: any;
     'label'?: string;
+    'modalOn'?: Boolean;
     'styling'?: any;
   }
 

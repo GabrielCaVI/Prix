@@ -15,6 +15,7 @@ export class Modal {
     @Prop() canceLabel: string;
     @Prop() acceptLabel: string;
     @Prop({ mutable: true }) styling?: any = {};
+    @Prop({ mutable: true }) modalOn: Boolean;
     @State() value: string = this.label;
 
 
@@ -26,11 +27,11 @@ export class Modal {
 
         boton.classList.toggle('overlay')
 
-        cortina.style.display= "block"
+        cortina.style.display = "block"
         msg.style.display = 'block'
 
-        if (boton.classList.contains('overlay')){
-            boton.style.display="none"
+        if (boton.classList.contains('overlay')) {
+            boton.style.display = "none"
         }
 
 
@@ -43,30 +44,35 @@ export class Modal {
 
         boton.classList.toggle('overlay')
 
-        if (!boton.classList.contains('overlay')){
-            boton.style.display="block"
-            
+        if (!boton.classList.contains('overlay')) {
+            boton.style.display = "block"
+
         }
 
-        over.style.display ="none"
-        msg.style.display="none" 
+        over.style.display = "none"
+        msg.style.display = "none"
+    }
+
+    init(){
+        this.modalOn = false;
     }
 
 
     render() {
-        return [
-            <div class="overlay" id="modal">
-                <span class="dismiss" onClick={() => this.overlayOff()}><i class="fa fa-window-close" aria-hidden="true"></i></span>
-                <div class ="prix-modal-box" id="prix-box">
-                    <div class="prix-modal-message">
-                        <p>{this.label}</p>
-                        <slot name="content"></slot>
-                        <button class="prix-modal-button" id="cancel" onClick={() => this.overlayOff()} >{this.canceLabel}</button> <button class="prix-modal-button" id="accept">{this.acceptLabel}</button>
+        if (this.modalOn) {
+            return (
+                <div class="overlay" id="modal">
+                    <span class="dismiss" onClick={() => this.overlayOff()}><i class="fa fa-window-close" aria-hidden="true"></i></span>
+                    <div class="prix-modal-box" id="prix-box">
+                        <div class="prix-modal-message">
+                            <p>{this.label}</p>
+                            <slot name="content"></slot>
+                            <button class="prix-modal-button" id="cancel" onClick={() => this.overlayOff()} >{this.canceLabel}</button> <button class="prix-modal-button" id="accept">{this.acceptLabel}</button>
+                        </div>
                     </div>
                 </div>
-            </div>,
-            <button class="prix-button" id="prix-boton" onClick={() => this.ovelayOn()}>{this.value}</button>
-        ]
+            )
+        }
     }
 
 
