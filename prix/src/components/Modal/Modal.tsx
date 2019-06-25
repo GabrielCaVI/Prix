@@ -49,7 +49,7 @@ export class Modal {
         }
 
         over.style.display ="none"
-        msg.style.display="none"
+        msg.style.display="none" 
     }
 
 
@@ -57,17 +57,15 @@ export class Modal {
         return [
             <div class="overlay" id="modal">
                 <span class="dismiss" onClick={() => this.overlayOff()}><i class="fa fa-window-close" aria-hidden="true"></i></span>
-
                 <div class ="prix-modal-box" id="prix-box">
                     <div class="prix-modal-message">
                         <p>{this.label}</p>
+                        <slot name="content"></slot>
                         <button class="prix-modal-button" id="cancel" onClick={() => this.overlayOff()} >{this.canceLabel}</button> <button class="prix-modal-button" id="accept">{this.acceptLabel}</button>
                     </div>
                 </div>
-
             </div>,
-            <button class="prix-button" id="prix-boton" onClick={() => this.ovelayOn()} >{this.value}</button>,
-
+            <button class="prix-button" id="prix-boton" onClick={() => this.ovelayOn()}>{this.value}</button>
         ]
     }
 

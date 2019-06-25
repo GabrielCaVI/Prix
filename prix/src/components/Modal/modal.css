@@ -37,7 +37,7 @@
   .dismiss{
       color: white;
       font-size: 200%;
-      margin: 5%;
+      margin: 2%;
       padding: 2%;
       float: right;     
       transition: 1s;
@@ -86,4 +86,5 @@
         display: block;
         margin: 0.5%;
     }
+   
    }

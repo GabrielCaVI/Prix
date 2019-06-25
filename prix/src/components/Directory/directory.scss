@@ -43,6 +43,9 @@ ul{
 #showGrid{
   display: none;
 }
+#letters{
+  display: block;
+}
 
 
 .pagnLink input[type="checkbox"],
@@ -152,17 +155,13 @@ ul{
   #search-box input{
     margin: 2%;
   }
-
-
- 
-
-  
   #showGrid{
     display: block;
     margin-left: 6%;
     margin-top: 10%;
     border-radius: 9px;
   }
+  
 
   .overlay{
   position: fixed; 
@@ -187,6 +186,16 @@ ul{
     color: white;
     transform: translate(-50%,-50%);
     -ms-transform: translate(-50%,-50%);
+  }
+   #lettersModal{
+     display: block
+   }
+   #lettersListMobile{
+     column-count: 4;
+   }
+ 
+  .show{
+    display: block;
   }
 
   .show{
