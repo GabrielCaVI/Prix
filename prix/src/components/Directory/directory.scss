@@ -31,12 +31,20 @@ ul{
   font-size: 17px;
   border-radius: 10px;
 }
+
+.search-container {
+  margin-left: 1%;
+  margin-right: 1%;
+  margin-bottom: 1%;
+}
 .item{
   display: none;
 }
-
 #showGrid{
   display: none;
+}
+#letters{
+  display: block;
 }
 
 .pagnLink input[type="checkbox"],
@@ -66,7 +74,7 @@ ul{
 
 .pagnLink input[type="checkbox"]:checked + label {
   color: black;
-  font-weight: bold;
+  font-weight: bold;  
 }
 
 /* Change the color of links on hover */
@@ -112,43 +120,43 @@ ul{
   transform: translate(0, 0);
 }
 
-@media screen and (min-width: 991px) and (max-width: 11px) {
-  .topnav {
-    display: none;
-  }
-}
 
-@media screen and (min-width: 601px) and (max-width: 990px) {
+
+@media screen and (min-width: 661px) and (max-width: 1200px) {
   .topnav {
-    display: none;
+    display: block;
+    
+  }
+
+  #letters{
+    column-count: 16;
   }
 }
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 660px) {
   #letters, #select-all, #select-all-label{
     display: none;
   }
-  
-
-  .topnav{
-    height: 110px;
-  }
-  .topnav, label .search-container{
-    position: relative;
-    padding: 0;
-    margin: 1%;
+  .topnav {
+    overflow: hidden;
+    background-color: #f0fcff;
+    display: block;
+    margin: 0;
   }
 
-  
+  // .search-container input{
+    
+  // }
+
+  #search-box input{
+    margin: 2%;
+  }
   #showGrid{
     display: block;
-    margin-left: 1%;
+    margin-left: 6%;
     margin-top: 10%;
     border-radius: 9px;
-    background-color: #031f51;
-    color: white;
-    width: auto;
-    height: 25px;
   }
+  
 
   .overlay{
   position: fixed; 
@@ -173,6 +181,16 @@ ul{
     color: white;
     transform: translate(-50%,-50%);
     -ms-transform: translate(-50%,-50%);
+  }
+   #lettersModal{
+     display: block
+   }
+   #lettersListMobile{
+     column-count: 4;
+   }
+ 
+  .show{
+    display: block;
   }
 
 

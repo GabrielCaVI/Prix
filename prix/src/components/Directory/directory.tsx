@@ -21,6 +21,65 @@ export class Directory {
     *   STATE
     */
     @State() internalItems = [];
+    letterItems = [
+        "#",
+        "A",
+        "B",
+        "C",
+        "D",
+        "E",
+        "F",
+        "G",
+        "H",
+        "I",
+        "J",
+        "K",
+        "L",
+        "M",
+        "N",
+        "Ñ",
+        "O",
+        "P",
+        "Q",
+        "R",
+        "S",
+        "T",
+        "U",
+        "V",
+        "W",
+        "X",
+        "Y",
+        "Z"
+    ];
+    letterItemsMobile = [
+        "A",
+        "E",
+        "I",
+        "M",
+        "Q",
+        "U",
+        "Y",
+        "B",
+        "F",
+        "J",
+        "N",
+        "R",
+        "V",
+        "Z",
+        "C",
+        "G",
+        "K",
+        "O",
+        "S",
+        "W",
+        "#",
+        "D",
+        "H",
+        "L",
+        "P",
+        "T",
+        "X"
+    ];
 
     toggleSelection() {
         let selectAllBtn = document.getElementById('select-all') as HTMLInputElement;
@@ -96,134 +155,38 @@ export class Directory {
 
     render() {
         const items = this.internalItems;
-        const show = false;
         return (
             <span>
                 <div class="container-lg">
                     <div class="topnav">
-                        <button id="showGrid">ABC</button>
                         <input type="checkbox" class="active" id="select-all" onClick={() => this.toggleSelection()} />
                         <label class="active" htmlFor="select-all" id="select-all-label">All Items</label>
+                        <prix-modal  canceLabel="Cancel" acceptLabel="Done" label="ShowModal" id="showGrid">
+                            <div id="lettersModal" slot="content">
+                                <ul id="lettersListMobile">
+                                    {this.letterItemsMobile.map((letter) => (
+                                        <li class="pagnLink">
+                                            <input type="checkbox" class="checkInput" id={letter+''} onChange={() => this.filterByCheckbox(letter)}/>
+                                            <label htmlFor={letter+''} class="checkLabel">{letter+''}</label>
+                                        </li>
+                                    ))}
+                                </ul>
+                            </div>
+                        </prix-modal>
                         <div class="search-container">
                             <input id="searchbox" type="text" placeholder="Search..." onKeyUp={() => this.filterByInput()} />
                         </div>
-                            <div id="letters">
-                                {show?
-                                <prix-modal></prix-modal>:
-                                ""
-                                }
-                                <ul id="lettersList">
+                        <div id="letters">
+                            <ul id="lettersList">
+                                {this.letterItems.map((letter) => (
                                     <li class="pagnLink">
-                                        <input type="checkbox" class="checkInput" id="#" onChange={() => this.filterByCheckbox("#")}/>
-                                        <label htmlFor="#" class="checkLabel">#</label>
+                                        <input type="checkbox" class="checkInput" id={letter} onChange={() => this.filterByCheckbox(letter)}/>
+                                        <label htmlFor={letter} class="checkLabel">{letter}</label>
                                     </li>
-                                    <li class="pagnLink">
-                                        <input type="checkbox" class="checkInput" id="A" onChange={() => this.filterByCheckbox("A")}/>
-                                        <label htmlFor="A" class="checkLabel">A</label>
-                                    </li>
-                                    <li class="pagnLink">
-                                        <input type="checkbox" class="checkInput" id="B" onChange={() => this.filterByCheckbox("B")}/>
-                                        <label htmlFor="B" class="checkLabel">B</label>
-                                    </li>
-                                    <li class="pagnLink">
-                                        <input type="checkbox" class="checkInput" id="C" onChange={() => this.filterByCheckbox("C")}/>
-                                        <label htmlFor="C" class="checkLabel">C</label>
-                                    </li>
-                                    <li class="pagnLink">
-                                        <input type="checkbox" class="checkInput" id="D" onChange={() => this.filterByCheckbox("D")}/>
-                                        <label htmlFor="D" class="checkLabel">D</label>
-                                    </li>
-                                    <li class="pagnLink">
-                                        <input type="checkbox" class="checkInput" id="E" onChange={() => this.filterByCheckbox("E")}/>
-                                        <label htmlFor="E" class="checkLabel">E</label>
-                                    </li>
-                                    <li class="pagnLink">
-                                        <input type="checkbox" class="checkInput" id="F" onChange={() => this.filterByCheckbox("F")}/>
-                                        <label htmlFor="F" class="checkLabel">F</label>
-                                    </li>
-                                    <li class="pagnLink">
-                                        <input type="checkbox" class="checkInput" id="G" onChange={() => this.filterByCheckbox("G")}/>
-                                        <label htmlFor="G" class="checkLabel">G</label>
-                                    </li>
-                                    <li class="pagnLink">
-                                        <input type="checkbox" class="checkInput" id="H" onChange={() => this.filterByCheckbox("H")}/>
-                                        <label htmlFor="H" class="checkLabel">H</label>
-                                    </li>
-                                    <li class="pagnLink">
-                                        <input type="checkbox" class="checkInput" id="I" onChange={() => this.filterByCheckbox("I")}/>
-                                        <label htmlFor="I" class="checkLabel">I</label>
-                                    </li>
-                                    <li class="pagnLink">
-                                        <input type="checkbox" class="checkInput" id="J" onChange={() => this.filterByCheckbox("J")}/>
-                                        <label htmlFor="J" class="checkLabel">J</label>
-                                    </li>
-                                    <li class="pagnLink">
-                                        <input type="checkbox" class="checkInput" id="K" onChange={() => this.filterByCheckbox("K")}/>
-                                        <label htmlFor="K" class="checkLabel">K</label>
-                                    </li>
-                                    <li class="pagnLink">
-                                        <input type="checkbox" class="checkInput" id="L" onChange={() => this.filterByCheckbox("L")}/>
-                                        <label htmlFor="L" class="checkLabel">L</label>
-                                    </li>
-                                    <li class="pagnLink">
-                                        <input type="checkbox" class="checkInput" id="M" onChange={() => this.filterByCheckbox("M")}/>
-                                        <label htmlFor="M" class="checkLabel">M</label>
-                                    </li>
-                                    <li class="pagnLink">
-                                        <input type="checkbox" class="checkInput" id="N" onChange={() => this.filterByCheckbox("N")}/>
-                                        <label htmlFor="N" class="checkLabel">N</label>
-                                    </li>
-                                    <li class="pagnLink">
-                                        <input type="checkbox" class="checkInput" id="O" onChange={() => this.filterByCheckbox("O")}/>
-                                        <label htmlFor="O" class="checkLabel">O</label>
-                                    </li>
-                                    <li class="pagnLink">
-                                        <input type="checkbox" class="checkInput" id="P" onChange={() => this.filterByCheckbox("P")}/>
-                                        <label htmlFor="P" class="checkLabel">P</label>
-                                    </li>
-                                    <li class="pagnLink">
-                                        <input type="checkbox" class="checkInput" id="Q" onChange={() => this.filterByCheckbox("Q")}/>
-                                        <label htmlFor="Q" class="checkLabel">Q</label>
-                                    </li>
-                                    <li class="pagnLink">
-                                        <input type="checkbox" class="checkInput" id="R" onChange={() => this.filterByCheckbox("R")}/>
-                                        <label htmlFor="R" class="checkLabel">R</label>
-                                    </li>
-                                    <li class="pagnLink">
-                                        <input type="checkbox" class="checkInput" id="S" onChange={() => this.filterByCheckbox("S")}/>
-                                        <label htmlFor="S" class="checkLabel">S</label>
-                                    </li>
-                                    <li class="pagnLink">
-                                        <input type="checkbox" class="checkInput" id="T" onChange={() => this.filterByCheckbox("T")}/>
-                                        <label htmlFor="T" class="checkLabel">T</label>
-                                    </li>
-                                    <li class="pagnLink">
-                                        <input type="checkbox" class="checkInput" id="U" onChange={() => this.filterByCheckbox("U")}/>
-                                        <label htmlFor="U" class="checkLabel">U</label>
-                                    </li>
-                                    <li class="pagnLink">
-                                        <input type="checkbox" class="checkInput" id="V" onChange={() => this.filterByCheckbox("V")}/>
-                                        <label htmlFor="V" class="checkLabel">V</label>
-                                    </li>
-                                    <li class="pagnLink">
-                                        <input type="checkbox" class="checkInput" id="W" onChange={() => this.filterByCheckbox("W")}/>
-                                        <label htmlFor="W" class="checkLabel">W</label>
-                                    </li>
-                                    <li class="pagnLink">
-                                        <input type="checkbox" class="checkInput" id="X" onChange={() => this.filterByCheckbox("X")}/>
-                                        <label htmlFor="X" class="checkLabel">X</label>
-                                    </li>
-                                    <li class="pagnLink">
-                                        <input type="checkbox" class="checkInput" id="Y" onChange={() => this.filterByCheckbox("Y")}/>
-                                        <label htmlFor="Y" class="checkLabel">Y</label>
-                                    </li>
-                                    <li class="pagnLink">
-                                        <input type="checkbox" class="checkInput" id="Z" onChange={() => this.filterByCheckbox("Z")}/>
-                                        <label htmlFor="Z" class="checkLabel">Z</label>
-                                    </li>
-                                </ul>
-                            </div>
+                                ))}
+                            </ul>
                         </div>
+                    </div>
                     <div class="item-container">
                         {items.map((item) => (
                             <div class="item">
