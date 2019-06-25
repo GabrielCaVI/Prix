@@ -166,8 +166,8 @@ export class Directory {
                                 <ul id="lettersListMobile">
                                     {this.letterItemsMobile.map((letter) => (
                                         <li class="pagnLink">
-                                            <input type="checkbox" class="checkInput" id={letter+''} onChange={() => this.filterByCheckbox(letter)}/>
-                                            <label htmlFor={letter+''} class="checkLabel">{letter+''}</label>
+                                            <input type="checkbox" class="checkInput" id={letter+' '} onChange={() => this.filterByCheckbox(letter)}/>
+                                            <label htmlFor={letter+' '} class="checkLabel">{letter+' '}</label>
                                         </li>
                                     ))}
                                 </ul>
