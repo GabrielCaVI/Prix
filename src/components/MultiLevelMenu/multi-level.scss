@@ -52,7 +52,23 @@ body {
 }
 
 
+#dark{
+  margin: 2%;
+  margin-bottom: 0;
+  background-color: transparent;
+  border: transparent;
+  user-select: none;
+  width: 30px;
+  height: 20px;
+  align-content: center;
+}
 
+#dark i{
+color: white;
+align-content: center;
+font-size: 200%;
+
+}
 .transition.chevron {
   transition: 0.35s;
 }
@@ -69,36 +85,57 @@ body {
 .toggle-inner-menu {
   transform: translateX(30vw) translateX(-34px);
 }
-#openButton{
+
+#openButton, #inner-menu{
   background-color: #e20177;
+}
+
+#openButton.dark, #inner-menu.dark{
+ background-color: #A020F0; 
+}
+#openButton{
+ 
   top: 50%;
   }
 #inner-menu {
   border-top:5px;
+<<<<<<< HEAD:src/components/app-menu/app-menu.css
   background-color:#e20177;
+=======
+>>>>>>> 153cf01ad347fa78496389d2e5e0ee4477f17848:src/components/MultiLevelMenu/multi-level.scss
   position: fixed;
   left: calc(-30vw + 34px);
-  top: 120px;
+  top: 0;
   border-right: 1px solid rgba(0, 0, 0, 0.14);
   width: 30vw;
   height: 100%;
   z-index: 999;
   /*hace que el scroll del menú cambie cuando es toggled*/
+<<<<<<< HEAD:src/components/app-menu/app-menu.css
   max-height: calc(100vh - 9rem);
+=======
+  max-height: calc(100vh + 5rem);
+>>>>>>> 153cf01ad347fa78496389d2e5e0ee4477f17848:src/components/MultiLevelMenu/multi-level.scss
   overflow-y: auto;
   
 }
 
 .arrow {
   padding-left: 5%;
+
 }
 
 #content{
   transform: translateX(-20%);
   
   overflow-x: hidden;
+<<<<<<< HEAD:src/components/app-menu/app-menu.css
+=======
 }
-
+.submenu{
+  margin-left: 40px;
+>>>>>>> 153cf01ad347fa78496389d2e5e0ee4477f17848:src/components/MultiLevelMenu/multi-level.scss
+}
 
 
 #content {
@@ -107,6 +144,7 @@ body {
   height: 100%;
   left: 10%;
 }
+
 
 .center {
   position: relative;
@@ -148,7 +186,7 @@ body {
 
 
 
-#content label {
+#content .item label {
   display: block;
   width: 90%;
   color: white;
@@ -157,6 +195,11 @@ body {
   margin-left: 15%;
   padding: 5px 10px;
 }
+
+.content .item .submenu {
+  margin-left: 30%;
+}
+
 
 #help ul li:last-child {
   border: 1px solid hsla(360, 100%, 100%, 0.9);
@@ -198,7 +241,11 @@ body {
 .item input:checked ~ label span {
   transition: 0.35s;
   transform: rotate(90deg);
+<<<<<<< HEAD:src/components/app-menu/app-menu.css
   padding: 5% 10%;
+=======
+  padding: 5% 2%;
+>>>>>>> 153cf01ad347fa78496389d2e5e0ee4477f17848:src/components/MultiLevelMenu/multi-level.scss
 }
 
 .item input:not(:checked) ~ label span {
@@ -343,6 +390,12 @@ margin-inline: 2px;
   }
   #content ul li a span {
     text-transform: uppercase;
+  }
+
+  #help 
+  {
+    align-content: center;
+    margin-right: 2%;
   }
 
 }

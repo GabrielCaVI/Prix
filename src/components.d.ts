@@ -9,8 +9,36 @@ import { HTMLStencilElement, JSXBase } from '@stencil/core/internal';
 
 
 export namespace Components {
-  interface AppMenu {
+  interface PrixDirectory {
+    'configuration'?: any;
+    /**
+    * Common attributes
+    */
+    'data'?: any;
+    'styling'?: any;
+  }
+  interface PrixDrawer {
+    'dColor': string;
+    'dExpandSize': string;
+    'dOpacity': boolean;
+    'dSide': string;
+    'isOpen': boolean;
+  }
+  interface PrixModal {
+    'acceptLabel': string;
+    'canceLabel': string;
+    'configuration'?: any;
+    /**
+    * Common attributes
+    */
+    'data'?: any;
+    'label': string;
+    'styling'?: any;
+  }
+  interface PrixMultiLevel {
     'color': string;
+    'dark': boolean;
+    'data'?: any;
     'message': string;
   }
 }
@@ -18,24 +46,76 @@ export namespace Components {
 declare global {
 
 
-  interface HTMLAppMenuElement extends Components.AppMenu, HTMLStencilElement {}
-  var HTMLAppMenuElement: {
-    prototype: HTMLAppMenuElement;
-    new (): HTMLAppMenuElement;
+  interface HTMLPrixDirectoryElement extends Components.PrixDirectory, HTMLStencilElement {}
+  var HTMLPrixDirectoryElement: {
+    prototype: HTMLPrixDirectoryElement;
+    new (): HTMLPrixDirectoryElement;
+  };
+
+  interface HTMLPrixDrawerElement extends Components.PrixDrawer, HTMLStencilElement {}
+  var HTMLPrixDrawerElement: {
+    prototype: HTMLPrixDrawerElement;
+    new (): HTMLPrixDrawerElement;
+  };
+
+  interface HTMLPrixModalElement extends Components.PrixModal, HTMLStencilElement {}
+  var HTMLPrixModalElement: {
+    prototype: HTMLPrixModalElement;
+    new (): HTMLPrixModalElement;
+  };
+
+  interface HTMLPrixMultiLevelElement extends Components.PrixMultiLevel, HTMLStencilElement {}
+  var HTMLPrixMultiLevelElement: {
+    prototype: HTMLPrixMultiLevelElement;
+    new (): HTMLPrixMultiLevelElement;
   };
   interface HTMLElementTagNameMap {
-    'app-menu': HTMLAppMenuElement;
+    'prix-directory': HTMLPrixDirectoryElement;
+    'prix-drawer': HTMLPrixDrawerElement;
+    'prix-modal': HTMLPrixModalElement;
+    'prix-multi-level': HTMLPrixMultiLevelElement;
   }
 }
 
 declare namespace LocalJSX {
-  interface AppMenu extends JSXBase.HTMLAttributes<HTMLAppMenuElement> {
+  interface PrixDirectory extends JSXBase.HTMLAttributes<HTMLPrixDirectoryElement> {
+    'configuration'?: any;
+    /**
+    * Common attributes
+    */
+    'data'?: any;
+    'styling'?: any;
+  }
+  interface PrixDrawer extends JSXBase.HTMLAttributes<HTMLPrixDrawerElement> {
+    'dColor'?: string;
+    'dExpandSize'?: string;
+    'dOpacity'?: boolean;
+    'dSide'?: string;
+    'isOpen'?: boolean;
+  }
+  interface PrixModal extends JSXBase.HTMLAttributes<HTMLPrixModalElement> {
+    'acceptLabel'?: string;
+    'canceLabel'?: string;
+    'configuration'?: any;
+    /**
+    * Common attributes
+    */
+    'data'?: any;
+    'label'?: string;
+    'styling'?: any;
+  }
+  interface PrixMultiLevel extends JSXBase.HTMLAttributes<HTMLPrixMultiLevelElement> {
     'color'?: string;
+    'dark'?: boolean;
+    'data'?: any;
     'message'?: string;
   }
 
   interface IntrinsicElements {
-    'app-menu': AppMenu;
+    'prix-directory': PrixDirectory;
+    'prix-drawer': PrixDrawer;
+    'prix-modal': PrixModal;
+    'prix-multi-level': PrixMultiLevel;
   }
 }
 
