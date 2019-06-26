@@ -22,7 +22,8 @@ export namespace Components {
     'dExpandSize': string;
     'dOpacity': boolean;
     'dSide': string;
-    'isOpen': boolean;
+    'hideDrawer': () => Promise<void>;
+    'showDrawer': () => Promise<void>;
   }
   interface PrixModal {
     'acceptLabel': string;
@@ -91,7 +92,6 @@ declare namespace LocalJSX {
     'dExpandSize'?: string;
     'dOpacity'?: boolean;
     'dSide'?: string;
-    'isOpen'?: boolean;
   }
   interface PrixModal extends JSXBase.HTMLAttributes<HTMLPrixModalElement> {
     'acceptLabel'?: string;
