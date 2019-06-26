@@ -17,6 +17,13 @@ export namespace Components {
     'data'?: any;
     'styling'?: any;
   }
+  interface PrixDrawer {
+    'dColor': string;
+    'dExpandSize': string;
+    'dOpacity': boolean;
+    'dSide': string;
+    'isOpen': boolean;
+  }
   interface PrixModal {
     'acceptLabel': string;
     'canceLabel': string;
@@ -45,6 +52,12 @@ declare global {
     new (): HTMLPrixDirectoryElement;
   };
 
+  interface HTMLPrixDrawerElement extends Components.PrixDrawer, HTMLStencilElement {}
+  var HTMLPrixDrawerElement: {
+    prototype: HTMLPrixDrawerElement;
+    new (): HTMLPrixDrawerElement;
+  };
+
   interface HTMLPrixModalElement extends Components.PrixModal, HTMLStencilElement {}
   var HTMLPrixModalElement: {
     prototype: HTMLPrixModalElement;
@@ -58,6 +71,7 @@ declare global {
   };
   interface HTMLElementTagNameMap {
     'prix-directory': HTMLPrixDirectoryElement;
+    'prix-drawer': HTMLPrixDrawerElement;
     'prix-modal': HTMLPrixModalElement;
     'prix-multi-level': HTMLPrixMultiLevelElement;
   }
@@ -71,6 +85,13 @@ declare namespace LocalJSX {
     */
     'data'?: any;
     'styling'?: any;
+  }
+  interface PrixDrawer extends JSXBase.HTMLAttributes<HTMLPrixDrawerElement> {
+    'dColor'?: string;
+    'dExpandSize'?: string;
+    'dOpacity'?: boolean;
+    'dSide'?: string;
+    'isOpen'?: boolean;
   }
   interface PrixModal extends JSXBase.HTMLAttributes<HTMLPrixModalElement> {
     'acceptLabel'?: string;
@@ -92,6 +113,7 @@ declare namespace LocalJSX {
 
   interface IntrinsicElements {
     'prix-directory': PrixDirectory;
+    'prix-drawer': PrixDrawer;
     'prix-modal': PrixModal;
     'prix-multi-level': PrixMultiLevel;
   }
