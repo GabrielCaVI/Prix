@@ -9,53 +9,71 @@ import { HTMLStencilElement, JSXBase } from '@stencil/core/internal';
 
 
 export namespace Components {
-  interface MyComponent {
+  interface PrixDirectory {
+    'configuration'?: any;
     /**
-    * The first name
+    * Common attributes
     */
-    'first': string;
+    'data'?: any;
+    'styling'?: any;
+  }
+  interface PrixModal {
+    'acceptLabel': string;
+    'canceLabel': string;
+    'configuration'?: any;
     /**
-    * The last name
+    * Common attributes
     */
-    'last': string;
-    /**
-    * The middle name
-    */
-    'middle': string;
+    'data'?: any;
+    'label': string;
+    'styling'?: any;
   }
 }
 
 declare global {
 
 
-  interface HTMLMyComponentElement extends Components.MyComponent, HTMLStencilElement {}
-  var HTMLMyComponentElement: {
-    prototype: HTMLMyComponentElement;
-    new (): HTMLMyComponentElement;
+  interface HTMLPrixDirectoryElement extends Components.PrixDirectory, HTMLStencilElement {}
+  var HTMLPrixDirectoryElement: {
+    prototype: HTMLPrixDirectoryElement;
+    new (): HTMLPrixDirectoryElement;
+  };
+
+  interface HTMLPrixModalElement extends Components.PrixModal, HTMLStencilElement {}
+  var HTMLPrixModalElement: {
+    prototype: HTMLPrixModalElement;
+    new (): HTMLPrixModalElement;
   };
   interface HTMLElementTagNameMap {
-    'my-component': HTMLMyComponentElement;
+    'prix-directory': HTMLPrixDirectoryElement;
+    'prix-modal': HTMLPrixModalElement;
   }
 }
 
 declare namespace LocalJSX {
-  interface MyComponent extends JSXBase.HTMLAttributes<HTMLMyComponentElement> {
+  interface PrixDirectory extends JSXBase.HTMLAttributes<HTMLPrixDirectoryElement> {
+    'configuration'?: any;
     /**
-    * The first name
+    * Common attributes
     */
-    'first'?: string;
+    'data'?: any;
+    'styling'?: any;
+  }
+  interface PrixModal extends JSXBase.HTMLAttributes<HTMLPrixModalElement> {
+    'acceptLabel'?: string;
+    'canceLabel'?: string;
+    'configuration'?: any;
     /**
-    * The last name
+    * Common attributes
     */
-    'last'?: string;
-    /**
-    * The middle name
-    */
-    'middle'?: string;
+    'data'?: any;
+    'label'?: string;
+    'styling'?: any;
   }
 
   interface IntrinsicElements {
-    'my-component': MyComponent;
+    'prix-directory': PrixDirectory;
+    'prix-modal': PrixModal;
   }
 }
 
