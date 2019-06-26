@@ -28,6 +28,12 @@ export namespace Components {
     'label': string;
     'styling'?: any;
   }
+  interface PrixMultiLevel {
+    'color': string;
+    'dark': boolean;
+    'data'?: any;
+    'message': string;
+  }
 }
 
 declare global {
@@ -44,9 +50,16 @@ declare global {
     prototype: HTMLPrixModalElement;
     new (): HTMLPrixModalElement;
   };
+
+  interface HTMLPrixMultiLevelElement extends Components.PrixMultiLevel, HTMLStencilElement {}
+  var HTMLPrixMultiLevelElement: {
+    prototype: HTMLPrixMultiLevelElement;
+    new (): HTMLPrixMultiLevelElement;
+  };
   interface HTMLElementTagNameMap {
     'prix-directory': HTMLPrixDirectoryElement;
     'prix-modal': HTMLPrixModalElement;
+    'prix-multi-level': HTMLPrixMultiLevelElement;
   }
 }
 
@@ -70,10 +83,17 @@ declare namespace LocalJSX {
     'label'?: string;
     'styling'?: any;
   }
+  interface PrixMultiLevel extends JSXBase.HTMLAttributes<HTMLPrixMultiLevelElement> {
+    'color'?: string;
+    'dark'?: boolean;
+    'data'?: any;
+    'message'?: string;
+  }
 
   interface IntrinsicElements {
     'prix-directory': PrixDirectory;
     'prix-modal': PrixModal;
+    'prix-multi-level': PrixMultiLevel;
   }
 }
 

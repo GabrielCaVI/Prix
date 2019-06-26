@@ -8,7 +8,7 @@ import {
     tag: 'prix-directory',
     styleUrl: 'directory.scss'
 })
-export class Directory {
+export class directory {
     @Element() el: HTMLElement;
     //Props
     /**

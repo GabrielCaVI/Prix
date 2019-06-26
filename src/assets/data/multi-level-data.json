@@ -1,0 +1,45 @@
+{   
+    "data" : {
+        "items" : [
+            {
+                "title" : "HOME 2",
+                "levels" : [
+                    {
+                        "title" : "Opción 1",
+                        "options" : [
+                            {
+                                "title" : "Subnivel 1",
+                                "url" : "#"
+                            }
+                        ]
+                    },
+                    {
+                        "title" : "Opción 2",
+                        "options" : [
+                            {
+                                "title" : "Subnivel 3",
+                                "url" : "#"                            }
+                        ]
+                    }
+                ],
+                "options" : []
+            },
+
+            {
+                "title" : "HOMEBase",
+                "levels" : [
+                    {
+                        "title" : "Opción 3",
+                        "options" : [
+                            {
+                                "title" : "Subnivel 3",
+                                "url" : "https://starbucks.com/"
+                            }
+                        ]
+                    }
+                ],
+                "options" : []
+            }
+        ]
+    }
+}

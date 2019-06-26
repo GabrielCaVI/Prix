@@ -3,7 +3,7 @@ import { Component, Element, h, Prop, State } from '@stencil/core'
     tag: 'prix-modal',
     styleUrl: 'modal.scss'
 })
-export class Modal {
+export class modal {
     @Element() el: HTMLElement;
     //Props
     /**
