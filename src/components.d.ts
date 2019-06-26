@@ -25,15 +25,7 @@ export namespace Components {
     'isOpen': boolean;
   }
   interface PrixModal {
-    'acceptLabel': string;
-    'canceLabel': string;
-    'configuration'?: any;
-    /**
-    * Common attributes
-    */
-    'data'?: any;
-    'label': string;
-    'styling'?: any;
+    'dColor': string;
   }
   interface PrixMultiLevel {
     'color': string;
@@ -94,15 +86,7 @@ declare namespace LocalJSX {
     'isOpen'?: boolean;
   }
   interface PrixModal extends JSXBase.HTMLAttributes<HTMLPrixModalElement> {
-    'acceptLabel'?: string;
-    'canceLabel'?: string;
-    'configuration'?: any;
-    /**
-    * Common attributes
-    */
-    'data'?: any;
-    'label'?: string;
-    'styling'?: any;
+    'dColor'?: string;
   }
   interface PrixMultiLevel extends JSXBase.HTMLAttributes<HTMLPrixMultiLevelElement> {
     'color'?: string;

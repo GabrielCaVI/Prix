@@ -1,14 +1,42 @@
-import { Component, Element, h, Prop, State } from '@stencil/core'
+import { Component, Prop, h } from '@stencil/core'
 @Component({
     tag: 'prix-modal',
     styleUrl: 'modal.scss'
 })
 export class modal {
+  @Prop({ mutable: true }) dColor: string = "blue";
+
+  handleToggle = () => {
+    document.getElementById("myModal").style.display = "block";
+  }
+  handleToggle2 = () => {
+    document.getElementById("myModal").style.display = "none";
+  }
+
+  componentDidLoad(){
+    let wrapper = document.getElementById("myModal");
+    myModal.style.backgroundColor = this.dColor;
+  }
+  render() {
+    return (
+      <div>
+
+        <div class="wrapper">
+          <button class="button" onClick={() => this.handleToggle()}>Open Modal</button>
+        </div>
+
+        <div id="myModal" class="modal">
+          <div class="modal-content">
+            <span class="close" onClick={() => this.handleToggle2()}>&times;</span>
+            <p>Some text in the Modal..</p>
+          </div>
+        </div>
+
+      </div>
+    );
+  }
+  /*
     @Element() el: HTMLElement;
-    //Props
-    /**
-     * Common attributes
-     */
     @Prop() data?: any = {};
     @Prop({ mutable: true }) configuration?: any = {};
     @Prop() label: string;
@@ -46,11 +74,11 @@ export class modal {
 
         if (!boton.classList.contains('overlay')){
             boton.style.display="block"
-            
+
         }
 
         over.style.display ="none"
-        msg.style.display="none" 
+        msg.style.display="none"
     }
 
 
@@ -69,7 +97,5 @@ export class modal {
             <button class="prix-button" id="prix-boton" onClick={() => this.ovelayOn()}>{this.value}</button>
         ]
     }
-
-
-
+*/
 }

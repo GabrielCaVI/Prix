@@ -1,30 +1,31 @@
+/*
 .overlay{
-    position: fixed; 
-    display: none; 
-    width: 100%; 
-    height: 100%; 
+    position: fixed;
+    display: none;
+    width: 100%;
+    height: 100%;
     top: 0;
     left: 0;
     right: 0;
     bottom: 0;
-    background-color: rgba(0,0,0,0.5); 
-    z-index: 2; 
-    cursor: pointer; 
+    background-color: rgba(0,0,0,0.5);
+    z-index: 2;
+    cursor: pointer;
     transition: 1s;
     }
 
     .prix-modal-box{
-        position: fixed; 
-        display: none; 
-        width: 80%; 
-        height: 80%; 
+        position: fixed;
+        display: none;
+        width: 80%;
+        height: 80%;
         top: 10%;
         left: 10%;
         right: 5%;
         bottom: 0%;
-        background-color: rgba(255, 255, 255, 0.911); 
-        z-index: 2; 
-        cursor: pointer; 
+        background-color: rgba(255, 255, 255, 0.911);
+        z-index: 2;
+        cursor: pointer;
         transition: 1s;
   }
 
@@ -39,7 +40,7 @@
       font-size: 200%;
       margin: 2%;
       padding: 2%;
-      float: right;     
+      float: right;
       transition: 1s;
   }
 
@@ -47,7 +48,7 @@
       position: relative;
       display: block;
       height: 25px;
-      width: auto; 
+      width: auto;
       color: white;
       margin: 1%;
       background-color:#e20177;
@@ -67,17 +68,17 @@
   }
   #accept.prix-modal-button{
       position: absolute;
-      right: 2%; 
+      right: 2%;
       margin-right: 2%;
   }
 
   #cancel.prix-modal-button{
     position: absolute;
-    left: 3%; 
+    left: 3%;
     margin: 0 0.5%;
   }
 
-  
+
 
 
    @media screen and (max-width: 600px) {
@@ -86,5 +87,38 @@
         display: block;
         margin: 0.5%;
     }
-   
+
    }
+*/
+
+/* The Modal (background) */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  padding-top: 100px; /* Location of the box */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content */
+.modal-content {
+  background-color: #fefefe;
+  margin: auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%;
+}
+
+/* The Close Button */
+.close {
+  color: #aaaaaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
