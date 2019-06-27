@@ -25,7 +25,12 @@ export namespace Components {
     'isOpen': boolean;
   }
   interface PrixModal {
-    'dColor': string;
+    'dOpacity': boolean;
+    'dOpacityColor': string;
+    'mColor': string;
+    'mExpandSizeHeight': string;
+    'mExpandSizewidth': string;
+    'showModal': () => Promise<void>;
   }
   interface PrixMultiLevel {
     'color': string;
@@ -86,7 +91,11 @@ declare namespace LocalJSX {
     'isOpen'?: boolean;
   }
   interface PrixModal extends JSXBase.HTMLAttributes<HTMLPrixModalElement> {
-    'dColor'?: string;
+    'dOpacity'?: boolean;
+    'dOpacityColor'?: string;
+    'mColor'?: string;
+    'mExpandSizeHeight'?: string;
+    'mExpandSizewidth'?: string;
   }
   interface PrixMultiLevel extends JSXBase.HTMLAttributes<HTMLPrixMultiLevelElement> {
     'color'?: string;

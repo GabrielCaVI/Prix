@@ -1,37 +1,46 @@
-import { Component, Prop, h } from '@stencil/core'
+import { Component, Prop, Method,h} from '@stencil/core'
 @Component({
     tag: 'prix-modal',
     styleUrl: 'modal.scss'
 })
 export class modal {
-  @Prop({ mutable: true }) dColor: string = "blue";
+  @Prop({ mutable: true }) mColor: string = "blue";
+  @Prop({ mutable: true }) mExpandSizeHeight: string = "100%";
+  @Prop({ mutable: true }) mExpandSizewidth: string = "100%";
+  @Prop({ mutable: true }) dOpacity: boolean = false;
+  @Prop({ mutable: true }) dOpacityColor: string = "rgba(0,0,0,0.3)";
 
-  handleToggle = () => {
+  @Method()
+  async showModal() {
+    console.log("HERE");
     document.getElementById("myModal").style.display = "block";
+  /*  @Listen('click', { target: 'window' })
+      handleScroll() {
+        document.getElementById("myModal").style.display = "none";
+      }*/
   }
-  handleToggle2 = () => {
+
+  hideModal = () => {
     document.getElementById("myModal").style.display = "none";
   }
 
   componentDidLoad(){
-    let wrapper = document.getElementById("myModal");
-    myModal.style.backgroundColor = this.dColor;
+    let modalBack = document.getElementById("myModal");
+    modalBack.style.backgroundColor = this.dOpacityColor;
+
+    let modalFront = document.getElementById("contentModal");
+    modalFront.style.backgroundColor = this.mColor;
+    modalFront.style.height = this.mExpandSizeHeight;
+    modalFront.style.width = this.mExpandSizewidth;
   }
+
   render() {
     return (
-      <div>
-
-        <div class="wrapper">
-          <button class="button" onClick={() => this.handleToggle()}>Open Modal</button>
+      <div id="myModal" class="modal">
+        <div id="contentModal" class="modal-content">
+          <span class="close" onClick={() => this.hideModal()}>&times;</span>
+          <p>Some text in the Modal..</p>
         </div>
-
-        <div id="myModal" class="modal">
-          <div class="modal-content">
-            <span class="close" onClick={() => this.handleToggle2()}>&times;</span>
-            <p>Some text in the Modal..</p>
-          </div>
-        </div>
-
       </div>
     );
   }

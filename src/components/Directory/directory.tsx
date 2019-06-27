@@ -17,7 +17,7 @@ export class directory {
     @Prop() data?: any = {};
     @Prop({ mutable: true }) configuration?: any = {};
     @Prop({ mutable: true }) styling?: any = {};
-    /** 
+    /**
     *   STATE
     */
     @State() internalItems = [];
@@ -140,8 +140,8 @@ export class directory {
             }
         }
     }
-    
-    /** 
+
+    /**
     * Lifecycle methods
     */
     init(){
@@ -161,18 +161,11 @@ export class directory {
                     <div class="topnav">
                         <input type="checkbox" class="active" id="select-all" onClick={() => this.toggleSelection()} />
                         <label class="active" htmlFor="select-all" id="select-all-label">All Items</label>
-                        <prix-modal  canceLabel="Cancel" acceptLabel="Done" label="ShowModal" id="showGrid">
-                            <div id="lettersModal" slot="content">
-                                <ul id="lettersListMobile">
-                                    {this.letterItemsMobile.map((letter) => (
-                                        <li class="pagnLink">
-                                            <input type="checkbox" class="checkInput" id={letter+' '} onChange={() => this.filterByCheckbox(letter)}/>
-                                            <label htmlFor={letter+' '} class="checkLabel">{letter+' '}</label>
-                                        </li>
-                                    ))}
-                                </ul>
-                            </div>
-                        </prix-modal>
+
+
+
+
+
                         <div class="search-container">
                             <input id="searchbox" type="text" placeholder="Search..." onKeyUp={() => this.filterByInput()} />
                         </div>
@@ -237,3 +230,15 @@ export class directory {
         }
     }
 }
+/*  <prix-modal  canceLabel="Cancel" acceptLabel="Done" label="ShowModal" id="showGrid">
+      <div id="lettersModal" slot="content">
+          <ul id="lettersListMobile">
+              {this.letterItemsMobile.map((letter) => (
+                  <li class="pagnLink">
+                      <input type="checkbox" class="checkInput" id={letter+' '} onChange={() => this.filterByCheckbox(letter)}/>
+                      <label htmlFor={letter+' '} class="checkLabel">{letter+' '}</label>
+                  </li>
+              ))}
+          </ul>
+      </div>
+  </prix-modal>*/
