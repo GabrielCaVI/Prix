@@ -1,4 +1,4 @@
-import { Component, State, Prop, h } from "@stencil/core";
+import { Component, State, Prop, h, Method } from "@stencil/core";
 
 @Component({
   tag: "prix-drawer",
@@ -18,9 +18,9 @@ export class TestMenu {
     }
 
     if (this.dSide == "es-top" || this.dSide == "es-bottom") {
-      document.getElementById("menu-wrapper").style.height = this.dExpandSize;
+      document.getElementById("drawer-wrapper").style.height = this.dExpandSize;
     } else {
-      document.getElementById("menu-wrapper").style.width = this.dExpandSize;
+      document.getElementById("drawer-wrapper").style.width = this.dExpandSize;
     }
   }
 
@@ -31,16 +31,16 @@ export class TestMenu {
     }
 
     if (this.dSide == "es-top" || this.dSide == "es-bottom") {
-      document.getElementById("menu-wrapper").style.height = "0%";
+      document.getElementById("drawer-wrapper").style.height = "0%";
     } else {
-      document.getElementById("menu-wrapper").style.width = "0%";
+      document.getElementById("drawer-wrapper").style.width = "0%";
     }
   }
 
 
   componentDidLoad() {
-    let wrapper = document.getElementById("menu-wrapper");
-    document.getElementById("menu-wrapper").style.backgroundColor = this.dColor;
+    let wrapper = document.getElementById("drawer-wrapper");
+    document.getElementById("drawer-wrapper").style.backgroundColor = this.dColor;
 
     switch(this.dSide) {
       case "es-left": {
@@ -69,7 +69,10 @@ export class TestMenu {
   render() {
     return (
       <div>
-        <div id="menu-wrapper">
+        <div class="drawer-wrapper" id="drawer-wrapper">
+          <div id="drawer-content">
+          <slot name ="drawer-content"></slot>
+          </div>
         </div>
       </div>
     );
