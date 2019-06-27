@@ -76,7 +76,6 @@ font-size: 200%;
 #openButton, #inner-menu{
   background-color: #e20177;
 }
-
 #openButton.dark, #inner-menu.dark{
  background-color : rgb(36,52,71); 
 }
@@ -279,10 +278,8 @@ margin-inline: 2px;
     
     /*hace que el scroll del menú cambie cuando es toggled*/
     max-height: calc(100vh - 9rem);
-    overflow-y: auto;
-    
+    overflow-y: auto; 
   }
-
   #content {
     left:0;
     height: 100%;
