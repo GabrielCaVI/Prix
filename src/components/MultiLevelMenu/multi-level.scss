@@ -191,7 +191,7 @@ font-size: 200%;
 .item input:checked ~ label span {
   transition: 0.35s;
   transform: rotate(90deg);
-  padding: 5% 2%;
+  padding: 2% 2%;
 }
 .item input:not(:checked) ~ label span {
   transition: 0.35s;
