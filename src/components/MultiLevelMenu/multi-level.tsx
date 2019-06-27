@@ -4,7 +4,7 @@ import { Component, Prop, h, State } from '@stencil/core';
   styleUrl: 'multi-level.scss',
 })
 export class multiLevel {
-
+//HTML and CSS Properties
   @Prop() message: string;
   @Prop() color: string;
   @Prop() data?: any = {}; 
@@ -13,7 +13,7 @@ export class multiLevel {
   @State() value: string = this.message;
   @State() colour: string = this.color;
   @State () internalItems =  [];
-
+//Toggle open sideMenu function
   handleToggle = () => {
 
     let button = document.getElementById('openButton');
@@ -37,7 +37,7 @@ export class multiLevel {
     }, 350);
 
   }
-
+//Inner Menu transition method
   menuToggle() {
 
     let item = document.getElementById('item')
@@ -47,17 +47,19 @@ export class multiLevel {
       item.classList.toggle("transition");
     }, 350);
   }
-
+// Value setting method
   setValue(color) {
     this.color = color;
   }
+  //Loading Data from document
   init(){
     this.internalItems = this.data.items;
   }
+  // CallBack function
   componentWillLoad(){
     this.init();
   }
-
+// Dark theme implementation
   darkTheme (){
     let inn = document.getElementById('inner-menu');
     let but = document.getElementById('openButton');

@@ -2,23 +2,17 @@
 body {
   font-family: Lato;
 }
-
 * {
   padding: 0;
   margin: 0;
 }
-
 .noselect {
   outline: none;
   border-style: none;
 }
-
 .hide {
   display: none;
 }
-
-
-
 .float {
   position: fixed;
   width: 80px;
@@ -34,13 +28,11 @@ body {
   display: flex; /* Childern Centered */
   align-items: center; /* Childern Centered */
 }
-
 .transition {
   transition: -webkit-transform 0.35s cubic-bezier(0.24, 1, 0.32, 1),
     visibility 0s;
   transition: transform 0.35s cubic-bezier(0.24, 1, 0.32, 1), visibility 0s;
 }
-
 .chevron {
   display: block;
   margin: auto;
@@ -50,8 +42,6 @@ body {
   background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAASCAYAAAE79V5PAAAABGdBTUEAALGPC/xhBQAAAdBJREFUSA2llTtLA0EQx42CbyEWamNSCVainYWVxF7FRhD8AFbBwsoPYBcUKz+Ahdhai9gIWonYCDYqgigYEF+YxN9cdo69vb1cQhaGmfk/Zo7ccuno8J1a/XzFOPCFGBgAxlLTpuyXgUaUtsol6E8MlrV1MmEoAmgDkTWOa8WCDLhqiILJn0qcGaBXHaavdQJcZurnW0lptfZm3Hkz4dkr8IEYpnStk+98+gBDWHLEeRWD3ztc/bEBly2iqgZfRrdtaSs+TYghHAybVgqMH2ZL9DWnDcH0YIya+tM8AY/6UR1Onmg4APGPZShTr1i9lIuxAYAZR3SrIvBJh9tRTq653mbVHIekKSAGlDT5NKBoqhax5Rrt3tJJuaQDpCnYwqQanfwWpSQ+Fcc8Q8g9eCXGUw3tClgySshTu0euRl+782N+huaIG3ebp78AG4kNaBVgyDzx7lkg0B9RSeBewGdb3SfXdZOwb509/4lmWodSzxFvtsCq5cE2VOvNCHqII8vklucAw14zINwYceWarP6Qujv006S9vz008p/R1EHbRRwQSUfuSi4YRlF0VPIdWmtqUwMRM9aJX2d2MWKBlO/XLhG+v4igjUZmEvtE+Mv9A1JJWhptGVPRAAAAAElFTkSuQmCC");
   transform: rotate(90deg);
 }
-
-
 #dark{
   margin: 2%;
   margin-bottom: 0;
@@ -62,7 +52,6 @@ body {
   height: 20px;
   align-content: center;
 }
-
 #dark i{
 color: white;
 align-content: center;
@@ -80,18 +69,16 @@ font-size: 200%;
 .toggle.transition > .chevron {
   transition: 0.35s;
 }
-
 .toggle,
 .toggle-inner-menu {
   transform: translateX(30vw) translateX(-34px);
 }
-
 #openButton, #inner-menu{
   background-color: #e20177;
 }
 
 #openButton.dark, #inner-menu.dark{
- background-color: #A020F0; 
+ background-color : rgb(36,52,71); 
 }
 #openButton{
  
@@ -108,15 +95,11 @@ font-size: 200%;
   z-index: 999;
   /*hace que el scroll del menú cambie cuando es toggled*/
   max-height: calc(100vh + 5rem);
-  overflow-y: auto;
-  
+  overflow-y: auto; 
 }
-
 .arrow {
   padding-left: 5%;
-
 }
-
 #content{
   transform: translateX(-20%);
   
@@ -125,20 +108,15 @@ font-size: 200%;
 .submenu{
   margin-left: 40px;
 }
-
-
 #content {
   transform: translateX(-20%);
   margin-left: 20px;
   height: 100%;
   left: 10%;
 }
-
-
 .center {
   position: relative;
 }
-
 #content p {
   margin: 50px auto;
   color: #fff;
@@ -147,7 +125,6 @@ font-size: 200%;
   text-transform: uppercase;
   text-align: center;
 }
-
 #content ul {
   margin: auto;
   vertical-align: middle;
@@ -156,7 +133,6 @@ font-size: 200%;
   height: 100%;
   top: 20%;
 }
-
 #content ul li {
   display: block;
   width: 90%;
@@ -164,7 +140,6 @@ font-size: 200%;
   text-align: center;
   padding: 5px 10px;
 }
-
 #content input  {
   display: none;
   width: 90%;
@@ -172,9 +147,6 @@ font-size: 200%;
   text-align: center;
   padding: 5px 10px;
 }
-
-
-
 #content .item label {
   display: block;
   width: 90%;
@@ -184,12 +156,9 @@ font-size: 200%;
   margin-left: 15%;
   padding: 5px 10px;
 }
-
 .content .item .submenu {
   margin-left: 30%;
 }
-
-
 #help ul li:last-child {
   border: 1px solid hsla(360, 100%, 100%, 0.9);
   border-radius: 4px;
@@ -197,8 +166,6 @@ font-size: 200%;
   background: hsla(360, 100%, 100%, 0.3);
   margin: 10%;
 }
-
-
 #content ul li a {
   color: #ffffff;
   text-decoration: none;
@@ -210,9 +177,6 @@ font-size: 200%;
 #content ul li a span {
   text-transform: uppercase;
 }
-
-
-
 .item input[type="checkbox"]{
   display: none;
   z-index: 10;
@@ -220,25 +184,21 @@ font-size: 200%;
 .item ul {
   display: none; 
 }
-
 .item input:checked ~ ul {
   display: block;
   transition: 0.35s;
   animation: menu3 300ms ease-in-out forwards;
 }
-
 .item input:checked ~ label span {
   transition: 0.35s;
   transform: rotate(90deg);
   padding: 5% 2%;
 }
-
 .item input:not(:checked) ~ label span {
   transition: 0.35s;
   transform: rotate(0deg);
   padding-left: 5%;
 }
-
 .item input:checked {
 transition: 0.35s;
 transform: 
@@ -246,7 +206,6 @@ rotate(180deg)
 translateY(-25px);
 margin-inline: 2px;
 }
-
 @keyframes menu3 {
 
   from{
@@ -259,8 +218,6 @@ margin-inline: 2px;
     transform:  translateY(-5px)
     }
 }
-
-
 @media (min-width: 601fpx) and (max-width: 960px) {
   #inner-menu {
     left: calc(-35vw + 34px);
@@ -269,8 +226,7 @@ margin-inline: 2px;
 
     /*hace que el scroll del menú cambie cuando es toggled*/
     max-height: calc(100vh - 9rem);
-    overflow-y: auto;
-    
+    overflow-y: auto;   
   }
   .toggle,
   .toggle-inner-menu {
@@ -283,11 +239,7 @@ margin-inline: 2px;
     
   }
 
-
- 
- 
 }
-
 @media (max-width: 600px) {
   #openButton{
     background-color: #e20177;
