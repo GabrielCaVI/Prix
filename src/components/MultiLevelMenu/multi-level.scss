@@ -99,10 +99,6 @@ font-size: 200%;
   }
 #inner-menu {
   border-top:5px;
-<<<<<<< HEAD:src/components/app-menu/app-menu.css
-  background-color:#e20177;
-=======
->>>>>>> 153cf01ad347fa78496389d2e5e0ee4477f17848:src/components/MultiLevelMenu/multi-level.scss
   position: fixed;
   left: calc(-30vw + 34px);
   top: 0;
@@ -111,11 +107,7 @@ font-size: 200%;
   height: 100%;
   z-index: 999;
   /*hace que el scroll del menú cambie cuando es toggled*/
-<<<<<<< HEAD:src/components/app-menu/app-menu.css
-  max-height: calc(100vh - 9rem);
-=======
   max-height: calc(100vh + 5rem);
->>>>>>> 153cf01ad347fa78496389d2e5e0ee4477f17848:src/components/MultiLevelMenu/multi-level.scss
   overflow-y: auto;
   
 }
@@ -129,12 +121,9 @@ font-size: 200%;
   transform: translateX(-20%);
   
   overflow-x: hidden;
-<<<<<<< HEAD:src/components/app-menu/app-menu.css
-=======
 }
 .submenu{
   margin-left: 40px;
->>>>>>> 153cf01ad347fa78496389d2e5e0ee4477f17848:src/components/MultiLevelMenu/multi-level.scss
 }
 
 
@@ -241,11 +230,7 @@ font-size: 200%;
 .item input:checked ~ label span {
   transition: 0.35s;
   transform: rotate(90deg);
-<<<<<<< HEAD:src/components/app-menu/app-menu.css
-  padding: 5% 10%;
-=======
   padding: 5% 2%;
->>>>>>> 153cf01ad347fa78496389d2e5e0ee4477f17848:src/components/MultiLevelMenu/multi-level.scss
 }
 
 .item input:not(:checked) ~ label span {
