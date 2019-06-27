@@ -69,7 +69,7 @@ export class TestMenu {
   render() {
     return (
       <div>
-        <div class="drawer-wrapper" id="drawer-wrapper">
+        <div id="drawer-wrapper">
           <div id="drawer-content">
           <slot name ="drawer-content"></slot>
           </div>
