@@ -4,11 +4,13 @@ import { Component, Prop, Method,h} from '@stencil/core'
     styleUrl: 'modal.scss'
 })
 export class modal {
-  @Prop({ mutable: true }) mColor: string = "blue";
-  @Prop({ mutable: true }) mExpandSizeHeight: string = "100%";
-  @Prop({ mutable: true }) mExpandSizewidth: string = "100%";
+  @Prop({ mutable: true }) mColor: string = "white";
+  @Prop({ mutable: true }) mExpandSizeHeight: string = "30%";
+  @Prop({ mutable: true }) mExpandSizewidth: string = "30%";
   @Prop({ mutable: true }) dOpacity: boolean = false;
   @Prop({ mutable: true }) dOpacityColor: string = "rgba(0,0,0,0.3)";
+  @Prop() canceLabel: string;
+  @Prop() acceptLabel: string;
 
   @Method()
   async showModal() {
@@ -49,8 +51,6 @@ export class modal {
     @Prop() data?: any = {};
     @Prop({ mutable: true }) configuration?: any = {};
     @Prop() label: string;
-    @Prop() canceLabel: string;
-    @Prop() acceptLabel: string;
     @Prop({ mutable: true }) styling?: any = {};
     @State() value: string = this.label;
 

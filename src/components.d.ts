@@ -25,6 +25,8 @@ export namespace Components {
     'isOpen': boolean;
   }
   interface PrixModal {
+    'acceptLabel': string;
+    'canceLabel': string;
     'dOpacity': boolean;
     'dOpacityColor': string;
     'mColor': string;
@@ -91,6 +93,8 @@ declare namespace LocalJSX {
     'isOpen'?: boolean;
   }
   interface PrixModal extends JSXBase.HTMLAttributes<HTMLPrixModalElement> {
+    'acceptLabel'?: string;
+    'canceLabel'?: string;
     'dOpacity'?: boolean;
     'dOpacityColor'?: string;
     'mColor'?: string;
