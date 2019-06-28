@@ -21,6 +21,7 @@ export class directory {
     *   STATE
     */
     @State() internalItems = [];
+
     letterItems = [
         "#",
         "A",
@@ -56,29 +57,30 @@ export class directory {
         "E",
         "I",
         "M",
-        "Q",
-        "U",
-        "Y",
+        "P",
+        "T",
+        "X",
         "B",
         "F",
         "J",
         "N",
-        "R",
-        "V",
-        "Z",
+        "Q",
+        "U",
+        "Y",
         "C",
         "G",
         "K",
-        "O",
-        "S",
-        "W",
-        "#",
+        "Ñ",
+        "R",
+        "V",
+        "Z",
         "D",
         "H",
         "L",
-        "P",
-        "T",
-        "X"
+        "O",
+        "S",
+        "W",
+        "#"
     ];
 
     toggleSelection() {
@@ -89,14 +91,14 @@ export class directory {
 
         if (selectAllBtn.checked) {
             selectLabel.innerHTML = 'Unselect all';
-            for (var i = 0; i < letterItems.length; i++) {
+            for (let i = 0; i < letterItems.length; i++) {
                 letterItems[i].checked = true;
                 items[i].style.display="contents";
 
             }
         } else {
             selectLabel.innerHTML = 'All items';
-            for (var i = 0; i < letterItems.length; i++) {
+            for (let i = 0; i < letterItems.length; i++) {
                 letterItems[i].checked = false;
                 items[i].style.display="";
             }
@@ -104,13 +106,14 @@ export class directory {
     }
 
     filterByInput(){
+        this.cleanFilters("check");
         var p;
         let searchbox = document.getElementById("searchbox") as HTMLInputElement // the searchbox element
         let filter = searchbox.value.toUpperCase() as string; // the typed filter
         let items = document.getElementsByClassName("item") as HTMLCollectionOf<HTMLDivElement>; //To hide the complete <div class=item>
         for(let i = 0; i < items.length; i++){ // iterate over labels to match input
             p = items[i].getElementsByTagName("p")[0].textContent || items[i].getElementsByTagName("p")[0].innerText;
-            if(p.toUpperCase().indexOf(filter[0]) > -1){
+            if(filter !==' ' && p.toUpperCase().indexOf(filter[0]) > -1){
                 items[i].style.display = "contents";
                 this.filterLinks(items[i],filter);
             }else{
@@ -119,19 +122,18 @@ export class directory {
         }
     }
     filterByCheckbox(check){
-        var p;
+        this.cleanFilters("input");
+        let p;
         let items = document.getElementsByClassName("item") as HTMLCollectionOf<HTMLDivElement>;
-        let checkboxes = document.getElementsByClassName('checkInput') as HTMLCollectionOf<HTMLInputElement>;
+        let checkboxes = Array.from(document.getElementsByClassName('checkInput') as HTMLCollectionOf<HTMLInputElement>);//Make an array to support 'some' method
         let selectAllBtn = document.getElementById('select-all') as HTMLInputElement;
         let selectLabel = document.getElementById('select-all-label') as HTMLLabelElement;
-        for(let i = 0; i < checkboxes.length; i++){
-            if(checkboxes[i].checked){
-                selectLabel.innerHTML = "Unselect all"
-                selectAllBtn.checked=true;
-            }else{
-                selectAllBtn.checked = false;
-                selectLabel.innerHTML = 'All items';
-            }
+        if (checkboxes.some((box) =>{return box.checked})){
+            selectLabel.innerHTML = "Unselect all"
+            selectAllBtn.checked=true;
+        }else{
+            selectAllBtn.checked = false;
+            selectLabel.innerHTML = 'All items';
         }
         for(let i = 0; i < items.length; i++){
             p = items[i].getElementsByTagName("p")[0].textContent || items[i].getElementsByTagName("p")[0].innerText;
@@ -144,10 +146,6 @@ export class directory {
     /** 
     * Lifecycle methods
     */
-    init(){
-        this.sortItems();
-        this.internalItems = this.data.items;
-    }
     componentWillLoad() {
         this.init();
         this.sortItems();
@@ -157,52 +155,54 @@ export class directory {
         const items = this.internalItems;
         return (
             <span>
-                <div class="container-lg">
-                    <div class="topnav">
-                        <input type="checkbox" class="active" id="select-all" onClick={() => this.toggleSelection()} />
-                        <label class="active" htmlFor="select-all" id="select-all-label">All Items</label>
-                        <prix-modal  canceLabel="Cancel" acceptLabel="Done" label="ShowModal" id="showGrid">
-                            <div id="lettersModal" slot="content">
-                                <ul id="lettersListMobile">
-                                    {this.letterItemsMobile.map((letter) => (
-                                        <li class="pagnLink">
-                                            <input type="checkbox" class="checkInput" id={letter+' '} onChange={() => this.filterByCheckbox(letter)}/>
-                                            <label htmlFor={letter+' '} class="checkLabel">{letter+' '}</label>
-                                        </li>
-                                    ))}
-                                </ul>
-                            </div>
-                        </prix-modal>
-                        <div class="search-container">
-                            <input id="searchbox" type="text" placeholder="Search..." onKeyUp={() => this.filterByInput()} />
-                        </div>
-                        <div id="letters">
-                            <ul id="lettersList">
-                                {this.letterItems.map((letter) => (
-                                    <li class="pagnLink">
-                                        <input type="checkbox" class="checkInput" id={letter} onChange={() => this.filterByCheckbox(letter)}/>
-                                        <label htmlFor={letter} class="checkLabel">{letter}</label>
+                <div class="topnav">
+                    <input type="checkbox" class="active" id="select-all" onClick={() => this.toggleSelection()} />
+                    <label class="active" htmlFor="select-all" id="select-all-label">All Items</label>
+                    <prix-modal  canceLabel="Cancel" acceptLabel="Done" label="ShowModal" id="showGrid">
+                        <div id="lettersModal" slot="content">
+                            <ul id="lettersListMobile">
+                                {this.letterItemsMobile.map((letter) => (
+                                    <li class="pagnLinkMobile">
+                                        <input type="checkbox" class="checkInputMobile" id={letter+' '} onChange={() => this.filterByCheckbox(letter)}/>
+                                        <label htmlFor={letter+' '} class="checkLabelMobile">{letter+' '}</label>
                                     </li>
                                 ))}
                             </ul>
                         </div>
+                    </prix-modal>
+                    <div class="search-container">
+                        <input id="searchbox" type="text" placeholder="Search..." onInput={() => this.filterByInput()} />
                     </div>
-                    <div class="item-container">
-                        {items.map((item) => (
-                            <div class="item">
-                                <p>{item.index}</p>
-                                <div class="rule"></div>
-                                <ul>
-                                    {item.content.map(contentItem => (
-                                        <li><a href={contentItem.url}>{contentItem.title}</a></li>
-                                    ))}
-                                </ul>
-                            </div>
-                        ))}
+                    <div id="letters">
+                        <ul id="lettersList">
+                            {this.letterItems.map((letter) => (
+                                <li class="pagnLink">
+                                    <input type="checkbox" class="checkInput" id={letter} onChange={() => this.filterByCheckbox(letter)}/>
+                                    <label htmlFor={letter} class="checkLabel">{letter}</label>
+                                </li>
+                            ))}
+                        </ul>
                     </div>
+                </div>
+                <div class="item-container">
+                    {items.map((item) => (
+                        <div class="item">
+                            <p>{item.index}</p>
+                            <div class="rule"></div>
+                            <ul>
+                                {item.content.map(contentItem => (
+                                    <li><a href={contentItem.url}>{contentItem.title}</a></li>
+                                ))}
+                            </ul>
+                        </div>
+                    ))}
                 </div>
             </span>
         )
+    }
+    private init(){
+        this.sortItems();
+        this.internalItems = this.data.items;
     }
     private sortItems() {
         const { sort } = this.configuration;
@@ -235,5 +235,25 @@ export class directory {
                 nodes[i].style.display = "none";
             }
         }
+    }
+    private cleanFilters(filter){
+        if (filter == "check"){
+            let inputs = Array.from(document.getElementsByClassName('checkInput') as HTMLCollectionOf<HTMLInputElement>);
+            let selectAllBtn = document.getElementById('select-all') as HTMLInputElement;
+            let selectAllLabel = document.getElementById('select-all-label') as HTMLLabelElement;
+            inputs.map((input) => {
+                input.checked = false;
+            })
+            selectAllBtn.checked=false;
+            selectAllLabel.innerText = 'All items'
+
+        }else{
+            let searchbox = document.getElementById("searchbox") as HTMLInputElement // the searchbox element
+            searchbox.value = null; 
+        }
+        let items = Array.from(document.getElementsByClassName("item") as HTMLCollectionOf<HTMLDivElement>);
+        items.forEach((item) => {
+            item.style.display = item.style.display===''?'content':'';
+        })
     }
 }
