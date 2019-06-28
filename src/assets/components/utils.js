@@ -1,8 +1,8 @@
 function populateComponent(component, jsonObject) {
-    component.data = jsonObject.data;
-    component.configuration = jsonObject.configuration;
-    component.styling = jsonObject.styling;
-  }
+  component.data = jsonObject.data;
+  component.configuration = jsonObject.configuration;
+  component.styling = jsonObject.styling;
+}
 function loadComponent(selector, jsonPath) {
   var component = document.querySelector(selector);
   axios

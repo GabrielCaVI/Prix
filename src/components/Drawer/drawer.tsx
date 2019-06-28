@@ -13,8 +13,8 @@ export class TestMenu {
   @Prop({ mutable: true }) dOpacity: boolean = false;
 
   handleToggle = () => {
-    if(this.dOpacity) {
-      if(this.isOpen) {
+    if (this.dOpacity) {
+      if (this.isOpen) {
         document.body.style.backgroundColor = "white";
       } else {
         document.body.style.backgroundColor = "rgba(0,0,0,0.2)";
@@ -36,13 +36,13 @@ export class TestMenu {
       }
       this.isOpen = true;
     }
-  }
+  };
 
   componentDidLoad() {
     let wrapper = document.getElementById("menu-wrapper");
     document.getElementById("menu-wrapper").style.backgroundColor = this.dColor;
 
-    switch(this.dSide) {
+    switch (this.dSide) {
       case "es-left": {
         wrapper.classList.toggle("drawer-left");
         break;
@@ -73,7 +73,9 @@ export class TestMenu {
           <p>Algo de texto</p>
         </div>
         <div class="wrapper">
-          <button class="button" onClick={() => this.handleToggle()}>Button</button>
+          <button class="button" onClick={() => this.handleToggle()}>
+            Button
+          </button>
         </div>
       </div>
     );

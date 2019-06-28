@@ -1,10 +1,9 @@
 {
-    "configuration":{   
-    },
-    "styling":{
-        "colorscheme":""
-    },
-    "data":{
-        "items":[]
-    }
+  "configuration": {},
+  "styling": {
+    "colorscheme": ""
+  },
+  "data": {
+    "items": []
+  }
 }

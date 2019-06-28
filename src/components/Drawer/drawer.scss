@@ -1,28 +1,28 @@
 @charset "UTF-8";
 html,
 body {
-    height: 100%;
-    margin:0;
-    padding: 0;
+  height: 100%;
+  margin: 0;
+  padding: 0;
 }
 
 .wrapper {
-    text-align: center;
+  text-align: center;
 }
 
 .button {
-    position: absolute;
-    top: 50%;
+  position: absolute;
+  top: 50%;
 }
 
 .drawer-left {
   height: 100%; /* 100% Full-height */
-  position:fixed; /* Stay in place */
+  position: fixed; /* Stay in place */
   z-index: 1; /* Stay on top */
   top: 0; /* Stay at the top */
   left: 0;
   width: 0%; /* 0 width - change this with JavaScript */
-  background-color: #AFA; /* Black*/
+  background-color: #afa; /* Black*/
   overflow-x: hidden; /* Disable horizontal scroll */
   transition: 0.5s; /* 0.5 second transition effect to slide in the sidenav */
 }
@@ -34,7 +34,7 @@ body {
   top: 0; /* Stay at the top */
   right: 0;
   width: 0%; /* 0 width - change this with JavaScript */
-  background-color: #AFA; /* Black*/
+  background-color: #afa; /* Black*/
   overflow-x: hidden; /* Disable horizontal scroll */
   transition: 0.5s; /* 0.5 second transition effect to slide in the sidenav */
 }
@@ -46,7 +46,7 @@ body {
   top: 0; /* Stay at the top */
   left: 0;
   width: 100%; /* 0 width - change this with JavaScript */
-  background-color: #AFA; /* Black*/
+  background-color: #afa; /* Black*/
   overflow-x: hidden; /* Disable horizontal scroll */
   transition: 0.5s; /* 0.5 second transition effect to slide in the sidenav */
 }
@@ -58,7 +58,7 @@ body {
   bottom: 0; /* Stay at the top */
   left: 0;
   width: 100%; /* 0 width - change this with JavaScript */
-  background-color: #AFA; /* Black*/
+  background-color: #afa; /* Black*/
   overflow-x: hidden; /* Disable horizontal scroll */
   transition: 0.5s; /* 0.5 second transition effect to slide in the sidenav */
 }
