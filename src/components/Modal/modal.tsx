@@ -4,49 +4,7 @@ import { Component, Prop, Method,h} from '@stencil/core'
     styleUrl: 'modal.scss'
 })
 export class modal {
-  @Prop({ mutable: true }) mColor: string = "white";
-  @Prop({ mutable: true }) mExpandSizeHeight: string = "30%";
-  @Prop({ mutable: true }) mExpandSizewidth: string = "30%";
-  @Prop({ mutable: true }) dOpacity: boolean = false;
-  @Prop({ mutable: true }) dOpacityColor: string = "rgba(0,0,0,0.3)";
-  @Prop() canceLabel: string;
-  @Prop() acceptLabel: string;
-
-  @Method()
-  async showModal() {
-    console.log("HERE");
-    document.getElementById("myModal").style.display = "block";
-  /*  @Listen('click', { target: 'window' })
-      handleScroll() {
-        document.getElementById("myModal").style.display = "none";
-      }*/
-  }
-
-  hideModal = () => {
-    document.getElementById("myModal").style.display = "none";
-  }
-
-  componentDidLoad(){
-    let modalBack = document.getElementById("myModal");
-    modalBack.style.backgroundColor = this.dOpacityColor;
-
-    let modalFront = document.getElementById("contentModal");
-    modalFront.style.backgroundColor = this.mColor;
-    modalFront.style.height = this.mExpandSizeHeight;
-    modalFront.style.width = this.mExpandSizewidth;
-  }
-
-  render() {
-    return (
-      <div id="myModal" class="modal">
-        <div id="contentModal" class="modal-content">
-          <span class="close" onClick={() => this.hideModal()}>&times;</span>
-          <p>Some text in the Modal..</p>
-        </div>
-      </div>
-    );
-  }
-  /*
+  /* GABO
     @Element() el: HTMLElement;
     @Prop() data?: any = {};
     @Prop({ mutable: true }) configuration?: any = {};
@@ -107,4 +65,66 @@ export class modal {
         ]
     }
 */
+
+  @Prop({ mutable: true }) mColorHeader: string = "green";
+  @Prop({ mutable: true }) mColorBody: string = "white";
+  @Prop({ mutable: true }) mColorFooter: string = "grey";
+  //@Prop({ mutable: true }) mExpandSizeHeight: string = "20%";
+  @Prop({ mutable: true }) mExpandSizewidth: string = "50%";
+  @Prop({ mutable: true }) dOpacity: boolean = false;
+  @Prop({ mutable: true }) dOpacityColor: string = "rgba(0,0,0,0.3)";
+  @Prop() canceLabel: string;
+  @Prop() acceptLabel: string;
+
+  @Method()
+  async showModal() {
+    console.log("HERE");
+    document.getElementById("myModal").style.display = "flex";
+  }
+
+  hideModal = () => {
+    document.getElementById("myModal").style.display = "none";
+  }
+
+  componentDidLoad(){
+    let modalBack = document.getElementById("myModal");
+    modalBack.style.backgroundColor = this.dOpacityColor;
+
+    let modalContent = document.getElementById("contentModal");
+    //modalContent.style.backgroundColor = "red";
+    //modalFront.style.height = this.mExpandSizeHeight;
+    modalContent.style.width = this.mExpandSizewidth;
+
+    let modalHeader = document.getElementById("headerModal");
+    modalHeader.style.backgroundColor = "red";
+
+    let modalBody = document.getElementById("bodyModal");
+    modalBody.style.backgroundColor = this.mColorBody;
+
+    let modalFooter = document.getElementById("footerModal");
+    modalFooter.style.backgroundColor = this.mColorFooter;
+
+  }
+
+  render() {
+    return (
+      <div>
+        <div id ="myModal" class = "modal">
+          <div id ="contentModal" class = "modal-content">
+            <div id ="headerModal" class = "modal-header">
+            Hola que Hace
+            </div>
+            <div id ="bodyModal" class = "modal-body">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+            </div>
+            <div id ="footerModal" class = "modal-footer">
+              <button class="button" onClick={() => this.hideModal()}>OK</button>
+              <button class="button" onClick={() => this.hideModal()}>cerrar</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    );
+  }
 }

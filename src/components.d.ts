@@ -29,8 +29,9 @@ export namespace Components {
     'canceLabel': string;
     'dOpacity': boolean;
     'dOpacityColor': string;
-    'mColor': string;
-    'mExpandSizeHeight': string;
+    'mColorBody': string;
+    'mColorFooter': string;
+    'mColorHeader': string;
     'mExpandSizewidth': string;
     'showModal': () => Promise<void>;
   }
@@ -97,8 +98,9 @@ declare namespace LocalJSX {
     'canceLabel'?: string;
     'dOpacity'?: boolean;
     'dOpacityColor'?: string;
-    'mColor'?: string;
-    'mExpandSizeHeight'?: string;
+    'mColorBody'?: string;
+    'mColorFooter'?: string;
+    'mColorHeader'?: string;
     'mExpandSizewidth'?: string;
   }
   interface PrixMultiLevel extends JSXBase.HTMLAttributes<HTMLPrixMultiLevelElement> {
