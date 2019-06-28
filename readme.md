@@ -13,9 +13,8 @@ There are four base components for this project: Modal, Multi-level left menu, D
 To start a demo of each component, clone the repo into a new directory:
 
 ```bash
-git clone https://github.com/ionic-team/stencil-component-starter.git my-component
-cd my-component
-git remote rm origin
+git clone https://github.com/GabrielCaVI/Prix
+cd Prix
 ```
 
 and remember to run:
