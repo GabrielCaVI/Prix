@@ -131,6 +131,8 @@ body {
     #letters{
       column-count: 16;
     }
+
+
   }
   @media screen and (max-width: 660px) {
     #letters, #select-all, #select-all-label{
@@ -150,10 +152,16 @@ body {
     #search-box input{
       margin: 2%;
     }
+
+    #searchbox {
+      width: 95%;
+      margin-top: 0;
+     }
+
     #showGrid{
       display: block;
       margin-left: 6%;
-      margin-top: 10%;
+      margin-top: 1%;
       border-radius: 9px;
     }
     
