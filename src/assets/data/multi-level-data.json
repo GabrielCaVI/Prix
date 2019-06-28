@@ -2,43 +2,60 @@
     "data" : {
         "items" : [
             {
-                "title" : "HOME 2",
-                "levels" : [
+                "title" : "OFERTA EDUCATIVA",
+                "levels" : [],
+                "options" : [
                     {
-                        "title" : "Opción 1",
-                        "options" : [
-                            {
-                                "title" : "Subnivel 1",
-                                "url" : "#"
-                            }
-                        ]
+                        "title" : "PREPA TEC",
+                        "url" : "https://tec.mx/es/prepatec/programas-academicos"
                     },
                     {
-                        "title" : "Opción 2",
-                        "options" : [
-                            {
-                                "title" : "Subnivel 3",
-                                "url" : "#"                            }
-                        ]
-                    }
-                ],
-                "options" : []
-            },
-
-            {
-                "title" : "HOMEBase",
-                "levels" : [
+                        "title" : "PROFESIONAL",
+                        "url" : "https://tec.mx/es/oferta-educativa-profesional"
+                    },
                     {
-                        "title" : "Opción 3",
-                        "options" : [
-                            {
-                                "title" : "Subnivel 3",
-                                "url" : "https://starbucks.com/"
-                            }
-                        ]
+                        "title" : "POSGRADOS",
+                        "url" : "https://maestriasydiplomados.tec.mx/programas/posgrados"
+                    },
+                    {
+                        "title" : "EDUCACION CONTINUA",
+                        "url" : "https://maestriasydiplomados.tec.mx/programas/educacion_continua"
+                    }]
+            },
+            {
+                "title" : "VIDA EN CAMPUS",
+                "levels" : [],
+                "options" : [
+                    {
+                        "title" : "PASION POR LA LECTURA",
+                        "url" : "https://tec.mx/es/pasion-por-la-lectura"
+                    },
+                    {
+                        "title" : "SERVICIO SOCIAL",
+                        "url" : "https://tec.mx/es/servicio-social"
+                    },
+                    {
+                        "title" : "TEC STORE",
+                        "url" : "https://store.tec.mx/"
+                    }]
+            },
+            {
+                "title" : "NOTICIAS",
+                "levels" : [],
+                "options" : [
+                    {
+                        "title" : "POR CATEGORIA",
+                        "url" : "https://tec.mx/es/noticias/nacional"
+                    },
+                    {
+                        "title" : "ESCUELAS NACIONALES",
+                        "url" : "https://tec.mx/es/noticias/nacional"
+                    },
+                    {
+                        "title" : "TEC REVIEW",
+                        "url" : "https://tecreview.tec.mx/"
                     }
-                ],
-                "options" : []
+                ]
             }
         ]
     }

@@ -1,6 +1,6 @@
 @charset "UTF-8";
 body {
-  font-family: Lato;
+  font-family: 'Montserrat', Arial, Helvetica, sans-serif;
 }
 * {
   padding: 0;
@@ -74,7 +74,7 @@ font-size: 200%;
   transform: translateX(30vw) translateX(-34px);
 }
 #openButton, #inner-menu{
-  background-color: #e20177;
+  background-color: #0033A0;
 }
 #openButton.dark, #inner-menu.dark{
  background-color : rgb(36,52,71); 
@@ -136,8 +136,7 @@ font-size: 200%;
   display: block;
   width: 90%;
   margin-bottom: 5px;
-  text-align: center;
-  padding: 5px 10px;
+  padding: 5px 28%;
 }
 #content input  {
   display: none;
@@ -164,6 +163,8 @@ font-size: 200%;
   width: 80%;
   background: hsla(360, 100%, 100%, 0.3);
   margin: 10%;
+  padding: 5px 10px;
+  text-align: center;
 }
 #content ul li a {
   color: #ffffff;
@@ -241,7 +242,7 @@ margin-inline: 2px;
 }
 @media (max-width: 600px) {
   #openButton{
-    background-color: #e20177;
+    background-color: #0033A0;
     top: 85%;
     }
   .float {
