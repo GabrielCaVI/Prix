@@ -253,7 +253,7 @@ export class directory {
         }
         let items = Array.from(document.getElementsByClassName("item") as HTMLCollectionOf<HTMLDivElement>);
         items.forEach((item) => {
-            item.style.display = item.style.display===''?'content':'';
+            item.style.display = 'none';
         })
     }
 }
