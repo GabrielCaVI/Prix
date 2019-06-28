@@ -13,27 +13,27 @@ export class TestMenu {
 
   @Method()
   async showDrawer() {
-    if(this.dOpacity) {
-      document.body.style.backgroundColor = "rgba(0,0,0,0.2)";
-    }
-
     if (this.dSide == "es-top" || this.dSide == "es-bottom") {
       document.getElementById("drawer-wrapper").style.height = this.dExpandSize;
     } else {
       document.getElementById("drawer-wrapper").style.width = this.dExpandSize;
     }
+
+    if(this.dOpacity) {
+      document.body.style.backgroundColor = "rgba(0,0,0,0.2)";
+    }
   }
 
   @Method()
   async hideDrawer() {
-    if(this.dOpacity) {
-      document.body.style.backgroundColor = "white";
-    }
-
     if (this.dSide == "es-top" || this.dSide == "es-bottom") {
       document.getElementById("drawer-wrapper").style.height = "0%";
     } else {
       document.getElementById("drawer-wrapper").style.width = "0%";
+    }
+    
+    if(this.dOpacity) {
+      document.body.style.backgroundColor = "white";
     }
   }
 
