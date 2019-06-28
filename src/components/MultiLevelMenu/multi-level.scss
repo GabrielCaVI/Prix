@@ -17,6 +17,8 @@ body {
   display: none;
 }
 
+
+
 .float {
   position: fixed;
   width: 80px;
@@ -49,6 +51,24 @@ body {
   transform: rotate(90deg);
 }
 
+
+#dark{
+  margin: 2%;
+  margin-bottom: 0;
+  background-color: transparent;
+  border: transparent;
+  user-select: none;
+  width: 30px;
+  height: 20px;
+  align-content: center;
+}
+
+#dark i{
+color: white;
+align-content: center;
+font-size: 200%;
+
+}
 .transition.chevron {
   transition: 0.35s;
 }
@@ -65,26 +85,46 @@ body {
 .toggle-inner-menu {
   transform: translateX(30vw) translateX(-34px);
 }
-#openButton{
+
+#openButton, #inner-menu{
   background-color: #e20177;
+}
+
+#openButton.dark, #inner-menu.dark{
+ background-color: #A020F0; 
+}
+#openButton{
+ 
   top: 50%;
   }
 #inner-menu {
-  border-top: 120px;
-  background-color:#e20177;
+  border-top:5px;
   position: fixed;
   left: calc(-30vw + 34px);
-  top: 120px;
+  top: 0;
   border-right: 1px solid rgba(0, 0, 0, 0.14);
   width: 30vw;
   height: 100%;
   z-index: 999;
+  /*hace que el scroll del menú cambie cuando es toggled*/
+  max-height: calc(100vh + 5rem);
+  overflow-y: auto;
+  
+}
+
+.arrow {
+  padding-left: 5%;
+
 }
 
 #content{
   transform: translateX(-20%);
+  
+  overflow-x: hidden;
 }
-
+.submenu{
+  margin-left: 40px;
+}
 
 
 #content {
@@ -93,6 +133,7 @@ body {
   height: 100%;
   left: 10%;
 }
+
 
 .center {
   position: relative;
@@ -125,14 +166,16 @@ body {
 }
 
 #content input  {
-  display: block;
+  display: none;
   width: 90%;
   margin-bottom: 5px;
   text-align: center;
   padding: 5px 10px;
 }
 
-#content label {
+
+
+#content .item label {
   display: block;
   width: 90%;
   color: white;
@@ -142,20 +185,24 @@ body {
   padding: 5px 10px;
 }
 
+.content .item .submenu {
+  margin-left: 30%;
+}
+
+
 #help ul li:last-child {
   border: 1px solid hsla(360, 100%, 100%, 0.9);
   border-radius: 4px;
   width: 80%;
   background: hsla(360, 100%, 100%, 0.3);
-  margin-top: 10%;
-  margin-left: 10%;
-  position: relative;
+  margin: 10%;
 }
 
 
 #content ul li a {
   color: #ffffff;
   text-decoration: none;
+  animation: rota 3s ease-in 0.3s 2 reverse forwards;
 }
 #contentul li a span.far {
   margin-right: 10px;
@@ -165,21 +212,65 @@ body {
 }
 
 
-#item ul {
+
+.item input[type="checkbox"]{
   display: none;
+  z-index: 10;
+}
+.item ul {
+  display: none; 
 }
 
-#item input:checked ~ ul{
+.item input:checked ~ ul {
   display: block;
+  transition: 0.35s;
+  animation: menu3 300ms ease-in-out forwards;
 }
 
+.item input:checked ~ label span {
+  transition: 0.35s;
+  transform: rotate(90deg);
+  padding: 5% 2%;
+}
 
+.item input:not(:checked) ~ label span {
+  transition: 0.35s;
+  transform: rotate(0deg);
+  padding-left: 5%;
+}
+
+.item input:checked {
+transition: 0.35s;
+transform: 
+rotate(180deg)
+translateY(-25px);
+margin-inline: 2px;
+}
+
+@keyframes menu3 {
+
+  from{
+    opacity: 0%;
+    transform:  translateY(-10px)
+  }
+
+  to{
+    opacity: 100%;
+    transform:  translateY(-5px)
+    }
+}
 
 
 @media (min-width: 601fpx) and (max-width: 960px) {
   #inner-menu {
     left: calc(-35vw + 34px);
     width: 35vw;
+    height: 100%;
+
+    /*hace que el scroll del menú cambie cuando es toggled*/
+    max-height: calc(100vh - 9rem);
+    overflow-y: auto;
+    
   }
   .toggle,
   .toggle-inner-menu {
@@ -189,12 +280,11 @@ body {
   #content{
     border-left: 30%;
     left: 7%;
+    
   }
 
 
-
  
-
  
 }
 
@@ -214,11 +304,12 @@ body {
   }
 
   .toggle {
-    transform: translateY(-50vh);
+    /*cambió cantidad de transform para que el menú sea visualizado*/
+    transform: translateY(-80vh);
   }
 
   .toggle-inner-menu {
-    transform: translateY(-50vh) translateY(-60px);
+    transform: translateY(-40vh) translateY(-60px);
   }
 
   .toggle > .chevron {
@@ -233,18 +324,24 @@ body {
     border-right: 1px solid rgba(0, 0, 0, 0.14);
     height: 80%;
     width: 100%;
+    
+    /*hace que el scroll del menú cambie cuando es toggled*/
+    max-height: calc(100vh - 9rem);
+    overflow-y: auto;
+    
   }
 
   #content {
     left:0;
-    height: 50%;
+    height: 100%;
+    
   }
 
   .center {
     position: relative;
   }
   #content{
-    transform: translateY(-5%);
+    transform: translateY(0%);
   }
 
   #content p {
@@ -258,11 +355,16 @@ body {
     top: 0px;
   }
 
-  /* #content ul li:last-child {
-    bottom: 16px;
-    position: relative;
-    bottom: auto;
-  } */
+  .inner-chevron{
+   
+    transition: 0.35s;
+    transform: rotate(180deg);
+  }
+
+  .item input:checked{
+    transition: 0.35s;
+    transform: rotate(0deg)
+    }
 
   #content ul li a {
     color: #ffffff;
@@ -274,4 +376,11 @@ body {
   #content ul li a span {
     text-transform: uppercase;
   }
+
+  #help 
+  {
+    align-content: center;
+    margin-right: 2%;
+  }
+
 }
