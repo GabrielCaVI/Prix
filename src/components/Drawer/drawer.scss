@@ -58,3 +58,47 @@ body {
   overflow-x: hidden; /* Disable horizontal scroll */
   transition: 0.5s; /* 0.5 second transition effect to slide in the sidenav */
 }
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (max-width: 600px) {
+  .small-size-height{
+    height: 30%;
+  }
+  .medium-size-height{
+    height: 60%;
+  }
+  .large-size-height{
+    height: 100%;
+  }
+  .small-size-width{
+    width: 60%;
+  }
+  .medium-size-width{
+    width: 60%;
+  }
+  .large-size-width{
+    width: 100%;
+  }
+}
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 600px) {
+  .small-size-height{
+    height: 30%;
+  }
+  .medium-size-height{
+    height: 60%;
+  }
+  .large-size-height{
+    height: 100%;
+  }
+  .small-size-width{
+    width: 30%;
+  }
+  .medium-size-width{
+    width: 60%;
+  }
+  .large-size-width{
+    width: 100%;
+  }
+}
