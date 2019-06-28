@@ -40,6 +40,32 @@
                     }]
             },
             {
+                "title" : "DIFERENCIA TEC",
+                "levels" : [],
+                "options" : [
+                    {
+                        "title" : "MODELO TEC 21",
+                        "url" : "https://tec.mx/es/modelo-tec21"
+                    },
+                    {
+                        "title" : "PATRIMONIO CULTURAL",
+                        "url" : "https://tec.mx/es/patrimonio-cultural"
+                    },
+                    {
+                        "title" : "INTERNACIONALIZACIÓN",
+                        "url" : "https://tec.mx/es/internacionalizacion"
+                    },
+                    {
+                        "title" : "DIVERSIDAD E INCLUSIÓN",
+                        "url" : "https://tec.mx/es/diversidad-e-inclusion"
+                    },
+                    {
+                        "title" : "EMPRENDIMIENTO",
+                        "url" : "https://tec.mx/es/emprendimiento"
+                    }
+                ]
+            },
+            {
                 "title" : "NOTICIAS",
                 "levels" : [],
                 "options" : [

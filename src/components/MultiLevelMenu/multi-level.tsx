@@ -76,16 +76,17 @@ export class multiLevel {
         <div id="bg-opacity">
         </div>
         <div id="wrapper" class="center">
-          <button id="openButton" onClick={() => this.handleToggle()} 
-        class="float hide noselect" >
+          <button id="openButton" onClick={() => this.handleToggle()} class="float hide noselect" >
             <div class="chevron"></div>
           </button>
           <div id="inner-menu" class="">
+          
           <span id="dark">  <button id="dark" onClick={() => this.darkTheme()}><i  class ="fas fa-moon"></i></button> </span>
-        
+          <br/>
+          <slot name="icon"/>
             <div id="content" class="hide center">
               <p>{this.value}</p>
-           {
+              {
                 items.map((item)=>(
                   <div class="item">
                     <input type="checkbox" id={item.title} value={item.title}/>
@@ -111,9 +112,7 @@ export class multiLevel {
               }
 
               <div class="help22" id="help">
-                <ul>
-                  <li><a href="#"><span class="far"></span>Help Center</a></li>
-                </ul>
+                <a href="#"><span class="far"></span>Help Center</a>
               </div>
 
             </div>
