@@ -172,6 +172,11 @@ export class directory {
         }
     }
 
+    open(){
+        var modal = document.querySelector("prix-modal");
+        modal.showModal();
+    }
+
     /** 
     * Lifecycle methods
     */
@@ -185,6 +190,7 @@ export class directory {
         return (
             <span>
                 <div class="topnav">
+                    <button class="prix-button" id="openModal" onClick={() => this.open()}>ABC</button>
                     <input type="checkbox" class="active" id="select-all" onClick={() => this.toggleSelection()} />
                     <label class="active" htmlFor="select-all" id="select-all-label">All</label>
                     <prix-modal acceptLabel="OK" canceLabel="Cancel">
