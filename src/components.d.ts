@@ -27,13 +27,13 @@ export namespace Components {
   interface PrixModal {
     'acceptLabel': string;
     'canceLabel': string;
-    'configuration'?: any;
-    /**
-    * Common attributes
-    */
-    'data'?: any;
-    'label': string;
-    'styling'?: any;
+    'dOpacity': boolean;
+    'dOpacityColor': string;
+    'mColorBody': string;
+    'mColorFooter': string;
+    'mColorHeader': string;
+    'mExpandSizewidth': string;
+    'showModal': () => Promise<void>;
   }
   interface PrixMultiLevel {
     'color': string;
@@ -96,13 +96,12 @@ declare namespace LocalJSX {
   interface PrixModal extends JSXBase.HTMLAttributes<HTMLPrixModalElement> {
     'acceptLabel'?: string;
     'canceLabel'?: string;
-    'configuration'?: any;
-    /**
-    * Common attributes
-    */
-    'data'?: any;
-    'label'?: string;
-    'styling'?: any;
+    'dOpacity'?: boolean;
+    'dOpacityColor'?: string;
+    'mColorBody'?: string;
+    'mColorFooter'?: string;
+    'mColorHeader'?: string;
+    'mExpandSizewidth'?: string;
   }
   interface PrixMultiLevel extends JSXBase.HTMLAttributes<HTMLPrixMultiLevelElement> {
     'color'?: string;

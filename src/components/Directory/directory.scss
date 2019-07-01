@@ -40,9 +40,7 @@ body {
   .item{
     display: none;
   }
-  #showGrid{
-    display: none;
-  }
+
   #letters{
     display: block;
   }
@@ -127,9 +125,14 @@ body {
       display: block;
       
     }
+    #searchbox{
+      width: 70%;
+      margin-left: 30%;
+      margin-right: 0.5%;
+      }    
   
     #letters{
-      column-count: 16;
+      column-count: 15;
     }
 
 
@@ -145,9 +148,7 @@ body {
       margin: 0;
     }
   
-    // .search-container input{
-      
-    // }
+   
   
     #search-box input{
       margin: 2%;
@@ -158,49 +159,15 @@ body {
       margin-top: 0;
      }
 
-    #showGrid{
-      display: block;
-      margin-left: 6%;
-      margin-top: 1%;
-      border-radius: 9px;
+    #lettersListMobile{
+      display: grid;
+      grid-template-columns: auto auto  auto;
+      margin: 4%;
+      padding: 5%;
     }
-    
-  
-    .overlay{
-    position: fixed; 
-    display: none; 
-    width: 100%; 
-    height: 100%; 
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: rgba(0,0,0,0.5); 
-    z-index: 2; 
-    cursor: pointer; 
-    transition: 0.35s;
+
+    #lettersListMobile>Li{
+      padding: 10%;
     }
-  
-    #letters ul  {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      font-size: 50px;
-      color: white;
-      transform: translate(-50%,-50%);
-      -ms-transform: translate(-50%,-50%);
-    }
-     #lettersModal{
-       display: block
-     }
-     #lettersListMobile{
-       column-count: 4;
-     }
-   
-    .show{
-      display: block;
-    }
-  
-  
   }
   

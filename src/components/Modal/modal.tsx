@@ -1,75 +1,65 @@
-import { Component, Element, h, Prop, State } from '@stencil/core'
+import { Component, Prop, Method, h} from '@stencil/core'
 @Component({
     tag: 'prix-modal',
     styleUrl: 'modal.scss'
 })
 export class modal {
-    @Element() el: HTMLElement;
-    //Props
-    /**
-     * Common attributes
-     */
-    @Prop() data?: any = {};
-    @Prop({ mutable: true }) configuration?: any = {};
-    @Prop() label: string;
-    @Prop() canceLabel: string;
-    @Prop() acceptLabel: string;
-    @Prop({ mutable: true }) styling?: any = {};
-    @State() value: string = this.label;
+  @Prop({ mutable: true }) mColorHeader: string = "red";
+  @Prop({ mutable: true }) mColorBody: string = "white";
+  @Prop({ mutable: true }) mColorFooter: string = "grey";
+  @Prop({ mutable: true }) mExpandSizewidth: string = "70%";
+  @Prop({ mutable: true }) dOpacity: boolean = false;
+  @Prop({ mutable: true }) dOpacityColor: string = "rgba(0,0,0,0.1)";
+  @Prop() canceLabel: string;
+  @Prop() acceptLabel: string;
 
+  @Method()
+  async showModal() {
+    document.getElementById("myModal").style.display = "flex";
+  }
 
+  hideModal = () => {
+    document.getElementById("myModal").style.display = "none";
+  }
 
-    ovelayOn() {
-        let boton = document.getElementById('prix-boton')
-        let cortina = document.getElementById('modal')
-        let msg = document.getElementById('prix-box')
+  componentDidLoad(){
+    let modalBack = document.getElementById("myModal");
+    modalBack.style.backgroundColor = this.dOpacityColor;
 
-        boton.classList.toggle('overlay')
+    let modalContent = document.getElementById("contentModal");
+    //modalContent.style.backgroundColor = "red";
+    //modalFront.style.height = this.mExpandSizeHeight;
+    modalContent.style.width = this.mExpandSizewidth;
 
-        cortina.style.display= "block"
-        msg.style.display = 'block'
+    let modalHeader = document.getElementById("headerModal");
+    modalHeader.style.backgroundColor = "white";
 
-        if (boton.classList.contains('overlay')){
-            boton.style.display="none"
-        }
+    let modalBody = document.getElementById("bodyModal");
+    modalBody.style.backgroundColor = this.mColorBody;
 
+    let modalFooter = document.getElementById("footerModal");
+    modalFooter.style.backgroundColor = this.mColorFooter;
 
-    }
+  }
 
-    overlayOff() {
-        let over = document.getElementById('modal')
-        let boton = document.getElementById('prix-boton')
-        let msg = document.getElementById('prix-box')
-
-
-        boton.classList.toggle('overlay')
-
-        if (!boton.classList.contains('overlay')){
-            boton.style.display="block"
-            
-        }
-
-        over.style.display ="none"
-        msg.style.display="none" 
-    }
-
-
-    render() {
-        return [
-            <div class="overlay" id="modal">
-                <span class="dismiss" onClick={() => this.overlayOff()}><i class="fa fa-window-close" aria-hidden="true"></i></span>
-                <div class ="prix-modal-box" id="prix-box">
-                    <div class="prix-modal-message">
-                        <p>{this.label}</p>
-                        <slot name="content"></slot>
-                        <button class="prix-modal-button" id="cancel" onClick={() => this.overlayOff()} >{this.canceLabel}</button> <button class="prix-modal-button" id="accept">{this.acceptLabel}</button>
-                    </div>
-                </div>
-            </div>,
-            <button class="prix-button" id="prix-boton" onClick={() => this.ovelayOn()}>{this.value}</button>
-        ]
-    }
-
-
-
+  render() {
+    return (
+      <div>
+        <div id ="myModal" class = "modal">
+          <div id ="contentModal" class = "modal-content">
+            <div id ="headerModal" class = "modal-header">
+              <slot name="headerModal"></slot>
+            </div>
+            <div id ="bodyModal" class = "modal-body">
+            <slot name="bodyModal"></slot>
+            </div>
+            <div id ="footerModal" class = "modal-footer">
+              <button class="button" onClick={() => this.hideModal()}>{this.canceLabel}</button>
+              <button class="button" onClick={() => this.hideModal()}>{this.acceptLabel}</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    );
+  }
 }
