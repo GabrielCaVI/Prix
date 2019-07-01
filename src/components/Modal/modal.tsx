@@ -50,13 +50,13 @@ export class modal {
     }
 */
 
-  @Prop({ mutable: true }) mColorHeader: string = "green";
-  @Prop({ mutable: true }) mColorBody: string = "white";
-  @Prop({ mutable: true }) mColorFooter: string = "grey";
+  @Prop({ mutable: true }) mColorHeader: string = "";
+  @Prop({ mutable: true }) mColorBody: string = "";
+  @Prop({ mutable: true }) mColorFooter: string = "";
   //@Prop({ mutable: true }) mExpandSizeHeight: string = "20%";
-  @Prop({ mutable: true }) mExpandSizewidth: string = "50%";
+  @Prop({ mutable: true }) mExpandSizewidth: string = "";
   @Prop({ mutable: true }) dOpacity: boolean = false;
-  @Prop({ mutable: true }) dOpacityColor: string = "rgba(0,0,0,0.3)";
+  @Prop({ mutable: true }) dOpacityColor: string = "";
   @Prop() canceLabel: string;
   @Prop() acceptLabel: string;
 
@@ -71,16 +71,18 @@ export class modal {
   }
 
   componentDidLoad(){
+    console.log(this.mColorHeader);
+    
     let modalBack = document.getElementById("myModal");
     modalBack.style.backgroundColor = this.dOpacityColor;
 
     let modalContent = document.getElementById("contentModal");
-    //modalContent.style.backgroundColor = "red";
+    modalContent.style.backgroundColor = "white";
     //modalFront.style.height = this.mExpandSizeHeight;
     modalContent.style.width = this.mExpandSizewidth;
 
     let modalHeader = document.getElementById("headerModal");
-    modalHeader.style.backgroundColor = "red";
+    modalHeader.style.backgroundColor = this.mColorHeader;
 
     let modalBody = document.getElementById("bodyModal");
     modalBody.style.backgroundColor = this.mColorBody;
@@ -96,11 +98,10 @@ export class modal {
         <div id ="myModal" class = "modal">
           <div id ="contentModal" class = "modal-content">
             <div id ="headerModal" class = "modal-header">
-            Hola que Hace
+              <slot name="headerModalContent"></slot>
             </div>
             <div id ="bodyModal" class = "modal-body">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+              <slot name="bodyModalContent"></slot>
             </div>
             <div id ="footerModal" class = "modal-footer">
               <button class="button" onClick={() => this.hideModal()}>OK</button>
