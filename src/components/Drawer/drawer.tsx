@@ -6,17 +6,17 @@ import { Component, State, Prop, h, Method } from "@stencil/core";
 })
 export class TestMenu {
   @State() open: string;
-  @Prop({ mutable: true }) dColor: string = "";
-  @Prop({ mutable: true }) dExpandSize: string = "";
-  @Prop({ mutable: true }) dSide: string = "";
-  @Prop({ mutable: true }) dOpacity: boolean = false;
+  @Prop({ mutable: true }) color: string = "";
+  @Prop({ mutable: true }) expandSize: string = "";
+  @Prop({ mutable: true }) side: string = "";
+  @Prop({ mutable: true }) opacity: boolean = false;
 
   @Method()
   async showDrawer() {
     let wrapper = document.getElementById("drawer-wrapper");
-    switch(this.dExpandSize) {
+    switch(this.expandSize) {
       case "small": {
-        if (this.dSide == "es-top" || this.dSide == "es-bottom") {
+        if (this.side == "es-top" || this.side == "es-bottom") {
           wrapper.classList.add("small-size-height");
         } else {
           wrapper.classList.add("small-size-width");
@@ -24,7 +24,7 @@ export class TestMenu {
         break;
       }
       case "medium": {
-        if (this.dSide == "es-top" || this.dSide == "es-bottom") {
+        if (this.side == "es-top" || this.side == "es-bottom") {
           wrapper.classList.add("medium-size-height");
         } else {
           wrapper.classList.add("medium-size-width");
@@ -32,7 +32,7 @@ export class TestMenu {
         break;
       }
       case "large": {
-        if (this.dSide == "es-top" || this.dSide == "es-bottom") {
+        if (this.side == "es-top" || this.side == "es-bottom") {
           wrapper.classList.add("large-size-height");
         } else {
           wrapper.classList.add("large-size-width");
@@ -40,7 +40,7 @@ export class TestMenu {
         break;
       }
       default: {
-        if (this.dSide == "es-top" || this.dSide == "es-bottom") {
+        if (this.side == "es-top" || this.side == "es-bottom") {
           wrapper.classList.add("small-size-height");
         } else {
           wrapper.classList.add("small-size-width");
@@ -49,23 +49,23 @@ export class TestMenu {
       }
     }
 
-    if(this.dOpacity) {
+    if(this.opacity) {
       document.body.style.backgroundColor = "rgba(0,0,0,0.2)";
     }
   }
 
   @Method()
   async hideDrawer() {
-    /*if (this.dSide == "es-top" || this.dSide == "es-bottom") {
+    /*if (this.side == "es-top" || this.side == "es-bottom") {
       document.getElementById("drawer-wrapper").style.height = "0%";
     } else {
       document.getElementById("drawer-wrapper").style.width = "0%";
     }*/
     let wrapper = document.getElementById("drawer-wrapper");
 
-    switch(this.dExpandSize) {
+    switch(this.expandSize) {
       case "small": {
-        if (this.dSide == "es-top" || this.dSide == "es-bottom") {
+        if (this.side == "es-top" || this.side == "es-bottom") {
           wrapper.classList.remove("small-size-height");
         } else {
           wrapper.classList.remove("small-size-width");
@@ -73,7 +73,7 @@ export class TestMenu {
         break;
       }
       case "medium": {
-        if (this.dSide == "es-top" || this.dSide == "es-bottom") {
+        if (this.side == "es-top" || this.side == "es-bottom") {
           wrapper.classList.remove("medium-size-height");
         } else {
           wrapper.classList.remove("medium-size-width");
@@ -81,7 +81,7 @@ export class TestMenu {
         break;
       }
       case "large": {
-        if (this.dSide == "es-top" || this.dSide == "es-bottom") {
+        if (this.side == "es-top" || this.side == "es-bottom") {
           wrapper.classList.remove("large-size-height");
         } else {
           wrapper.classList.remove("large-size-width");
@@ -89,7 +89,7 @@ export class TestMenu {
         break;
       }
       default: {
-        if (this.dSide == "es-top" || this.dSide == "es-bottom") {
+        if (this.side == "es-top" || this.side == "es-bottom") {
           wrapper.classList.remove("small-size-height");
         } else {
           wrapper.classList.remove("small-size-width");
@@ -98,7 +98,7 @@ export class TestMenu {
       }
     }
 
-    if(this.dOpacity) {
+    if(this.opacity) {
       document.body.style.backgroundColor = "white";
     }
   }
@@ -106,9 +106,9 @@ export class TestMenu {
 
   componentDidLoad() {
     let wrapper = document.getElementById("drawer-wrapper");
-    document.getElementById("drawer-wrapper").style.backgroundColor = this.dColor;
+    document.getElementById("drawer-wrapper").style.backgroundColor = this.color;
 
-    switch(this.dSide) {
+    switch(this.side) {
       case "es-left": {
         wrapper.classList.toggle("drawer-left");
         break;

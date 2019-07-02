@@ -18,12 +18,12 @@ export namespace Components {
     'styling'?: any;
   }
   interface PrixDrawer {
-    'dColor': string;
-    'dExpandSize': string;
-    'dOpacity': boolean;
-    'dSide': string;
+    'color': string;
+    'expandSize': string;
     'hideDrawer': () => Promise<void>;
+    'opacity': boolean;
     'showDrawer': () => Promise<void>;
+    'side': string;
   }
   interface PrixModal {
     'acceptLabel': string;
@@ -88,10 +88,10 @@ declare namespace LocalJSX {
     'styling'?: any;
   }
   interface PrixDrawer extends JSXBase.HTMLAttributes<HTMLPrixDrawerElement> {
-    'dColor'?: string;
-    'dExpandSize'?: string;
-    'dOpacity'?: boolean;
-    'dSide'?: string;
+    'color'?: string;
+    'expandSize'?: string;
+    'opacity'?: boolean;
+    'side'?: string;
   }
   interface PrixModal extends JSXBase.HTMLAttributes<HTMLPrixModalElement> {
     'acceptLabel'?: string;
