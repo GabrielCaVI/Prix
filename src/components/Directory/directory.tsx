@@ -132,20 +132,17 @@ export class directory {
                     <label class="active" htmlFor="select-all" id="select-all-label">All</label>
                     <prix-modal acceptLabel="OK" canceLabel="Cancel">
                         <h1 slot="headerModal">Choose a letter</h1>
-                            <div id="lettersModal" slot="bodyModal">
-                                <ul id="lettersListMobile">
-                                    {this.letterItems.map((letter) => (
-                                        <li class="pagnLinkMobile">
-                                            <input type="checkbox" class="checkInputMobile" id={letter + ' '} onChange={() => this.filterByCheckbox(letter)}/>
-                                            <label htmlFor={letter + ' '} class="checkLabelMobile">{letter + ' '}</label>
-                                        </li>
-                                    ))}
-                                </ul>
-                            </div>
-
-                        
+                        <div id="lettersModal" slot="bodyModal">
+                            <ul id="lettersListMobile">
+                                {this.letterItems.map((letter) => (
+                                    <li class="pagnLinkMobile">
+                                        <input type="checkbox" class="checkInputMobile" id={letter + ' '} onChange={() => this.filterByCheckbox(letter)}/>
+                                        <label htmlFor={letter + ' '} class="checkLabelMobile">{letter + ' '}</label>
+                                    </li>
+                                ))}
+                            </ul>
+                        </div>
                     </prix-modal>
-
                     <div class="search-container">
                         <input id="searchbox" type="text" placeholder="Search..." onInput={() => this.filterByInput()}/>
                     </div>
