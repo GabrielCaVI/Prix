@@ -80,10 +80,26 @@
   cursor: pointer;
 }
 
-::slotted(p) {
-  background: blue !important;
+.modal-header > * {
+  margin: 0;
 }
 
+.modal-body > * {
+  margin: 0;
+}
+
+.divider{
+  display: block;
+flex: 1 1 0px;
+max-width: 100%;
+height: 0;
+max-height: 0;
+border: solid;
+border-width: thin 0 0;
+transition: inherit;
+    border-color: rgba(0,0,0,.18);
+    overflow: visible;
+}
 /* GABO
 .overlay{
     position: fixed;

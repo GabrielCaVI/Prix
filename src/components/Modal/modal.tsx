@@ -5,19 +5,22 @@ import { Component, Prop, Method,h} from '@stencil/core'
 })
 export class modal {
 
-  @Prop({ mutable: true }) mColorHeader: string = "";
-  @Prop({ mutable: true }) mColorBody: string = "";
-  @Prop({ mutable: true }) mColorFooter: string = "";
+  @Prop({ mutable: true }) colorHeader: string = "";
+  @Prop({ mutable: true }) colorHeaderText: string = "blue";
+  @Prop({ mutable: true }) colorBody: string = "";
+  @Prop({ mutable: true }) colorBodyText: string = "blue";
+  @Prop({ mutable: true }) colorFooter: string = "";
+  @Prop({ mutable: true }) expandSizewidth: string = "";
+  @Prop({ mutable: true }) opacity: boolean = false;
+  @Prop({ mutable: true }) opacityColor: string = "";
+
+
   //@Prop({ mutable: true }) mExpandSizeHeight: string = "20%";
-  @Prop({ mutable: true }) mExpandSizewidth: string = "";
-  @Prop({ mutable: true }) dOpacity: boolean = false;
-  @Prop({ mutable: true }) dOpacityColor: string = "";
   @Prop() canceLabel: string;
   @Prop() acceptLabel: string;
 
   @Method()
   async showModal() {
-    console.log("HERE");
     document.getElementById("myModal").style.display = "flex";
   }
 
@@ -26,25 +29,24 @@ export class modal {
   }
 
   componentDidLoad(){
-    console.log(this.mColorHeader);
-
     let modalBack = document.getElementById("myModal");
-    modalBack.style.backgroundColor = this.dOpacityColor;
+    modalBack.style.backgroundColor = this.opacityColor;
 
     let modalContent = document.getElementById("contentModal");
     modalContent.style.backgroundColor = "white";
+    modalContent.style.width = this.expandSizewidth;
     //modalFront.style.height = this.mExpandSizeHeight;
-    modalContent.style.width = this.mExpandSizewidth;
 
     let modalHeader = document.getElementById("headerModal");
-    modalHeader.style.backgroundColor = this.mColorHeader;
+    modalHeader.style.backgroundColor = this.colorHeader;
+    modalHeader.style.color = this.colorHeaderText;
 
     let modalBody = document.getElementById("bodyModal");
-    modalBody.style.backgroundColor = this.mColorBody;
+    modalBody.style.backgroundColor = this.colorBody;
+    modalBody.style.color = this.colorBodyText;
 
     let modalFooter = document.getElementById("footerModal");
-    modalFooter.style.backgroundColor = this.mColorFooter;
-
+    modalFooter.style.backgroundColor = this.colorFooter;
   }
 
   render() {
@@ -54,7 +56,7 @@ export class modal {
           <div id ="contentModal" class = "modal-content">
           <div class="modal-content-2">
             <div id ="headerModal" class = "modal-header">
-              <slot id="headSlot" name="headerModalContent"></slot>
+              <slot name="headerModalContent"></slot>
             </div>
             <div id ="bodyModal" class = "modal-body">
               <slot name="bodyModalContent"></slot>
