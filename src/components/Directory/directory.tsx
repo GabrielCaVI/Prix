@@ -52,103 +52,46 @@ export class directory {
         "Y",
         "Z"
     ];
-    letterItemsMobile = [
-        // "A",
-        // "E",
-        // "I",
-        // "M",
-        // "P",
-        // "T",
-        // "X",
-        // "B",
-        // "F",
-        // "J",
-        // "N",
-        // "Q",
-        // "U",
-        // "Y",
-        // "C",
-        // "G",
-        // "K",
-        // "Ñ",
-        // "R",
-        // "V",
-        // "Z",
-        // "D",
-        // "H",
-        // "L",
-        // "O",
-        // "S",
-        // "W",
-        // "#"
-        
-        "A",
-        "B",
-        "C",
-        "D",
-        "E",
-        "F",
-        "G",
-        "H",
-        "I",
-        "J",
-        "K",
-        "L",
-        "M",
-        "N",
-        "Ñ",
-        "O",
-        "P",
-        "Q",
-        "R",
-        "S",
-        "T",
-        "U",
-        "V",
-        "W",
-        "X",
-        "Y",
-        "Z",
-        "#"
-    ];
+    change = false;
 
     toggleSelection() {
-        let selectAllBtn = document.getElementById('select-all') as HTMLInputElement;
-        let selectLabel = document.getElementById('select-all-label') as HTMLLabelElement;
-        let letterItems = document.getElementsByClassName('checkInput') as HTMLCollectionOf<HTMLInputElement>;
-        let items = document.getElementsByClassName("item") as HTMLCollectionOf<HTMLDivElement>;
+        let selectAllBtn = document.getElementById('select-all') as HTMLInputElement; //Trigger Button
+        let selectLabel = document.getElementById('select-all-label') as HTMLLabelElement; // Button Label
+        let letterItems = document.getElementsByClassName('checkInput') as HTMLCollectionOf<HTMLInputElement>; // Collection of inputs
+        let items = document.getElementsByClassName("item") as HTMLCollectionOf<HTMLDivElement>; // Collection of input labels
 
         if (selectAllBtn.checked) {
             selectLabel.innerHTML = 'Unselect all';
             for (let i = 0; i < letterItems.length; i++) {
                 letterItems[i].checked = true;
-                items[i].style.display = "contents";
+                items[i].style.display = "contents"; // display content of items
 
             }
         } else {
             selectLabel.innerHTML = 'All';
             for (let i = 0; i < letterItems.length; i++) {
                 letterItems[i].checked = false;
-                items[i].style.display = "";
+                items[i].style.display = ""; //remove display (default hidden)
             }
         }
     }
 
     filterByInput() {
         this.cleanFilters("check");
-        var p;
+        var p; // the item header to be matched
         let searchbox = document.getElementById("searchbox") as HTMLInputElement // the searchbox element
         let filter = searchbox.value.toUpperCase() as string; // the typed filter
         let items = document.getElementsByClassName("item") as HTMLCollectionOf<HTMLDivElement>; //To hide the complete <div class=item>
         for (let i = 0; i < items.length; i++) { // iterate over labels to match input
             p = items[i].getElementsByTagName("p")[0].textContent || items[i].getElementsByTagName("p")[0].innerText;
-            if (filter !== ' ' && p.toUpperCase().indexOf(filter[0]) > -1) {
+            if (filter !== ' ' && p.toUpperCase().indexOf(filter[0]) > -1) { // if the current filter matches the item header, display it
                 items[i].style.display = "contents";
-                this.filterLinks(items[i], filter);
+                this.filterLinks(items[i], filter); // to filter the subitem list
             } else {
                 items[i].style.display = "";
             }
         }
+        this.change = true;
     }
     filterByCheckbox(check) {
         this.cleanFilters("input");
@@ -171,12 +114,6 @@ export class directory {
             }
         }
     }
-
-    open(){
-        var modal = document.querySelector("prix-modal");
-        modal.showModal();
-    }
-
     /** 
     * Lifecycle methods
     */
@@ -197,9 +134,9 @@ export class directory {
                         <h1 slot="headerModal">Choose a letter</h1>
                             <div id="lettersModal" slot="bodyModal">
                                 <ul id="lettersListMobile">
-                                    {this.letterItemsMobile.map((letter) => (
+                                    {this.letterItems.map((letter) => (
                                         <li class="pagnLinkMobile">
-                                            <input type="checkbox" class="checkInputMobile" id={letter + ' '} onChange={() => this.filterByCheckbox(letter)} />
+                                            <input type="checkbox" class="checkInputMobile" id={letter + ' '} onChange={() => this.filterByCheckbox(letter)}/>
                                             <label htmlFor={letter + ' '} class="checkLabelMobile">{letter + ' '}</label>
                                         </li>
                                     ))}
@@ -210,13 +147,13 @@ export class directory {
                     </prix-modal>
 
                     <div class="search-container">
-                        <input id="searchbox" type="text" placeholder="Search..." onInput={() => this.filterByInput()} />
+                        <input id="searchbox" type="text" placeholder="Search..." onInput={() => this.filterByInput()}/>
                     </div>
                     <div id="letters">
                         <ul id="lettersList">
                             {this.letterItems.map((letter) => (
                                 <li class="pagnLink">
-                                    <input type="checkbox" class="checkInput" id={letter} onChange={() => this.filterByCheckbox(letter)} />
+                                    <input type="checkbox" class="checkInput" id={letter} onChange={() => this.filterByCheckbox(letter)}/>
                                     <label htmlFor={letter} class="checkLabel">{letter}</label>
                                 </li>
                             ))}
@@ -268,7 +205,6 @@ export class directory {
         for (let i = 0; i < nodes.length; i++) {
             a = nodes[i].textContent || nodes[i].innerText;
             if (a.toUpperCase().indexOf(filter) > -1) {
-                console.log(nodes[i])
                 nodes[i].style.display = "contents";
             } else {
                 nodes[i].style.display = "none";
@@ -276,6 +212,9 @@ export class directory {
         }
     }
     private cleanFilters(filter) {
+        /**
+         *  Method to avoid conflicts between both filters.
+         */
         if (filter == "check") {
             let inputs = Array.from(document.getElementsByClassName('checkInput') as HTMLCollectionOf<HTMLInputElement>);
             let selectAllBtn = document.getElementById('select-all') as HTMLInputElement;
@@ -285,14 +224,20 @@ export class directory {
             })
             selectAllBtn.checked = false;
             selectAllLabel.innerText = 'All'
-
         } else {
             let searchbox = document.getElementById("searchbox") as HTMLInputElement // the searchbox element
             searchbox.value = null;
         }
-        let items = Array.from(document.getElementsByClassName("item") as HTMLCollectionOf<HTMLDivElement>);
-        items.forEach((item) => {
-            item.style.display = 'none';
-        })
+        if (this.change){
+            let items = Array.from(document.getElementsByClassName("item") as HTMLCollectionOf<HTMLDivElement>);
+            items.forEach((item) => {
+                item.style.display = '';
+            })
+            this.change = false;
+        }
+    }
+    private open(){
+        var modal = document.querySelector("prix-modal");
+        modal.showModal();
     }
 }
