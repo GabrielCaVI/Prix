@@ -52,12 +52,6 @@ body {
   height: 20px;
   align-content: center;
 }
-#dark i{
-color: white;
-align-content: center;
-font-size: 200%;
-
-}
 .transition.chevron {
   transition: 0.35s;
 }
@@ -73,11 +67,9 @@ font-size: 200%;
 .toggle-inner-menu {
   transform: translateX(30vw) translateX(-34px);
 }
-#openButton, #inner-menu{
-  background-color: #0033A0;
-}
+
 #openButton.dark, #inner-menu.dark{
- background-color : rgb(36,52,71); 
+ background-color : #243447; 
 }
 #openButton{
  
@@ -247,7 +239,6 @@ margin-inline: 2px;
 }
 @media (max-width: 600px) {
   #openButton{
-    background-color: #0033A0;
     top: 85%;
     }
   .float {
@@ -282,7 +273,7 @@ margin-inline: 2px;
     height: 80%;
     width: 100%;
     
-    /*hace que el scroll del menú cambie cuando es toggled*/
+    /*changes menu scroll when toggled*/
     max-height: calc(100vh - 9rem);
   }
   #content {

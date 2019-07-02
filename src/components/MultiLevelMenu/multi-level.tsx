@@ -4,16 +4,20 @@ import { Component, Prop, h, State } from '@stencil/core';
   styleUrl: 'multi-level.scss',
 })
 export class multiLevel {
-//HTML and CSS Properties
+  /**
+   * COMMON ATTRIBUTES
+   */
   @Prop() message: string;
-  @Prop() color: string;
+  @Prop() color: string = '#0033a0';
   @Prop() data?: any = {}; 
   @Prop({ mutable: true }) dark: boolean = false;
+  @State() internalItems =  [];
 
-  @State() value: string = this.message;
-  @State() colour: string = this.color;
-  @State () internalItems =  [];
-//Toggle open sideMenu function
+  /**
+   * PUBLIC API
+   */
+
+  //Toggle open sideMenu function
   handleToggle = () => {
 
     let button = document.getElementById('openButton');
@@ -37,7 +41,7 @@ export class multiLevel {
     }, 350);
 
   }
-//Inner Menu transition method
+  //Inner Menu transition method
   menuToggle() {
 
     let item = document.getElementById('item')
@@ -47,27 +51,13 @@ export class multiLevel {
       item.classList.toggle("transition");
     }, 350);
   }
-// Value setting method
-  setValue(color) {
-    this.color = color;
-  }
-  //Loading Data from document
-  init(){
-    this.internalItems = this.data.items;
-  }
-  // CallBack function
+
+  /**
+   * LIFECYCLE METHODS
+   */
   componentWillLoad(){
     this.init();
   }
-// Dark theme implementation
-  darkTheme (){
-    let inn = document.getElementById('inner-menu');
-    let but = document.getElementById('openButton');
-
-    inn.classList.toggle('dark');
-    but.classList.toggle('dark')
-  }
-
   render() {
     const items = this.internalItems;
     return (
@@ -77,11 +67,10 @@ export class multiLevel {
             <div class="chevron"></div>
           </button>
           <div id="inner-menu">
-            <span id="dark">  <button id="dark" onClick={() => this.darkTheme()}><i  class ="fas fa-moon"></i></button> </span>
             <br/>
             <slot name="icon"/>
             <div id="content" class="hide center">
-              <p>{this.value}</p>
+              <p>{this.message}</p>
               {
                 items.map((item)=>(
                   <div class="item">
@@ -114,5 +103,37 @@ export class multiLevel {
         </div>
       </div>
     );
+  }
+  componentDidRender(){
+    if(this.dark){
+      this.darkTheme();
+    }else{
+      this.setColor();
+    }
+  }
+
+  /**
+   * PRIVATE METHODS
+   */
+
+   //Loading Data from document
+  private init(){
+    this.internalItems = this.data.items;
+  }
+  
+  // Dark theme implementation
+  private darkTheme (){
+    let inn = document.getElementById('inner-menu');
+    let but = document.getElementById('openButton');
+    inn.classList.toggle('dark');
+    but.classList.toggle('dark');
+  }
+  private setColor(){
+    let inn = document.getElementById('inner-menu');
+    let but = document.getElementById('openButton');
+    if(this.color !== ''){
+      inn.style.backgroundColor = this.color;
+      but.style.backgroundColor = this.color;
+    }
   }
 }
