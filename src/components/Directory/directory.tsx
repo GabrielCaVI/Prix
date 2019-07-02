@@ -120,6 +120,7 @@ export class directory {
     componentWillLoad() {
         this.init();
         this.sortItems();
+        
     }
 
     render() {

@@ -40,6 +40,7 @@ export class modal {
     let modalFooter = document.getElementById("footerModal");
     modalFooter.style.backgroundColor = this.mColorFooter;
 
+    this.hideModal();©
   }
 
   render() {
