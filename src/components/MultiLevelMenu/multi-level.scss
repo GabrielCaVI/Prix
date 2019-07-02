@@ -110,7 +110,6 @@ body {
 #content {
   transform: translateX(-20%);
   margin-left: 20px;
-  height: 100%;
   left: 10%;
 }
 .center {
@@ -280,11 +279,9 @@ body {
 
     /*hace que el scroll del menú cambie cuando es toggled*/
     max-height: calc(100vh - 9rem);
-    overflow-y: auto;
   }
   #content {
-    left: 0;
-    height: 100%;
+    left:0;
   }
 
   .center {

@@ -69,7 +69,6 @@ export class multiLevel {
     const items = this.internalItems;
     return (
       <div id="menu">
-        <div id="bg-opacity"></div>
         <div id="wrapper" class="center">
           <button
             id="openButton"
@@ -78,58 +77,36 @@ export class multiLevel {
           >
             <div class="chevron"></div>
           </button>
-          <div id="inner-menu" class="">
-            <span id="dark">
-              {" "}
-              <button id="dark" onClick={() => this.darkTheme()}>
-                <i class="fas fa-moon"></i>
-              </button>{" "}
-            </span>
-            <br />
-            <slot name="icon" />
+          <div id="inner-menu">
+            <span id="dark">  <button id="dark" onClick={() => this.darkTheme()}><i  class ="fas fa-moon"></i></button> </span>
+            <br/>
+            <slot name="icon"/>
             <div id="content" class="hide center">
               <p>{this.value}</p>
-              {items.map(item => (
-                <div class="item">
-                  <input type="checkbox" id={item.title} value={item.title} />
-                  <label htmlFor={item.title}>
-                    {item.title}{" "}
-                    <span class="fas fa-chevron-right arrow"></span>
-                  </label>
-                  <ul>
-                    {item.levels.map(level => (
-                      <div class="item submenu">
-                        <input
-                          type="checkbox"
-                          id={level.title}
-                          value={level.title}
-                        />
-                        <label htmlFor={level.title}>
-                          {level.title}{" "}
-                          <span class="fas fa-chevron-right arrow"></span>
-                        </label>
-                        <ul>
-                          {level.options.map(option => (
-                            <li>
-                              <a href={option.url}>
-                                <span>{option.title}</span>
-                              </a>
-                            </li>
-                          ))}
-                        </ul>
-                      </div>
-                    ))}
-                    {item.options.map(option => (
-                      <li>
-                        <a href={option.url}>
-                          <span>{option.title}</span>
-                        </a>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              ))}
-
+              {
+                items.map((item)=>(
+                  <div class="item">
+                    <input type="checkbox" id={item.title} value={item.title}/>
+                    <label htmlFor={item.title}>{item.title} <span class="fas fa-chevron-right arrow"></span></label>
+                    <ul>
+                      {item.levels.map((level)=>(
+                        <div class="item submenu">
+                          <input type="checkbox" id={level.title} value={level.title}/>
+                          <label htmlFor={level.title}>{level.title} <span class="fas fa-chevron-right arrow"></span></label>
+                          <ul>
+                            {level.options.map((option)=>(
+                              <li><a href={option.url}><span>{option.title}</span></a></li>
+                            ))}
+                          </ul>
+                        </div>
+                      ))}
+                      {item.options.map((option)=>(
+                        <li><a href={option.url}><span>{option.title}</span></a></li>
+                      ))}
+                    </ul>
+                  </div>
+                ))
+              }
               <div class="help22" id="help">
                 <a href="#">
                   <span class="far"></span>Help Center
