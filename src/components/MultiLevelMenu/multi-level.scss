@@ -110,7 +110,6 @@ font-size: 200%;
 #content {
   transform: translateX(-20%);
   margin-left: 20px;
-  height: 100%;
   left: 10%;
 }
 .center {
@@ -285,12 +284,9 @@ margin-inline: 2px;
     
     /*hace que el scroll del menú cambie cuando es toggled*/
     max-height: calc(100vh - 9rem);
-    overflow-y: auto; 
   }
   #content {
     left:0;
-    height: 100%;
-    
   }
 
   .center {

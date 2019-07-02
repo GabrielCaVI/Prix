@@ -71,19 +71,15 @@ export class multiLevel {
   render() {
     const items = this.internalItems;
     return (
-
       <div id="menu">
-        <div id="bg-opacity">
-        </div>
         <div id="wrapper" class="center">
           <button id="openButton" onClick={() => this.handleToggle()} class="float hide noselect" >
             <div class="chevron"></div>
           </button>
-          <div id="inner-menu" class="">
-          
-          <span id="dark">  <button id="dark" onClick={() => this.darkTheme()}><i  class ="fas fa-moon"></i></button> </span>
-          <br/>
-          <slot name="icon"/>
+          <div id="inner-menu">
+            <span id="dark">  <button id="dark" onClick={() => this.darkTheme()}><i  class ="fas fa-moon"></i></button> </span>
+            <br/>
+            <slot name="icon"/>
             <div id="content" class="hide center">
               <p>{this.value}</p>
               {
@@ -110,11 +106,9 @@ export class multiLevel {
                   </div>
                 ))
               }
-
               <div class="help22" id="help">
                 <a href="#"><span class="far"></span>Help Center</a>
               </div>
-
             </div>
           </div>
         </div>
