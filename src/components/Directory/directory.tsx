@@ -1,4 +1,4 @@
-import { Component, Element, h, Prop, State } from '@stencil/core'
+import { Component, Element, h, Prop, State, Listen } from '@stencil/core'
 
 import {
     sortItemsByField
@@ -17,6 +17,21 @@ export class directory {
     @Prop() data?: any = {};
     @Prop({ mutable: true }) configuration?: any = {};
     @Prop({ mutable: true }) styling?: any = {};
+
+
+    /**
+     * EVENT LISTENERS
+     */
+    @Listen('okEvent', { capture: true } )
+    private closeModal() {
+    document.getElementById("modalContainer").style.display = "none";
+    }
+    @Listen('cancelEvent', { capture: true } )
+    private cancelFilter(){
+    }
+
+    
+
     /** 
     *   STATE
     */
@@ -54,6 +69,7 @@ export class directory {
     ];
     change = false;
 
+    //Component Methods
     toggleSelection() {
         let selectAllBtn = document.getElementById('select-all') as HTMLInputElement; //Trigger Button
         let selectLabel = document.getElementById('select-all-label') as HTMLLabelElement; // Button Label
@@ -131,7 +147,7 @@ export class directory {
                     <button class="prix-button" id="openModal" onClick={() => this.open()}>ABC</button>
                     <input type="checkbox" class="active" id="select-all" onClick={() => this.toggleSelection()} />
                     <label class="active" htmlFor="select-all" id="select-all-label">All</label>
-                    <prix-modal acceptLabel="OK" canceLabel="Cancel">
+                    <prix-modal onTriggerCancel={() => this.cancelFilter()} onTriggerOk={()=>this.closeModal()} acceptLabel="OK" canceLabel="Cancel">
                         <h1 slot="headerModal">Choose a letter</h1>
                         <div id="lettersModal" slot="bodyModal">
                             <ul id="lettersListMobile">

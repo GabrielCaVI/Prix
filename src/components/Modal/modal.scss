@@ -13,6 +13,16 @@
   outline: none;
   z-index: 202;
   box-sizing: border-box;
+  animation: appear 2.1s 0.001s ease-in-out
+}
+
+@keyframes appear{
+  from{
+    opacity: 0;
+  }
+  to{
+    opacity: 1;
+  }
 }
 
 .modal-content{
@@ -25,11 +35,14 @@
   width: 100%;
   z-index: inherit;
   box-sizing: inherit;
+  animation: appear 2s 0.4s ease-in-out forwards
+
 }
 
 .modal-header {
   padding: 16px;
   box-sizing: inherit;
+  border-bottom: 1px solid gray;
 
 }
 
@@ -44,6 +57,7 @@
   display: flex;
   padding: 10px;
   box-sizing: inherit;
+  border-top: 1px solid black;
 }
 .close {
   color: #aaaaaa;
@@ -64,6 +78,16 @@
   margin: 4px 2px;
   cursor: pointer;
 }
+
+.dismiss{
+  float: right;
+  font-size: 30px;
+  top: 0%;
+  right: 0;
+  display: block;
+  z-index: 9;
+}
+
 
 
   @media screen and (min-width: 601px) and (max-width:1200px) {
