@@ -1,6 +1,6 @@
 .modal{
   align-items: center;
-  display: flex;
+  display: none;
   height: 100%;
   justify-content: center;
   left: 0;
@@ -11,8 +11,17 @@
   width: 100%;
   z-index: 6;
   outline: none;
-  //z-index: 202;
   box-sizing: border-box;
+  animation: appear 2.1s 0.001s ease-in-out
+}
+
+@keyframes appear{
+  from{
+    opacity: 0;
+  }
+  to{
+    opacity: 1;
+  }
 }
 
 .modal-content{
@@ -27,6 +36,7 @@
   box-sizing: inherit;
   max-height: 90%;
   display: flex;
+  animation: appear 2s 0.4s ease-in-out forwards;
 }
 
 .modal-content-2 {
@@ -38,12 +48,15 @@
 }
 
 .modal-header {
-  flex: 1 0 auto;
+  /*flex: 1 0 auto;
   align-items: center;
   display: flex;
   flex-wrap: wrap;
   padding: 16px;
+  box-sizing: inherit;*/
+  padding: 16px;
   box-sizing: inherit;
+  border-bottom: 1px solid gray;
 }
 
 .modal-body {
@@ -54,30 +67,41 @@
 }
 
 .modal-footer {
-  align-items: center;
-  display: flex;
   padding: 10px;
   box-sizing: inherit;
-}
-
-.close {
-  color: #aaaaaa;
-  float: right;
-  font-size: 28px;
-  font-weight: bold;
+  border-top: 1px solid black;
 }
 
 .button {
-  background-color: #4CAF50;
-  border: none;
-  color: white;
-  padding: 4px 16px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 12px;
+  background-color: transparent;
+  border-style: none;
   margin: 4px 2px;
-  cursor: pointer;
+  padding: 0 15px 0 15px;
+  font-size: .875rem;
+  font-weight: 500;
+  letter-spacing: .0892857143em;
+  text-transform: uppercase;
+  min-width: 75px;
+  height: 36px;
+  vertical-align: middle;
+}
+
+#cancelButton {
+  color: #b52626;
+}
+
+/*
+#cancelButton:hover {
+  background-color: #fbe4e4;
+}*/
+
+#acceptButton {
+  color: #43a047;
+  float: right;
+}
+
+#acceptButton:hover {
+  background-color: #EAF4EB;
 }
 
 .modal-header > * {
@@ -88,18 +112,7 @@
   margin: 0;
 }
 
-.divider{
-  display: block;
-flex: 1 1 0px;
-max-width: 100%;
-height: 0;
-max-height: 0;
-border: solid;
-border-width: thin 0 0;
-transition: inherit;
-    border-color: rgba(0,0,0,.18);
-    overflow: visible;
-}
+
 /* GABO
 .overlay{
     position: fixed;

@@ -26,13 +26,21 @@ export namespace Components {
   }
   interface PrixModal {
     'acceptLabel': string;
-    'canceLabel': string;
+    'acceptLabelColor': string;
+    'acceptLabelColorText': string;
+    'cancelLabel': string;
+    'cancelLabelColor': string;
+    'cancelLabelColorText': string;
+    'closable': boolean;
     'colorBody': string;
     'colorBodyText': string;
     'colorFooter': string;
     'colorHeader': string;
     'colorHeaderText': string;
     'expandSizewidth': string;
+    'hideModal': () => Promise<void>;
+    'onCancel': () => Promise<void>;
+    'onOk': () => Promise<void>;
     'opacity': boolean;
     'opacityColor': string;
     'showModal': () => Promise<void>;
@@ -97,13 +105,20 @@ declare namespace LocalJSX {
   }
   interface PrixModal extends JSXBase.HTMLAttributes<HTMLPrixModalElement> {
     'acceptLabel'?: string;
-    'canceLabel'?: string;
+    'acceptLabelColor'?: string;
+    'acceptLabelColorText'?: string;
+    'cancelLabel'?: string;
+    'cancelLabelColor'?: string;
+    'cancelLabelColorText'?: string;
+    'closable'?: boolean;
     'colorBody'?: string;
     'colorBodyText'?: string;
     'colorFooter'?: string;
     'colorHeader'?: string;
     'colorHeaderText'?: string;
     'expandSizewidth'?: string;
+    'onTriggerCancel'?: (event: CustomEvent<any>) => void;
+    'onTriggerOk'?: (event: CustomEvent<any>) => void;
     'opacity'?: boolean;
     'opacityColor'?: string;
   }

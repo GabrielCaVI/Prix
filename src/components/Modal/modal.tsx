@@ -1,4 +1,4 @@
-import { Component, Prop, Method,h} from '@stencil/core'
+import { Component, Prop, Method,Event, EventEmitter, h} from '@stencil/core'
 @Component({
     tag: 'prix-modal',
     styleUrl: 'modal.scss'
@@ -6,27 +6,51 @@ import { Component, Prop, Method,h} from '@stencil/core'
 export class modal {
 
   @Prop({ mutable: true }) colorHeader: string = "";
-  @Prop({ mutable: true }) colorHeaderText: string = "blue";
+  @Prop({ mutable: true }) colorHeaderText: string = "";
   @Prop({ mutable: true }) colorBody: string = "";
-  @Prop({ mutable: true }) colorBodyText: string = "blue";
+  @Prop({ mutable: true }) colorBodyText: string = "";
   @Prop({ mutable: true }) colorFooter: string = "";
   @Prop({ mutable: true }) expandSizewidth: string = "";
   @Prop({ mutable: true }) opacity: boolean = false;
   @Prop({ mutable: true }) opacityColor: string = "";
-
-
+  @Prop({ mutable: true }) closable: boolean = false;
+  @Prop({ mutable: true }) cancelLabel: string = "Cancel";
+  @Prop({ mutable: true }) acceptLabel: string = "Ok";
+  @Prop({ mutable: true }) cancelLabelColor: string = "blue";
+  @Prop({ mutable: true }) cancelLabelColorText: string = "blue";
+  @Prop({ mutable: true }) acceptLabelColor: string = "#EAF4EB";
+  @Prop({ mutable: true }) acceptLabelColorText: string = "#43a047";
   //@Prop({ mutable: true }) mExpandSizeHeight: string = "20%";
-  @Prop() canceLabel: string;
-  @Prop() acceptLabel: string;
+
+
+  //Events
+  @Event() private triggerOk: EventEmitter;
+  @Event() private triggerCancel: EventEmitter;
+
+  @Method()
+  async onOk() {
+    this.triggerOk.emit('okEvent');
+  }
+
+  @Method()
+  async onCancel() {
+    this.triggerCancel.emit('cancelEvent');
+  }
 
   @Method()
   async showModal() {
     document.getElementById("myModal").style.display = "flex";
   }
 
-  hideModal = () => {
+  @Method()
+  async hideModal() {
     document.getElementById("myModal").style.display = "none";
   }
+
+  /*
+  hideModal = () => {
+    document.getElementById("myModal").style.display = "none";
+  }*/
 
   componentDidLoad(){
     let modalBack = document.getElementById("myModal");
@@ -47,6 +71,21 @@ export class modal {
 
     let modalFooter = document.getElementById("footerModal");
     modalFooter.style.backgroundColor = this.colorFooter;
+
+    //BUTTONS
+    //let modalCancelButton = document.getElementById("cancelButton");
+    //modalCancelButton.onmouseover = "this.setBg()";
+    //modalCancelButton.stylee. = "blue";
+  }
+
+  setBg(c1,c2){
+    let el = document.getElementById("cancelButton");
+    if (el.style.backgroundColor === c1){
+      el.style.backgroundColor = c1;
+    }else{
+      el.style.backgroundColor = c2;
+    }
+    //el.style.backgroundColor = el.style.backgroundColor !== 'white'? 'black':'white';
   }
 
   render() {
@@ -55,6 +94,7 @@ export class modal {
         <div id ="myModal" class = "modal">
           <div id ="contentModal" class = "modal-content">
           <div class="modal-content-2">
+            <span class="dismiss"><i onClick={() => this.hideModal()} class="fas fa-window-close dismiss"></i></span>
             <div id ="headerModal" class = "modal-header">
               <slot name="headerModalContent"></slot>
             </div>
@@ -62,13 +102,29 @@ export class modal {
               <slot name="bodyModalContent"></slot>
             </div>
             <div id ="footerModal" class = "modal-footer">
-              <button class="button" onClick={() => this.hideModal()}>OK</button>
-              <button class="button" onClick={() => this.hideModal()}>cerrar</button>
+              <button class="button" id ="acceptButton" onClick={() => this.hideModal()}>{this.acceptLabel}</button>
             </div>
           </div>
           </div>
         </div>
       </div>
+    /*  <div id="modalContainer">
+        <div id="myModal" class="modal">
+          <div id="contentModal" class="modal-content">
+          <span class="dismiss"><i onClick={() => this.hideModal()} class="fas fa-window-close dismiss"></i></span>
+            <div id="headerModal" class="modal-header">
+              <slot name="headerModal"></slot>
+            </div>
+            <div id="bodyModal" class="modal-body">
+              <slot name="bodyModal"></slot>
+            </div>
+            <div id="footerModal" class="modal-footer">
+              <button class="button" onClick={() => this.onCancel()}>{this.canceLabel}</button>
+              <button class="button" onClick={() => this.onOk()}>{this.acceptLabel}</button>
+            </div>
+          </div>
+        </div>
+      </div>*/
     );
   }
 }
