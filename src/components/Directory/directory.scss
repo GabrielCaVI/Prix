@@ -124,14 +124,9 @@ ul {
   float: right;
 }
 .item-container{
+  display: inline-grid;
+  grid-template-columns: 500px 500px 500px;
   margin-top: 5px;
-}
-.col{
-  display: table-cell;
-  width: 500px;
-}
-.display{
-  display:contents;
 }
 
 .prix-button {
@@ -182,8 +177,8 @@ ul {
     grid-template-columns: auto;
     column-count: 15;
   }
-  .col{
-    width: 75%;
+  .item-container{
+    grid-template-columns: 180% 180%;
   }
 }
 @media screen and (max-width: 660px) {
@@ -224,9 +219,6 @@ ul {
   .topnav label {
     color: black;
   }
-  .item-container{
-    column-count: 1;
-  }
   #lettersListMobile {
     display: grid;
     grid-template-columns: auto auto auto;
@@ -248,7 +240,7 @@ ul {
     align-content: center;
     font-weight: 300;
   }
-  .col{
-    width: 100%;
+  .item-container{
+    grid-template-columns: auto;
   }
 }

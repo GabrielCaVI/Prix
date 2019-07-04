@@ -80,16 +80,16 @@ export class directory {
             selectLabel.innerHTML = 'Unselect all';
             for (let i = 0; i < letterItems.length; i++) {
                 letterItems[i].checked = true;
-                //items[i].style.display = 'inline-block'; // display content of items
-                items[i].classList.add('display');
+                items[i].style.display = 'contents'; // display content of items
+                //items[i].classList.add('display');
 
             }
         } else {
             selectLabel.innerHTML = 'All';
             for (let i = 0; i < letterItems.length; i++) {
                 letterItems[i].checked = false;
-                //items[i].style.display = ""; //remove display (default hidden)
-                items[i].classList.remove('display')
+                items[i].style.display = ""; //remove display (default hidden)
+                //items[i].classList.remove('display')
             }
         }
     }
@@ -103,12 +103,12 @@ export class directory {
         for (let i = 0; i < items.length; i++) { // iterate over labels to match input
             h = items[i].getElementsByTagName("h1")[0].textContent || items[i].getElementsByTagName("h1")[0].innerText;
             if (filter !== ' ' && h.toUpperCase().indexOf(filter[0]) > -1) { // if the current filter matches the item header, display it
-                //items[i].style.display = 'inline-block';
-                items[i].classList.add('display')
+                items[i].style.display = 'contents';
+                //items[i].classList.add('display')
                 this.filterLinks(items[i], filter); // to filter the subitem list
             } else {
-                //items[i].style.display = "";
-                items[i].classList.remove('display');
+                items[i].style.display = "";
+                //items[i].classList.remove('display');
             }
         }
         this.change = true;
@@ -130,8 +130,8 @@ export class directory {
         for (let i = 0; i < items.length; i++) {
             h = items[i].getElementsByTagName("h1")[0].textContent || items[i].getElementsByTagName("h1")[0].innerText;
             if (h.toUpperCase().indexOf(check) > -1) {
-                //items[i].style.display = items[i].style.display === '' ? 'inline-block' : '';
-                items[i].classList.toggle('display');
+                items[i].style.display = items[i].style.display === '' ? 'contents' : '';
+                //items[i].classList.toggle('display');
             }
         }
     }
@@ -145,13 +145,6 @@ export class directory {
 
     render() {
         const items = this.internalItems;
-        let temp = items;
-        const set1 = temp.slice(0,items.length/3);
-        const set2 = temp.slice(items.length/3,items.length*2/3);
-        const set3 = temp.slice(items.length*2/3,items.length);
-
-        const set4 = temp.slice(0,items.length/2);
-        const set5 = temp.slice(items.length/2,items.length);
         return (
             <span>
                 <div class="topnav">
@@ -187,50 +180,26 @@ export class directory {
                    
                 </div>
                 <div class="item-container">
-                    <div class="wrapper-lg">
-                        <div class="col">
-                            {set1.map((item)=>(
-                                <prix-directory-item item={item}>
-                                </prix-directory-item>
-                            ))}
-                        </div>
-                        
-                        <div class="col">
-                            {set2.map((item)=>(
-                                <prix-directory-item item={item}>
-                                </prix-directory-item>
-                            ))}
-                        </div>
-                        <div class="col">
-                            {set3.map((item)=>(
-                                <prix-directory-item item={item}>
-                                </prix-directory-item>
-                            ))}
-                        </div>
-                    </div>
-                    <div class="wrapper-md">
-                        <div class="col">
-                            {set4.map((item)=>(
-                                <prix-directory-item item={item}>
-                                </prix-directory-item>
-                            ))}
-                        </div>
-                        <div class="col">
-                            {set5.map((item)=>(
-                                <prix-directory-item item={item}>
-                                </prix-directory-item>
-                            ))}
-                        </div>
-                    </div>
-                    <div class="wrapper-sm">
-                        <div class="col">
-                            {items.map((item)=>(
-                                <prix-directory-item item={item}>
-                                </prix-directory-item>
-                            ))}
-                        </div>
-                    </div>
+                    {items.map((item)=>(
+                        <prix-directory-item item={item}>
+                        </prix-directory-item>
+                    ))}
                 </div>
+                {/* <div class="item-container">
+                    {items.map((item) => (
+                        <div class="item">
+                            <div>
+                                <h1>{item.index}</h1>
+                                <div class="rule"></div>
+                                <ul>
+                                    {item.content.map(contentItem => (
+                                        <a class="link" href={contentItem.url}><li>{contentItem.title}</li></a>
+                                    ))}
+                                </ul>
+                            </div>
+                        </div>
+                    ))}
+                </div> */}
             </span>
         )
     }
@@ -266,11 +235,11 @@ export class directory {
         for (let i = 0; i < nodes.length; i++) {
             a = nodes[i].textContent || nodes[i].innerText;
             if (a.toUpperCase().indexOf(filter) > -1) {
-                //nodes[i].style.display = 'inline-block';
-                nodes[i].classList.add('display');
+                nodes[i].style.display = 'contents';
+                //nodes[i].classList.add('display');
             } else {
-                //nodes[i].style.display = "none";
-                nodes[i].classList.remove('display');
+                nodes[i].style.display = "none";
+                //nodes[i].classList.remove('display');
             }
         }
     }
