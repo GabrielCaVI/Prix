@@ -36,11 +36,13 @@ export class modal {
   @Method()
   async onOkEvent() {
     this.triggerOk.emit('okEvent');
+    this.hideModal();
   }
 
   @Method()
   async onCancelEvent() {
     this.triggerCancel.emit('cancelEvent');
+    this.hideModal();
   }
 
   @Method()
