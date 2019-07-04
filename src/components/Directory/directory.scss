@@ -5,7 +5,7 @@ body {
   color: #031f51;
   font-family: Ubuntu,Arial, Helvetica, sans-serif;
 }
-.wrapper-md, .wrapper-sm{
+.wrapper-md, .wrapper-sm, #openModal, #modalLabel{
   display: none;
 }
 ul {
@@ -79,7 +79,7 @@ ul {
 }
 
 /* Change the color of button on hover */
-.topnav label.active:hover {
+.topnav label.active:hover{
   background-color: #009baf;
   box-shadow: 1px 1px 10px #006b79;
 }
@@ -87,7 +87,7 @@ ul {
   color: white;
   background-color: #00b4cc;
 }
-.topnav label.active {
+.topnav label.active{
   margin-top: 10px;
   margin-bottom:30px;
   border-radius: 2em;
@@ -95,7 +95,7 @@ ul {
   background-color: #00B4CC;
   color: white;
   font-weight: 600;
-  width: 140px;
+  width: 170px;
   height: auto;
   padding: 0.5% 1%;
   display: inline-block;
@@ -129,19 +129,11 @@ ul {
   margin-top: 5px;
 }
 
-.prix-button {
-  cursor: pointer;
-  display: none;
-  background-color: #00B4CC;
-  color: white;
-  border-radius: 3px;
-}
-
 @media screen and (min-width: 661px) and (max-width: 1200px) {
   .wrapper-md{
     display: contents;
   }
-  .wrapper-lg, .wrapper-sm{
+  .wrapper-lg, .wrapper-sm, #openModal, #modalLabel{
     display:none;
   }
   .topnav {
@@ -183,14 +175,17 @@ ul {
 }
 @media screen and (max-width: 660px) {
   .wrapper-sm{
-    display:contents
+    display:contents;
+  }
+  #openModal,#modalLabel{
+    display: inline-block;
   }
   .wrapper-lg, .wrapper-md{
     display:none;
   }
   #letters,
   #select-all,
-  #select-all-label {
+  #select-all-label{
     display: none;
   }
   .topnav {
@@ -230,17 +225,19 @@ ul {
     padding: 5%;
     color: black;
   }
-
-  .prix-button {
-    display: block;
-    margin-top: 3%;
-    margin-left: 2%;
-    width: 50px;
-    height: 20px;
-    align-content: center;
-    font-weight: 300;
-  }
   .item-container{
     grid-template-columns: auto;
+  }
+  .search-container{
+    width: 40%;
+  }
+  #searchbox{
+    margin-top: 1.5%;
+    width: 100%;
+  }
+  #modalLabel{
+    width: 45%;
+    height: 30px;
+    margin-top: 1.5%;
   }
 }

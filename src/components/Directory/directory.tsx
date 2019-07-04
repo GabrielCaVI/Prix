@@ -81,7 +81,6 @@ export class directory {
             for (let i = 0; i < letterItems.length; i++) {
                 letterItems[i].checked = true;
                 items[i].style.display = 'contents'; // display content of items
-                //items[i].classList.add('display');
 
             }
         } else {
@@ -89,7 +88,6 @@ export class directory {
             for (let i = 0; i < letterItems.length; i++) {
                 letterItems[i].checked = false;
                 items[i].style.display = ""; //remove display (default hidden)
-                //items[i].classList.remove('display')
             }
         }
     }
@@ -104,11 +102,9 @@ export class directory {
             h = items[i].getElementsByTagName("h1")[0].textContent || items[i].getElementsByTagName("h1")[0].innerText;
             if (filter !== ' ' && h.toUpperCase().indexOf(filter[0]) > -1) { // if the current filter matches the item header, display it
                 items[i].style.display = 'contents';
-                //items[i].classList.add('display')
                 this.filterLinks(items[i], filter); // to filter the subitem list
             } else {
                 items[i].style.display = "";
-                //items[i].classList.remove('display');
             }
         }
         this.change = true;
@@ -131,7 +127,6 @@ export class directory {
             h = items[i].getElementsByTagName("h1")[0].textContent || items[i].getElementsByTagName("h1")[0].innerText;
             if (h.toUpperCase().indexOf(check) > -1) {
                 items[i].style.display = items[i].style.display === '' ? 'contents' : '';
-                //items[i].classList.toggle('display');
             }
         }
     }
@@ -148,7 +143,9 @@ export class directory {
         return (
             <span>
                 <div class="topnav">
-                    <button class="prix-button" id="openModal" onClick={() => this.open()}>ABC</button>
+                    <input type="checkbox" class="active" id="openModal" onClick={() => this.open()}/>
+                    <label class="active" htmlFor="openModal" id="modalLabel">Filter</label>
+                    
                     <input type="checkbox" class="active" id="select-all" onClick={() => this.toggleSelection()} />
                     <label class="active" htmlFor="select-all" id="select-all-label">All</label>
                     <prix-modal onTriggerCancel={() => this.cancelFilter()} onTriggerOk={()=>this.closeModal()} acceptLabel="OK" canceLabel="Cancel">
@@ -185,21 +182,6 @@ export class directory {
                         </prix-directory-item>
                     ))}
                 </div>
-                {/* <div class="item-container">
-                    {items.map((item) => (
-                        <div class="item">
-                            <div>
-                                <h1>{item.index}</h1>
-                                <div class="rule"></div>
-                                <ul>
-                                    {item.content.map(contentItem => (
-                                        <a class="link" href={contentItem.url}><li>{contentItem.title}</li></a>
-                                    ))}
-                                </ul>
-                            </div>
-                        </div>
-                    ))}
-                </div> */}
             </span>
         )
     }
@@ -236,10 +218,8 @@ export class directory {
             a = nodes[i].textContent || nodes[i].innerText;
             if (a.toUpperCase().indexOf(filter) > -1) {
                 nodes[i].style.display = 'contents';
-                //nodes[i].classList.add('display');
             } else {
                 nodes[i].style.display = "none";
-                //nodes[i].classList.remove('display');
             }
         }
     }
