@@ -6,7 +6,7 @@ import { Component, Prop, Method,Event, EventEmitter, h} from '@stencil/core'
 export class modal {
 
   //Props
-  /**
+  /** 
     * Common attributes
   */
   @Prop({ mutable: true }) colorHeader: string = "white";
