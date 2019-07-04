@@ -79,72 +79,72 @@ export class directory {
         "X"
     ];
 
-  toggleSelection() {
-    let selectAllBtn = document.getElementById(
-      "select-all"
-    ) as HTMLInputElement;
-    let selectLabel = document.getElementById(
-      "select-all-label"
-    ) as HTMLLabelElement;
-    let letterItems = document.getElementsByClassName(
-      "checkInput"
-    ) as HTMLCollectionOf<HTMLInputElement>;
-    let items = document.getElementsByClassName("item") as HTMLCollectionOf<
-      HTMLDivElement
-    >;
+    toggleSelection() {
+      let selectAllBtn = document.getElementById(
+        "select-all"
+      ) as HTMLInputElement;
+      let selectLabel = document.getElementById(
+        "select-all-label"
+      ) as HTMLLabelElement;
+      let letterItems = document.getElementsByClassName(
+        "checkInput"
+      ) as HTMLCollectionOf<HTMLInputElement>;
+      let items = document.getElementsByClassName("item") as HTMLCollectionOf<
+        HTMLDivElement
+      >;
 
-    if (selectAllBtn.checked) {
-      selectLabel.innerHTML = "Unselect all";
-      for (var i = 0; i < letterItems.length; i++) {
-        letterItems[i].checked = true;
-        items[i].style.display = "contents";
-      }
-    } else {
-      selectLabel.innerHTML = "All items";
-      for (var i = 0; i < letterItems.length; i++) {
-        letterItems[i].checked = false;
-        items[i].style.display = "";
-      }
-    }
-  }
-
-  filterByInput() {
-    var p;
-    let searchbox = document.getElementById("searchbox") as HTMLInputElement; // the searchbox element
-    let filter = searchbox.value.toUpperCase() as string; // the typed filter
-    let items = document.getElementsByClassName("item") as HTMLCollectionOf<
-      HTMLDivElement
-    >; //To hide the complete <div class=item>
-    for (let i = 0; i < items.length; i++) {
-      // iterate over labels to match input
-      p =
-        items[i].getElementsByTagName("p")[0].textContent ||
-        items[i].getElementsByTagName("p")[0].innerText;
-      if (p.toUpperCase().indexOf(filter[0]) > -1) {
-        items[i].style.display = "contents";
-        this.filterLinks(items[i], filter);
+      if (selectAllBtn.checked) {
+        selectLabel.innerHTML = "Unselect all";
+        for (var i = 0; i < letterItems.length; i++) {
+          letterItems[i].checked = true;
+          items[i].style.display = "contents";
+        }
       } else {
-        items[i].style.display = "";
+        selectLabel.innerHTML = "All items";
+        for (var i = 0; i < letterItems.length; i++) {
+          letterItems[i].checked = false;
+          items[i].style.display = "";
+        }
       }
     }
 
-    /**
-    * Lifecycle methods
-    */
-    init(){
-        this.sortItems();
-        this.internalItems = this.data.items;
-    }
-    for (let i = 0; i < items.length; i++) {
-      p =
-        items[i].getElementsByTagName("p")[0].textContent ||
-        items[i].getElementsByTagName("p")[0].innerText;
-      if (p.toUpperCase().indexOf(check) > -1) {
-        items[i].style.display =
-          items[i].style.display === "" ? "contents" : "";
+    filterByInput() {
+      var p;
+      let searchbox = document.getElementById("searchbox") as HTMLInputElement; // the searchbox element
+      let filter = searchbox.value.toUpperCase() as string; // the typed filter
+      let items = document.getElementsByClassName("item") as HTMLCollectionOf<
+        HTMLDivElement
+      >; //To hide the complete <div class=item>
+      for (let i = 0; i < items.length; i++) {
+        // iterate over labels to match input
+        p =
+          items[i].getElementsByTagName("p")[0].textContent ||
+          items[i].getElementsByTagName("p")[0].innerText;
+        if (p.toUpperCase().indexOf(filter[0]) > -1) {
+          items[i].style.display = "contents";
+          this.filterLinks(items[i], filter);
+        } else {
+          items[i].style.display = "";
+        }
+      }
+
+      /**
+      * Lifecycle methods
+      */
+      init(){
+          this.sortItems();
+          this.internalItems = this.data.items;
+      }
+      for (let i = 0; i < items.length; i++) {
+        p =
+          items[i].getElementsByTagName("p")[0].textContent ||
+          items[i].getElementsByTagName("p")[0].innerText;
+        if (p.toUpperCase().indexOf(check) > -1) {
+          items[i].style.display =
+            items[i].style.display === "" ? "contents" : "";
+        }
       }
     }
-  }
 
     render() {
         const items = this.internalItems;
@@ -209,7 +209,6 @@ export class directory {
             }
         }
     }
-  }
   private filterLinks(item, filter) {
     var a;
     let nodes = item.getElementsByTagName("a") as HTMLCollectionOf<
