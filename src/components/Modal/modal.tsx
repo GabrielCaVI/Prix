@@ -99,16 +99,16 @@ export class modal {
   render() {
     return (
       <div>
-        <div id ="myModal" class = "modal">
-          <div id ="contentModal" class = "modal-content">
+        <div id ="myModal">
+          <div id ="contentModal">
             <span class="dismiss"><i onClick={() => this.hideModal()} class="far fa-window-close"></i></span>
-            <div id ="headerModal" class = "modal-header">
+            <div id ="headerModal">
               <slot name="headerModalContent"></slot>
             </div>
-            <div id ="bodyModal" class = "modal-body">
+            <div id ="bodyModal">
               <slot name="bodyModalContent"></slot>
             </div>
-            <div id ="footerModal" class = "modal-footer">
+            <div id ="footerModal">
               <button class="button" id ="cancelButton" onClick={() => this.hideModal()} onMouseOver={() => this.setCancelButtonColor()} onMouseOut={() => this.setCancelButtonColor()}>{this.cancelLabel}</button>
               <button class="button" id ="acceptButton" onClick={() => this.hideModal()} onMouseOver={() => this.setAcceptButtonColor()} onMouseOut={() => this.setAcceptButtonColor()}>{this.acceptLabel}</button>
             </div>

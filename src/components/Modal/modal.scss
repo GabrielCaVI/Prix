@@ -1,4 +1,4 @@
-.modal{
+#myModal{
   align-items: center;
   display: none;
   height: 100%;
@@ -14,7 +14,7 @@
   box-sizing: border-box;
 }
 
-.modal-content{
+#contentModal{
   box-shadow: 0 11px 15px -7px rgba(0,0,0,.2),0 24px 38px 3px rgba(0,0,0,.14),0 9px 46px 8px rgba(0,0,0,.12);
   border-radius: 2px;
   margin: 24px;
@@ -40,7 +40,7 @@
   }
 }
 
-.modal-header {
+#headerModal {
   /*flex: 1 0 auto;
   align-items: center;
   display: flex;
@@ -52,14 +52,14 @@
   border-bottom: 1px solid gray;
 }
 
-.modal-body {
+#bodyModal {
   padding: 16px;
   width: 100%;
   overflow-y: auto;
   box-sizing: inherit;
 }
 
-.modal-footer {
+#footerModal {
   padding: 10px;
   box-sizing: inherit;
   border-top: 1px solid black;
@@ -90,11 +90,11 @@
   float: right;
 }
 
-.modal-header > * {
+#headerModal > * {
   margin: 0;
 }
 
-.modal-body > * {
+#bodyModal > * {
   margin: 0;
 }
 
