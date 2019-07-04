@@ -1,10 +1,26 @@
 {
-    "configuration":{   
+    "configuration":{  
+        "colorHeader" : "",
+        "colorHeaderText" : "",
+        "colorBody" :  "",
+        "colorBodyText" : "",
+        "colorFooter" : "",
+        "expandSizewidth" : "",
+        "opacity" : "false",
+        "opacityColor" :  "",
+        "closable" : "false",
+        "cancelLabel" : "Cancel",
+        "acceptLabel" : "Ok",
+        "cancelLabelColor" : "blue",
+        "cancelLabelColorText" : "blue",
+        "acceptLabelColor" :  "#EAF4EB",
+        "acceptLabelColorText" : "#43a047"
     },
-    "styling":{
-        "colorscheme":""
-    },
+
     "data":{
-        "items":[]
+        "header" : "",
+        "body" : "",
+        "footer" : ""
     }
+
 }
