@@ -5,28 +5,27 @@ import { Component, Prop, Method,Event, EventEmitter, h} from '@stencil/core'
 })
 export class modal {
 
-  @Prop({ mutable: true }) colorHeader: string = "";
-  @Prop({ mutable: true }) colorHeaderText: string = "";
-  @Prop({ mutable: true }) colorBody: string = "";
-  @Prop({ mutable: true }) colorBodyText: string = "";
-  @Prop({ mutable: true }) colorFooter: string = "";
-  @Prop({ mutable: true }) expandSizewidth: string = "";
-  @Prop({ mutable: true }) opacity: boolean = false;
+  //Props
+  @Prop({ mutable: true }) colorHeader: string = "white";
+  @Prop({ mutable: true }) colorHeaderText: string = "black";
+  @Prop({ mutable: true }) colorBody: string = "white";
+  @Prop({ mutable: true }) colorBodyText: string = "black";
+  @Prop({ mutable: true }) colorFooter: string = "white";
+  @Prop({ mutable: true }) expandSizewidth: string = "80%";
+  @Prop({ mutable: true }) opacity: boolean = true;
   @Prop({ mutable: true }) opacityColor: string = "";
-  @Prop({ mutable: true }) closable: boolean = false;
   @Prop({ mutable: true }) cancelLabel: string = "Cancel";
   @Prop({ mutable: true }) acceptLabel: string = "Ok";
-  @Prop({ mutable: true }) cancelLabelColor: string = "blue";
-  @Prop({ mutable: true }) cancelLabelColorText: string = "blue";
+  @Prop({ mutable: true }) cancelLabelColor: string = "#fbe4e4";
+  @Prop({ mutable: true }) cancelLabelColorText: string = "#b52626";
   @Prop({ mutable: true }) acceptLabelColor: string = "#EAF4EB";
   @Prop({ mutable: true }) acceptLabelColorText: string = "#43a047";
-  //@Prop({ mutable: true }) mExpandSizeHeight: string = "20%";
-
 
   //Events
   @Event() private triggerOk: EventEmitter;
   @Event() private triggerCancel: EventEmitter;
 
+  //Methods
   @Method()
   async onOk() {
     this.triggerOk.emit('okEvent');
@@ -47,11 +46,6 @@ export class modal {
     document.getElementById("myModal").style.display = "none";
   }
 
-  /*
-  hideModal = () => {
-    document.getElementById("myModal").style.display = "none";
-  }*/
-
   componentDidLoad(){
     let modalBack = document.getElementById("myModal");
     modalBack.style.backgroundColor = this.opacityColor;
@@ -59,7 +53,6 @@ export class modal {
     let modalContent = document.getElementById("contentModal");
     modalContent.style.backgroundColor = "white";
     modalContent.style.width = this.expandSizewidth;
-    //modalFront.style.height = this.mExpandSizeHeight;
 
     let modalHeader = document.getElementById("headerModal");
     modalHeader.style.backgroundColor = this.colorHeader;
@@ -72,20 +65,35 @@ export class modal {
     let modalFooter = document.getElementById("footerModal");
     modalFooter.style.backgroundColor = this.colorFooter;
 
-    //BUTTONS
-    //let modalCancelButton = document.getElementById("cancelButton");
-    //modalCancelButton.onmouseover = "this.setBg()";
-    //modalCancelButton.stylee. = "blue";
+    let modalCancelButtonText = document.getElementById("cancelButton");
+    modalCancelButtonText.style.color = this.cancelLabelColorText;
+
+    let modalAcceptButtonText = document.getElementById("acceptButton");
+    modalAcceptButtonText.style.color = this.acceptLabelColorText;
+
+    let modalCancelButton = document.getElementById("cancelButton");
+    modalCancelButton.style.backgroundColor = "white";
+
+    let modalAcceptButton = document.getElementById("acceptButton");
+    modalAcceptButton.style.backgroundColor = "white";
   }
 
-  setBg(c1,c2){
-    let el = document.getElementById("cancelButton");
-    if (el.style.backgroundColor === c1){
-      el.style.backgroundColor = c1;
-    }else{
-      el.style.backgroundColor = c2;
+  private setCancelButtonColor(){
+    let modalCancelButton = document.getElementById("cancelButton");
+    if (modalCancelButton.style.backgroundColor === "white"){
+      modalCancelButton.style.backgroundColor = this.cancelLabelColor;
+    } else {
+      modalCancelButton.style.backgroundColor = "white";
     }
-    //el.style.backgroundColor = el.style.backgroundColor !== 'white'? 'black':'white';
+  }
+
+  private setAcceptButtonColor(){
+    let modalacceptButton = document.getElementById("acceptButton");
+    if (modalacceptButton.style.backgroundColor === "white"){
+      modalacceptButton.style.backgroundColor = this.acceptLabelColor;
+    } else {
+      modalacceptButton.style.backgroundColor = "white";
+    }
   }
 
   render() {
@@ -93,8 +101,7 @@ export class modal {
       <div>
         <div id ="myModal" class = "modal">
           <div id ="contentModal" class = "modal-content">
-          <div class="modal-content-2">
-            <span class="dismiss"><i onClick={() => this.hideModal()} class="fas fa-window-close dismiss"></i></span>
+            <span class="dismiss"><i onClick={() => this.hideModal()} class="far fa-window-close"></i></span>
             <div id ="headerModal" class = "modal-header">
               <slot name="headerModalContent"></slot>
             </div>
@@ -102,9 +109,9 @@ export class modal {
               <slot name="bodyModalContent"></slot>
             </div>
             <div id ="footerModal" class = "modal-footer">
-              <button class="button" id ="acceptButton" onClick={() => this.hideModal()}>{this.acceptLabel}</button>
+              <button class="button" id ="cancelButton" onClick={() => this.hideModal()} onMouseOver={() => this.setCancelButtonColor()} onMouseOut={() => this.setCancelButtonColor()}>{this.cancelLabel}</button>
+              <button class="button" id ="acceptButton" onClick={() => this.hideModal()} onMouseOver={() => this.setAcceptButtonColor()} onMouseOut={() => this.setAcceptButtonColor()}>{this.acceptLabel}</button>
             </div>
-          </div>
           </div>
         </div>
       </div>

@@ -12,16 +12,6 @@
   z-index: 6;
   outline: none;
   box-sizing: border-box;
-  animation: appear 2.1s 0.001s ease-in-out
-}
-
-@keyframes appear{
-  from{
-    opacity: 0;
-  }
-  to{
-    opacity: 1;
-  }
 }
 
 .modal-content{
@@ -30,21 +20,24 @@
   margin: 24px;
   overflow-y: auto;
   pointer-events: auto;
-  transition: .3s cubic-bezier(.25,.8,.25,1);
   width: 100%;
   z-index: inherit;
   box-sizing: inherit;
   max-height: 90%;
   display: flex;
-  animation: appear 2s 0.4s ease-in-out forwards;
+  flex-direction: column;
+  animation: appear 0.25s ease-in-out;
 }
 
-.modal-content-2 {
-  display: flex;
-  flex: 1 1 100%;
-  max-width: 100%;
-  flex-direction: column;
-  box-sizing: inherit;
+@keyframes appear {
+  from {
+    opacity: 0;
+    transform: scale3d(0.3, 0.3, 0.3);
+  }
+
+  50% {
+    opacity: 1;
+  }
 }
 
 .modal-header {
@@ -88,20 +81,13 @@
 
 #cancelButton {
   color: #b52626;
+  background-color: white;
 }
-
-/*
-#cancelButton:hover {
-  background-color: #fbe4e4;
-}*/
 
 #acceptButton {
   color: #43a047;
+  background-color: white;
   float: right;
-}
-
-#acceptButton:hover {
-  background-color: #EAF4EB;
 }
 
 .modal-header > * {

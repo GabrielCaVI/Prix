@@ -31,7 +31,6 @@ export namespace Components {
     'cancelLabel': string;
     'cancelLabelColor': string;
     'cancelLabelColorText': string;
-    'closable': boolean;
     'colorBody': string;
     'colorBodyText': string;
     'colorFooter': string;
@@ -110,7 +109,6 @@ declare namespace LocalJSX {
     'cancelLabel'?: string;
     'cancelLabelColor'?: string;
     'cancelLabelColorText'?: string;
-    'closable'?: boolean;
     'colorBody'?: string;
     'colorBodyText'?: string;
     'colorFooter'?: string;
