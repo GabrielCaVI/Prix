@@ -38,7 +38,6 @@ export class directory {
     @State() internalItems = [];
 
     letterItems = [
-        "#",
         "A",
         "B",
         "C",
@@ -65,7 +64,8 @@ export class directory {
         "W",
         "X",
         "Y",
-        "Z"
+        "Z",
+        "#"
     ];
     change = false;
 
@@ -80,38 +80,42 @@ export class directory {
             selectLabel.innerHTML = 'Unselect all';
             for (let i = 0; i < letterItems.length; i++) {
                 letterItems[i].checked = true;
-                items[i].style.display = "contents"; // display content of items
+                //items[i].style.display = 'inline-block'; // display content of items
+                items[i].classList.add('display');
 
             }
         } else {
             selectLabel.innerHTML = 'All';
             for (let i = 0; i < letterItems.length; i++) {
                 letterItems[i].checked = false;
-                items[i].style.display = ""; //remove display (default hidden)
+                //items[i].style.display = ""; //remove display (default hidden)
+                items[i].classList.remove('display')
             }
         }
     }
 
     filterByInput() {
         this.cleanFilters("check");
-        var p; // the item header to be matched
+        var h; // the item header to be matched
         let searchbox = document.getElementById("searchbox") as HTMLInputElement // the searchbox element
         let filter = searchbox.value.toUpperCase() as string; // the typed filter
         let items = document.getElementsByClassName("item") as HTMLCollectionOf<HTMLDivElement>; //To hide the complete <div class=item>
         for (let i = 0; i < items.length; i++) { // iterate over labels to match input
-            p = items[i].getElementsByTagName("p")[0].textContent || items[i].getElementsByTagName("p")[0].innerText;
-            if (filter !== ' ' && p.toUpperCase().indexOf(filter[0]) > -1) { // if the current filter matches the item header, display it
-                items[i].style.display = "contents";
+            h = items[i].getElementsByTagName("h1")[0].textContent || items[i].getElementsByTagName("h1")[0].innerText;
+            if (filter !== ' ' && h.toUpperCase().indexOf(filter[0]) > -1) { // if the current filter matches the item header, display it
+                //items[i].style.display = 'inline-block';
+                items[i].classList.add('display')
                 this.filterLinks(items[i], filter); // to filter the subitem list
             } else {
-                items[i].style.display = "";
+                //items[i].style.display = "";
+                items[i].classList.remove('display');
             }
         }
         this.change = true;
     }
     filterByCheckbox(check) {
         this.cleanFilters("input");
-        let p;
+        let h;
         let items = document.getElementsByClassName("item") as HTMLCollectionOf<HTMLDivElement>;
         let checkboxes = Array.from(document.getElementsByClassName('checkInput') as HTMLCollectionOf<HTMLInputElement>);//Make an array to support 'some' method
         let selectAllBtn = document.getElementById('select-all') as HTMLInputElement;
@@ -124,9 +128,10 @@ export class directory {
             selectLabel.innerHTML = 'All';
         }
         for (let i = 0; i < items.length; i++) {
-            p = items[i].getElementsByTagName("p")[0].textContent || items[i].getElementsByTagName("p")[0].innerText;
-            if (p.toUpperCase().indexOf(check) > -1) {
-                items[i].style.display = items[i].style.display === '' ? 'contents' : '';
+            h = items[i].getElementsByTagName("h1")[0].textContent || items[i].getElementsByTagName("h1")[0].innerText;
+            if (h.toUpperCase().indexOf(check) > -1) {
+                //items[i].style.display = items[i].style.display === '' ? 'inline-block' : '';
+                items[i].classList.toggle('display');
             }
         }
     }
@@ -135,8 +140,7 @@ export class directory {
     */
     componentWillLoad() {
         this.init();
-        this.sortItems();
-        
+        this.sortItems(); 
     }
 
     render() {
@@ -173,23 +177,35 @@ export class directory {
                             ))}
                         </ul>
                     </div>
+                   
                 </div>
                 <div class="item-container">
-                    {items.map((item) => (
-                        <div class="item">
-                            <p>{item.index}</p>
-                            <div class="rule"></div>
-                            <ul>
-                                {item.content.map(contentItem => (
-                                    <li><a href={contentItem.url}>{contentItem.title}</a></li>
-                                ))}
-                            </ul>
-                        </div>
+                    {items.map((item)=>(
+                        <prix-directory-item item={item}>
+                        </prix-directory-item>
                     ))}
                 </div>
+                {/* <div class="item-container">
+                    {items.map((item) => (
+                        <div class="item">
+                            <div>
+                                <h1>{item.index}</h1>
+                                <div class="rule"></div>
+                                <ul>
+                                    {item.content.map(contentItem => (
+                                        <a class="link" href={contentItem.url}><li>{contentItem.title}</li></a>
+                                    ))}
+                                </ul>
+                            </div>
+                        </div>
+                    ))}
+                </div> */}
             </span>
         )
     }
+    /**
+     * PRIVATE METHODS
+     */
     private init() {
         this.sortItems();
         this.internalItems = this.data.items;
@@ -219,9 +235,11 @@ export class directory {
         for (let i = 0; i < nodes.length; i++) {
             a = nodes[i].textContent || nodes[i].innerText;
             if (a.toUpperCase().indexOf(filter) > -1) {
-                nodes[i].style.display = "contents";
+                //nodes[i].style.display = 'inline-block';
+                nodes[i].classList.add('display');
             } else {
-                nodes[i].style.display = "none";
+                //nodes[i].style.display = "none";
+                nodes[i].classList.remove('display');
             }
         }
     }
