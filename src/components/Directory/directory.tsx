@@ -22,10 +22,14 @@ export class directory {
      */
     @Listen('okEvent', { capture: true } )
     private closeModal() {
-    document.getElementById("modalContainer").style.display = "none";
+        let m = document.querySelector('prix-modal')
+        m.hideModal();
     }
     @Listen('cancelEvent', { capture: true } )
     private cancelFilter(){
+        let m = document.querySelector('prix-modal')
+        this.cleanModalFilter();
+        m.hideModal();
     }
 
     
@@ -133,7 +137,7 @@ export class directory {
     */
     componentWillLoad() {
         this.init();
-        this.sortItems(); 
+        this.sortItems();
     }
 
     render() {
@@ -146,9 +150,9 @@ export class directory {
                     
                     <input type="checkbox" class="active" id="select-all" onClick={() => this.toggleSelection()} />
                     <label class="active" htmlFor="select-all" id="select-all-label">All</label>
-                    <prix-modal onTriggerCancel={() => this.cancelFilter()} onTriggerOk={()=>this.closeModal()} acceptLabel="OK" canceLabel="Cancel">
-                        <h1 slot="headerModal">Choose a letter</h1>
-                        <div id="lettersModal" slot="bodyModal">
+                    <prix-modal onTriggerCancel={() => this.cancelFilter()} onTriggerOk={()=>this.closeModal()} acceptLabel="OK" cancelLabel="Cancel">
+                        <h1 slot="headerModalContent">Choose a letter</h1>
+                        <div id="lettersModal" slot="bodyModalContent">
                             <ul id="lettersListMobile">
                                 {this.letterItems.map((letter) => (
                                     <li class="pagnLinkMobile">
@@ -246,8 +250,18 @@ export class directory {
             this.change = false;
         }
     }
+    private cleanModalFilter(){
+        let inputs = Array.from(document.getElementsByClassName('checkInputMobile') as HTMLCollectionOf<HTMLInputElement>);
+        inputs.map((input) => {
+            input.checked = false;
+        })
+        let items = Array.from(document.getElementsByClassName("item") as HTMLCollectionOf<HTMLDivElement>);
+        items.forEach((item) => {
+            item.style.display = '';
+        })
+    }
     private open(){
-        var modal = document.querySelector("prix-modal");
-        modal.showModal();
+        let m = document.querySelector("prix-modal");
+        m.showModal();
     }
 }
