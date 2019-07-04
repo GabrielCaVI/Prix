@@ -1,4 +1,4 @@
-#myModal{
+#overlay{
   align-items: center;
   display: none;
   height: 100%;
@@ -29,27 +29,14 @@
   animation: appear 0.25s ease-in-out;
 }
 
-@keyframes appear {
-  from {
-    opacity: 0;
-    transform: scale3d(0.3, 0.3, 0.3);
-  }
-
-  50% {
-    opacity: 1;
-  }
+#headerModal {
+  padding: 16px;
+  border-bottom: 1px solid gray;
+  box-sizing: inherit;
 }
 
-#headerModal {
-  /*flex: 1 0 auto;
-  align-items: center;
-  display: flex;
-  flex-wrap: wrap;
-  padding: 16px;
-  box-sizing: inherit;*/
-  padding: 16px;
-  box-sizing: inherit;
-  border-bottom: 1px solid gray;
+#headerModal > * {
+  margin: 0;
 }
 
 #bodyModal {
@@ -59,13 +46,17 @@
   box-sizing: inherit;
 }
 
+#bodyModal > * {
+  margin: 0;
+}
+
 #footerModal {
   padding: 10px;
   box-sizing: inherit;
   border-top: 1px solid black;
 }
 
-.button {
+.modal-button {
   background-color: transparent;
   border-style: none;
   margin: 4px 2px;
@@ -90,149 +81,18 @@
   float: right;
 }
 
-#headerModal > * {
-  margin: 0;
+.dismiss{
+  float: right;
+  font-size: 4vh;
 }
 
-#bodyModal > * {
-  margin: 0;
-}
+@keyframes appear {
+  from {
+    opacity: 0;
+    transform: scale3d(0.3, 0.3, 0.3);
+  }
 
-
-/* GABO
-.overlay{
-    position: fixed;
-    display: none;
-    width: 100%;
-    height: 100%;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: rgba(0,0,0,0.5);
-    z-index: 2;
-    cursor: pointer;
-    transition: 1s;
-    }
-    .prix-modal-box{
-        position: fixed;
-        display: none;
-        width: 80%;
-        height: 80%;
-        top: 10%;
-        left: 10%;
-        right: 5%;
-        bottom: 0%;
-        background-color: rgba(255, 255, 255, 0.911);
-        z-index: 2;
-        cursor: pointer;
-        transition: 1s;
+  50% {
+    opacity: 1;
   }
-  .prix-modal-message{
-      align-content: center;
-      margin: 20%;
-      padding: 2%;
-  }
-  .dismiss{
-      color: white;
-      font-size: 200%;
-      margin: 2%;
-      padding: 2%;
-      float: right;
-      transition: 1s;
-  }
-  .prix-button{
-      position: relative;
-      display: block;
-      height: 25px;
-      width: auto;
-      color: white;
-      margin: 1%;
-      background-color:#e20177;
-      border-radius: 25px;
-  }
-  .prix-modal-button{
-      background-color: transparent;
-      border-radius: 2px;
-      text-align: center;
-      align-content: center;
-      font-size: 100%;
-      padding: 1% 5%;
-      bottom: 3%;
-      margin: 0% 2%
-  }
-  #accept.prix-modal-button{
-      position: absolute;
-      right: 2%;
-      margin-right: 2%;
-  }
-  #cancel.prix-modal-button{
-    position: absolute;
-    left: 3%;
-    margin: 0 0.5%;
-  }
-   @media screen and (max-width: 600px) {
-    #showGrid{
-        display: block;
-        margin: 0.5%;
-    }
-   }
-*/
-
-/* The Modal (background) OTRO */
-/*
-.modal {
-  /*
-  display: none;
-  position: fixed;
-  z-index: 1;
-  left: 0;
-  top: 0;
-  padding-top: 20%;
-  width: 100%;
-  height: 100%;
-  background-color: white;
-  align-items: center;/*
-display: flex;
-height: 100%;
-justify-content: center;
-left: 0;
-pointer-events: none;
-position: fixed;
-top: 0;
-transition: 0.2s cubic-bezier(0.25, 0.8, 0.25, 1);
-width: 100%;
-z-index: 6;
-outline: none;
 }
-*/
-/* Modal Content */
-/*
-.modal-content {
-  /*
-  margin: auto;
-  padding: 20px;
-  border: 1px solid #888;
-  width: 60%;
-  height: 20%;
-  margin: auto;
-  position: relative;
-  background-color: #fff;
-  background-clip: padding-box;
-  border: 0;
-  border-radius: 4px;
-  -webkit-box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-  pointer-events: auto;
-  box-shadow: 0px 11px 15px -7px rgba(0,0,0,0.2), 0px 24px 38px 3px rgba(0,0,0,0.14), 0px 9px 46px 8px rgba(0,0,0,0.12);
-border-radius: 2px;
-margin: 24px;
-overflow-y: auto;
-pointer-events: auto;
-transition: 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
-width: 100%;
-z-index: inherit;
-width: 500px;
-}
-*/
-/* The Close Button */

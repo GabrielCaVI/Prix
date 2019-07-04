@@ -34,14 +34,18 @@ export namespace Components {
     'colorBody': string;
     'colorBodyText': string;
     'colorFooter': string;
+    /**
+    * Common attributes
+    */
     'colorHeader': string;
     'colorHeaderText': string;
-    'expandSizewidth': string;
+    'expandSizeWidth': string;
     'hideModal': () => Promise<void>;
     'onCancel': () => Promise<void>;
+    /**
+    * Public API Methods
+    */
     'onOk': () => Promise<void>;
-    'opacity': boolean;
-    'opacityColor': string;
     'showModal': () => Promise<void>;
   }
   interface PrixMultiLevel {
@@ -112,13 +116,17 @@ declare namespace LocalJSX {
     'colorBody'?: string;
     'colorBodyText'?: string;
     'colorFooter'?: string;
+    /**
+    * Common attributes
+    */
     'colorHeader'?: string;
     'colorHeaderText'?: string;
-    'expandSizewidth'?: string;
+    'expandSizeWidth'?: string;
     'onTriggerCancel'?: (event: CustomEvent<any>) => void;
+    /**
+    * Event Emmitters
+    */
     'onTriggerOk'?: (event: CustomEvent<any>) => void;
-    'opacity'?: boolean;
-    'opacityColor'?: string;
   }
   interface PrixMultiLevel extends JSXBase.HTMLAttributes<HTMLPrixMultiLevelElement> {
     'color'?: string;
