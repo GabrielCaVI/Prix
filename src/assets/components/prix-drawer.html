@@ -5,24 +5,66 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Prix Multi Level</title>
-    <link 
-    rel="stylesheet" 
-    href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" 
-    integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" 
+    <link
+    rel="stylesheet"
+    href="https://use.fontawesome.com/releases/v5.7.0/css/all.css"
+    integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ"
     crossorigin="anonymous">
     <script type="module" src="/build/prixcomponents.esm.js"></script>
     <script nomodule src="/build/prixcomponents.js"></script>
+    <style>
+    .button {
+      background-color: #4CAF50; /* Green */
+      border: none;
+      color: white;
+      padding: 15px 32px;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 16px;
+      margin: 4px 2px;
+      cursor: pointer;
+    }
+    .button2 {background-color: #f44336;} /* Blue */
+
+    html,
+    body {
+      background-color: #F4F4F4;
+    }
+</style>
 </head>
 <body>
-    <prix-drawer
-        d-color="#ABC"
-        d-expand-size="30%"
-        d-side="es-top"
-        d-opacity="false">
+    <prix-drawer style="color:white;"
+        color="#4286F4"
+        expand-size="medium"
+        side="es-bottom"
+        opacity="true">
+        <div slot="drawer-content">
+          <h1>Base 22 Drawer</h1>
+          <p>Some Content</p>
+          <p>Some Content</p>
+          <p>Some Content</p>
+          <button id="closeDrawer" class ="button button2">Close</button>
+        </div>
     </prix-drawer>
+    <div style ="text-align: center;">
+      <button id="openDrawer" class ="button" style ="position: absolute;top: 50%;">Open</button>
+      <button id="closeDrawer" class ="button button2" style ="position: absolute;top: 60%;">Close</button>
+      <button id="closeDrawer" class ="button button2" style ="position: absolute;top: 60%;">Close</button>
+    </div>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script type="text/javascript" src="./utils.js"></script>
     <script>
+    var drawer = document.querySelector("prix-drawer");
+    document.getElementById("openDrawer").addEventListener("click", openFunction);
+    function openFunction() {
+      drawer.showDrawer();
+    }
+    document.getElementById("closeDrawer").addEventListener("click", closeFunction);
+    function closeFunction() {
+      drawer.hideDrawer();
+    }
+    loadComponent("test-menu");
         loadComponent("prix-drawer", "../data/drawer-data.json")
     </script>
 </body>

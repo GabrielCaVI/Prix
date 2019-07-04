@@ -1,12 +1,10 @@
-import { Component, Element, h, Prop, State } from '@stencil/core'
+import { Component, Element, h, Prop, State, Listen } from '@stencil/core'
 
-import {
-    sortItemsByField
-} from "../../utils/utils";
+import { sortItemsByField } from "../../utils/utils";
 
 @Component({
-    tag: 'prix-directory',
-    styleUrl: 'directory.scss'
+  tag: "prix-directory",
+  styleUrl: "directory.scss"
 })
 export class directory {
     @Element() el: HTMLElement;
@@ -17,12 +15,31 @@ export class directory {
     @Prop() data?: any = {};
     @Prop({ mutable: true }) configuration?: any = {};
     @Prop({ mutable: true }) styling?: any = {};
+
+
+    /**
+     * EVENT LISTENERS
+     */
+    @Listen('okEvent', { capture: true } )
+    private closeModal() {
+        let m = document.querySelector('prix-modal')
+        m.hideModal();
+    }
+    @Listen('cancelEvent', { capture: true } )
+    private cancelFilter(){
+        let m = document.querySelector('prix-modal')
+        this.cleanModalFilter();
+        m.hideModal();
+    }
+
+    
+
     /** 
     *   STATE
     */
     @State() internalItems = [];
+
     letterItems = [
-        "#",
         "A",
         "B",
         "C",
@@ -49,105 +66,75 @@ export class directory {
         "W",
         "X",
         "Y",
-        "Z"
-    ];
-    letterItemsMobile = [
-        "A",
-        "E",
-        "I",
-        "M",
-        "Q",
-        "U",
-        "Y",
-        "B",
-        "F",
-        "J",
-        "N",
-        "R",
-        "V",
         "Z",
-        "C",
-        "G",
-        "K",
-        "O",
-        "S",
-        "W",
-        "#",
-        "D",
-        "H",
-        "L",
-        "P",
-        "T",
-        "X"
+        "#"
     ];
+    change = false;
 
+    //Component Methods
     toggleSelection() {
-        let selectAllBtn = document.getElementById('select-all') as HTMLInputElement;
-        let selectLabel = document.getElementById('select-all-label') as HTMLLabelElement;
-        let letterItems = document.getElementsByClassName('checkInput') as HTMLCollectionOf<HTMLInputElement>;
-        let items = document.getElementsByClassName("item") as HTMLCollectionOf<HTMLDivElement>;
+        let selectAllBtn = document.getElementById('select-all') as HTMLInputElement; //Trigger Button
+        let selectLabel = document.getElementById('select-all-label') as HTMLLabelElement; // Button Label
+        let letterItems = document.getElementsByClassName('checkInput') as HTMLCollectionOf<HTMLInputElement>; // Collection of inputs
+        let items = document.getElementsByClassName("item") as HTMLCollectionOf<HTMLDivElement>; // Collection of input labels
 
         if (selectAllBtn.checked) {
             selectLabel.innerHTML = 'Unselect all';
-            for (var i = 0; i < letterItems.length; i++) {
+            for (let i = 0; i < letterItems.length; i++) {
                 letterItems[i].checked = true;
-                items[i].style.display="contents";
+                items[i].style.display = 'contents'; // display content of items
 
             }
         } else {
-            selectLabel.innerHTML = 'All items';
-            for (var i = 0; i < letterItems.length; i++) {
+            selectLabel.innerHTML = 'All';
+            for (let i = 0; i < letterItems.length; i++) {
                 letterItems[i].checked = false;
-                items[i].style.display="";
+                items[i].style.display = ""; //remove display (default hidden)
             }
         }
     }
 
-    filterByInput(){
-        var p;
+    filterByInput() {
+        this.cleanFilters("check");
+        var h; // the item header to be matched
         let searchbox = document.getElementById("searchbox") as HTMLInputElement // the searchbox element
         let filter = searchbox.value.toUpperCase() as string; // the typed filter
         let items = document.getElementsByClassName("item") as HTMLCollectionOf<HTMLDivElement>; //To hide the complete <div class=item>
-        for(let i = 0; i < items.length; i++){ // iterate over labels to match input
-            p = items[i].getElementsByTagName("p")[0].textContent || items[i].getElementsByTagName("p")[0].innerText;
-            if(p.toUpperCase().indexOf(filter[0]) > -1){
-                items[i].style.display = "contents";
-                this.filterLinks(items[i],filter);
-            }else{
+        for (let i = 0; i < items.length; i++) { // iterate over labels to match input
+            h = items[i].getElementsByTagName("h1")[0].textContent || items[i].getElementsByTagName("h1")[0].innerText;
+            if (filter !== ' ' && h.toUpperCase().indexOf(filter[0]) > -1) { // if the current filter matches the item header, display it
+                items[i].style.display = 'contents';
+                this.filterLinks(items[i], filter); // to filter the subitem list
+            } else {
                 items[i].style.display = "";
             }
         }
+        this.change = true;
     }
-    filterByCheckbox(check){
-        var p;
+    filterByCheckbox(check) {
+        this.cleanFilters("input");
+        let h;
         let items = document.getElementsByClassName("item") as HTMLCollectionOf<HTMLDivElement>;
-        let checkboxes = document.getElementsByClassName('checkInput') as HTMLCollectionOf<HTMLInputElement>;
+        let checkboxes = Array.from(document.getElementsByClassName('checkInput') as HTMLCollectionOf<HTMLInputElement>);//Make an array to support 'some' method
         let selectAllBtn = document.getElementById('select-all') as HTMLInputElement;
         let selectLabel = document.getElementById('select-all-label') as HTMLLabelElement;
-        for(let i = 0; i < checkboxes.length; i++){
-            if(checkboxes[i].checked){
-                selectLabel.innerHTML = "Unselect all"
-                selectAllBtn.checked=true;
-            }else{
-                selectAllBtn.checked = false;
-                selectLabel.innerHTML = 'All items';
-            }
+        if (checkboxes.some((box) => { return box.checked })) {
+            selectLabel.innerHTML = "Unselect all"
+            selectAllBtn.checked = true;
+        } else {
+            selectAllBtn.checked = false;
+            selectLabel.innerHTML = 'All';
         }
-        for(let i = 0; i < items.length; i++){
-            p = items[i].getElementsByTagName("p")[0].textContent || items[i].getElementsByTagName("p")[0].innerText;
-            if(p.toUpperCase().indexOf(check) > -1){
-                items[i].style.display = items[i].style.display===''? 'contents': '';
+        for (let i = 0; i < items.length; i++) {
+            h = items[i].getElementsByTagName("h1")[0].textContent || items[i].getElementsByTagName("h1")[0].innerText;
+            if (h.toUpperCase().indexOf(check) > -1) {
+                items[i].style.display = items[i].style.display === '' ? 'contents' : '';
             }
         }
     }
-    
     /** 
     * Lifecycle methods
     */
-    init(){
-        this.sortItems();
-        this.internalItems = this.data.items;
-    }
     componentWillLoad() {
         this.init();
         this.sortItems();
@@ -157,52 +144,55 @@ export class directory {
         const items = this.internalItems;
         return (
             <span>
-                <div class="container-lg">
-                    <div class="topnav">
-                        <input type="checkbox" class="active" id="select-all" onClick={() => this.toggleSelection()} />
-                        <label class="active" htmlFor="select-all" id="select-all-label">All Items</label>
-                        <prix-modal  canceLabel="Cancel" acceptLabel="Done" label="ShowModal" id="showGrid">
-                            <div id="lettersModal" slot="content">
-                                <ul id="lettersListMobile">
-                                    {this.letterItemsMobile.map((letter) => (
-                                        <li class="pagnLink">
-                                            <input type="checkbox" class="checkInput" id={letter+' '} onChange={() => this.filterByCheckbox(letter)}/>
-                                            <label htmlFor={letter+' '} class="checkLabel">{letter+' '}</label>
-                                        </li>
-                                    ))}
-                                </ul>
-                            </div>
-                        </prix-modal>
-                        <div class="search-container">
-                            <input id="searchbox" type="text" placeholder="Search..." onKeyUp={() => this.filterByInput()} />
-                        </div>
-                        <div id="letters">
-                            <ul id="lettersList">
+                <div class="topnav">
+                    <input type="checkbox" class="active" id="openModal" onClick={() => this.open()}/>
+                    <label class="active" htmlFor="openModal" id="modalLabel">Filter</label>
+                    
+                    <input type="checkbox" class="active" id="select-all" onClick={() => this.toggleSelection()} />
+                    <label class="active" htmlFor="select-all" id="select-all-label">All</label>
+                    <prix-modal onTriggerCancel={() => this.cancelFilter()} onTriggerOk={()=>this.closeModal()} acceptLabel="OK" cancelLabel="Cancel">
+                        <h1 slot="headerModalContent">Choose a letter</h1>
+                        <div id="lettersModal" slot="bodyModalContent">
+                            <ul id="lettersListMobile">
                                 {this.letterItems.map((letter) => (
-                                    <li class="pagnLink">
-                                        <input type="checkbox" class="checkInput" id={letter} onChange={() => this.filterByCheckbox(letter)}/>
-                                        <label htmlFor={letter} class="checkLabel">{letter}</label>
+                                    <li class="pagnLinkMobile">
+                                        <input type="checkbox" class="checkInputMobile" id={letter + ' '} onChange={() => this.filterByCheckbox(letter)}/>
+                                        <label htmlFor={letter + ' '} class="checkLabelMobile">{letter + ' '}</label>
                                     </li>
                                 ))}
                             </ul>
                         </div>
+                    </prix-modal>
+                    <div class="search-container">
+                        <input id="searchbox" type="text" placeholder="Search..." onInput={() => this.filterByInput()}/>
                     </div>
-                    <div class="item-container">
-                        {items.map((item) => (
-                            <div class="item">
-                                <p>{item.index}</p>
-                                <div class="rule"></div>
-                                <ul>
-                                    {item.content.map(contentItem => (
-                                        <li><a href={contentItem.url}>{contentItem.title}</a></li>
-                                    ))}
-                                </ul>
-                            </div>
-                        ))}
+                    <div id="letters">
+                        <ul id="lettersList">
+                            {this.letterItems.map((letter) => (
+                                <li class="pagnLink">
+                                    <input type="checkbox" class="checkInput" id={letter} onChange={() => this.filterByCheckbox(letter)}/>
+                                    <label htmlFor={letter} class="checkLabel">{letter}</label>
+                                </li>
+                            ))}
+                        </ul>
                     </div>
+                   
+                </div>
+                <div class="item-container">
+                    {items.map((item)=>(
+                        <prix-directory-item item={item}>
+                        </prix-directory-item>
+                    ))}
                 </div>
             </span>
         )
+    }
+    /**
+     * PRIVATE METHODS
+     */
+    private init() {
+        this.sortItems();
+        this.internalItems = this.data.items;
     }
     private sortItems() {
         const { sort } = this.configuration;
@@ -211,29 +201,67 @@ export class directory {
         if (sort) {
             try {
                 this.data.items = sortItemsByField(
-                items,
-                byField,
-                direction
+                    items,
+                    byField,
+                    direction
                 );
             } catch (e) {
                 console.error(
-                "Oops something went wrong, please double check your sort property in your JSON configuration",
-                e
+                    "Oops something went wrong, please double check your sort property in your JSON configuration",
+                    e
                 );
             }
         }
     }
-    private filterLinks(item, filter){
+    private filterLinks(item, filter) {
         var a;
         let nodes = item.getElementsByTagName("a") as HTMLCollectionOf<HTMLAnchorElement>;
-        for(let i = 0; i < nodes.length; i++){
-            a=nodes[i].textContent || nodes[i].innerText;
-            if (a.toUpperCase().indexOf(filter) > -1){
-                console.log(nodes[i])
-                nodes[i].style.display = "contents";
-            }else{
+        for (let i = 0; i < nodes.length; i++) {
+            a = nodes[i].textContent || nodes[i].innerText;
+            if (a.toUpperCase().indexOf(filter) > -1) {
+                nodes[i].style.display = 'contents';
+            } else {
                 nodes[i].style.display = "none";
             }
         }
+    }
+    private cleanFilters(filter) {
+        /**
+         *  Method to avoid conflicts between both filters.
+         */
+        if (filter == "check") {
+            let inputs = Array.from(document.getElementsByClassName('checkInput') as HTMLCollectionOf<HTMLInputElement>);
+            let selectAllBtn = document.getElementById('select-all') as HTMLInputElement;
+            let selectAllLabel = document.getElementById('select-all-label') as HTMLLabelElement;
+            inputs.map((input) => {
+                input.checked = false;
+            })
+            selectAllBtn.checked = false;
+            selectAllLabel.innerText = 'All'
+        } else {
+            let searchbox = document.getElementById("searchbox") as HTMLInputElement // the searchbox element
+            searchbox.value = null;
+        }
+        if (this.change){
+            let items = Array.from(document.getElementsByClassName("item") as HTMLCollectionOf<HTMLDivElement>);
+            items.forEach((item) => {
+                item.style.display = '';
+            })
+            this.change = false;
+        }
+    }
+    private cleanModalFilter(){
+        let inputs = Array.from(document.getElementsByClassName('checkInputMobile') as HTMLCollectionOf<HTMLInputElement>);
+        inputs.map((input) => {
+            input.checked = false;
+        })
+        let items = Array.from(document.getElementsByClassName("item") as HTMLCollectionOf<HTMLDivElement>);
+        items.forEach((item) => {
+            item.style.display = '';
+        })
+    }
+    private open(){
+        let m = document.querySelector("prix-modal");
+        m.showModal();
     }
 }

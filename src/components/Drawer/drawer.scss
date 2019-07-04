@@ -1,64 +1,107 @@
 @charset "UTF-8";
 html,
 body {
-    height: 100%;
-    margin:0;
-    padding: 0;
+  height: 100%;
+  margin:0;
+  padding: 0;
 }
 
-.wrapper {
-    text-align: center;
+#drawerContent{
+  margin-left: 2%;
 }
 
-.button {
-    position: absolute;
-    top: 50%;
+.hide {
+  display: none;
 }
 
 .drawer-left {
-  height: 100%; /* 100% Full-height */
-  position:fixed; /* Stay in place */
-  z-index: 1; /* Stay on top */
-  top: 0; /* Stay at the top */
+  height: 100%;
+  position:fixed;
+  z-index: 1;
+  top: 0;
   left: 0;
-  width: 0%; /* 0 width - change this with JavaScript */
-  background-color: #AFA; /* Black*/
-  overflow-x: hidden; /* Disable horizontal scroll */
-  transition: 0.5s; /* 0.5 second transition effect to slide in the sidenav */
+  width: 0%;
+  background-color: #AFA;
+  overflow-x: hidden;
+  transition: 0.5s;
 }
 
 .drawer-right {
-  height: 100%; /* 100% Full-height */
-  position: fixed; /* Stay in place */
-  z-index: 1; /* Stay on top */
-  top: 0; /* Stay at the top */
+  height: 100%;
+  position: fixed;
+  z-index: 1;
+  top: 0;
   right: 0;
-  width: 0%; /* 0 width - change this with JavaScript */
-  background-color: #AFA; /* Black*/
-  overflow-x: hidden; /* Disable horizontal scroll */
-  transition: 0.5s; /* 0.5 second transition effect to slide in the sidenav */
+  width: 0%;
+  background-color: #AFA;
+  overflow-x: hidden;
+  transition: 0.5s;
 }
 
 .drawer-top {
-  height: 0%; /* 100% Full-height */
-  position: fixed; /* Stay in place */
-  z-index: 1; /* Stay on top */
-  top: 0; /* Stay at the top */
+  height: 0%;
+  position: fixed;
+  z-index: 1;
+  top: 0;
   left: 0;
-  width: 100%; /* 0 width - change this with JavaScript */
-  background-color: #AFA; /* Black*/
-  overflow-x: hidden; /* Disable horizontal scroll */
-  transition: 0.5s; /* 0.5 second transition effect to slide in the sidenav */
+  width: 100%;
+  background-color: #AFA;
+  overflow-x: hidden;
+  transition: 0.5s;
 }
 
 .drawer-bottom {
-  height: 0%; /* 100% Full-height */
-  position: fixed; /* Stay in place */
-  z-index: 1; /* Stay on top */
-  bottom: 0; /* Stay at the top */
+  height: 0%;
+  position: fixed;
+  z-index: 1;
+  bottom: 0;
   left: 0;
-  width: 100%; /* 0 width - change this with JavaScript */
-  background-color: #AFA; /* Black*/
-  overflow-x: hidden; /* Disable horizontal scroll */
-  transition: 0.5s; /* 0.5 second transition effect to slide in the sidenav */
+  width: 100%;
+  background-color: #AFA;
+  overflow-x: hidden;
+  transition: 0.5s;
+}
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (max-width: 600px) {
+  .small-size-height{
+    height: 30%;
+  }
+  .medium-size-height{
+    height: 60%;
+  }
+  .large-size-height{
+    height: 100%;
+  }
+  .small-size-width{
+    width: 60%;
+  }
+  .medium-size-width{
+    width: 60%;
+  }
+  .large-size-width{
+    width: 100%;
+  }
+}
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 600px) {
+  .small-size-height{
+    height: 30%;
+  }
+  .medium-size-height{
+    height: 60%;
+  }
+  .large-size-height{
+    height: 100%;
+  }
+  .small-size-width{
+    width: 30%;
+  }
+  .medium-size-width{
+    width: 60%;
+  }
+  .large-size-width{
+    width: 100%;
+  }
 }

@@ -17,28 +17,58 @@ export namespace Components {
     'data'?: any;
     'styling'?: any;
   }
-  interface PrixDrawer {
-    'dColor': string;
-    'dExpandSize': string;
-    'dOpacity': boolean;
-    'dSide': string;
-    'isOpen': boolean;
+  interface PrixDirectoryItem {
+    /**
+    * COMMON ATTRIBUTES
+    */
+    'color': string;
+    'item'?: any;
   }
-  interface PrixModal {
-    'acceptLabel': string;
-    'canceLabel': string;
-    'configuration'?: any;
+  interface PrixDrawer {
     /**
     * Common attributes
     */
-    'data'?: any;
-    'label': string;
-    'styling'?: any;
+    'color': string;
+    'expandSize': string;
+    'hideDrawer': () => Promise<void>;
+    'opacity': boolean;
+    /**
+    * Public API
+    */
+    'showDrawer': () => Promise<void>;
+    'side': string;
+  }
+  interface PrixModal {
+    'acceptLabel': string;
+    'acceptLabelColor': string;
+    'acceptLabelColorText': string;
+    'cancelLabel': string;
+    'cancelLabelColor': string;
+    'cancelLabelColorText': string;
+    'colorBody': string;
+    'colorBodyText': string;
+    'colorFooter': string;
+    /**
+    * Common attributes
+    */
+    'colorHeader': string;
+    'colorHeaderText': string;
+    'expandSizeWidth': string;
+    'hideModal': () => Promise<void>;
+    'onCancelEvent': () => Promise<void>;
+    /**
+    * Public API Methods
+    */
+    'onOkEvent': () => Promise<void>;
+    'showModal': () => Promise<void>;
   }
   interface PrixMultiLevel {
     'color': string;
     'dark': boolean;
     'data'?: any;
+    /**
+    * COMMON ATTRIBUTES
+    */
     'message': string;
   }
 }
@@ -50,6 +80,12 @@ declare global {
   var HTMLPrixDirectoryElement: {
     prototype: HTMLPrixDirectoryElement;
     new (): HTMLPrixDirectoryElement;
+  };
+
+  interface HTMLPrixDirectoryItemElement extends Components.PrixDirectoryItem, HTMLStencilElement {}
+  var HTMLPrixDirectoryItemElement: {
+    prototype: HTMLPrixDirectoryItemElement;
+    new (): HTMLPrixDirectoryItemElement;
   };
 
   interface HTMLPrixDrawerElement extends Components.PrixDrawer, HTMLStencilElement {}
@@ -71,6 +107,7 @@ declare global {
   };
   interface HTMLElementTagNameMap {
     'prix-directory': HTMLPrixDirectoryElement;
+    'prix-directory-item': HTMLPrixDirectoryItemElement;
     'prix-drawer': HTMLPrixDrawerElement;
     'prix-modal': HTMLPrixModalElement;
     'prix-multi-level': HTMLPrixMultiLevelElement;
@@ -86,33 +123,57 @@ declare namespace LocalJSX {
     'data'?: any;
     'styling'?: any;
   }
-  interface PrixDrawer extends JSXBase.HTMLAttributes<HTMLPrixDrawerElement> {
-    'dColor'?: string;
-    'dExpandSize'?: string;
-    'dOpacity'?: boolean;
-    'dSide'?: string;
-    'isOpen'?: boolean;
+  interface PrixDirectoryItem extends JSXBase.HTMLAttributes<HTMLPrixDirectoryItemElement> {
+    /**
+    * COMMON ATTRIBUTES
+    */
+    'color'?: string;
+    'item'?: any;
   }
-  interface PrixModal extends JSXBase.HTMLAttributes<HTMLPrixModalElement> {
-    'acceptLabel'?: string;
-    'canceLabel'?: string;
-    'configuration'?: any;
+  interface PrixDrawer extends JSXBase.HTMLAttributes<HTMLPrixDrawerElement> {
     /**
     * Common attributes
     */
-    'data'?: any;
-    'label'?: string;
-    'styling'?: any;
+    'color'?: string;
+    'expandSize'?: string;
+    'opacity'?: boolean;
+    'side'?: string;
+  }
+  interface PrixModal extends JSXBase.HTMLAttributes<HTMLPrixModalElement> {
+    'acceptLabel'?: string;
+    'acceptLabelColor'?: string;
+    'acceptLabelColorText'?: string;
+    'cancelLabel'?: string;
+    'cancelLabelColor'?: string;
+    'cancelLabelColorText'?: string;
+    'colorBody'?: string;
+    'colorBodyText'?: string;
+    'colorFooter'?: string;
+    /**
+    * Common attributes
+    */
+    'colorHeader'?: string;
+    'colorHeaderText'?: string;
+    'expandSizeWidth'?: string;
+    'onTriggerCancel'?: (event: CustomEvent<any>) => void;
+    /**
+    * Event Emmitters
+    */
+    'onTriggerOk'?: (event: CustomEvent<any>) => void;
   }
   interface PrixMultiLevel extends JSXBase.HTMLAttributes<HTMLPrixMultiLevelElement> {
     'color'?: string;
     'dark'?: boolean;
     'data'?: any;
+    /**
+    * COMMON ATTRIBUTES
+    */
     'message'?: string;
   }
 
   interface IntrinsicElements {
     'prix-directory': PrixDirectory;
+    'prix-directory-item': PrixDirectoryItem;
     'prix-drawer': PrixDrawer;
     'prix-modal': PrixModal;
     'prix-multi-level': PrixMultiLevel;

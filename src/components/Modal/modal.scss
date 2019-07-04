@@ -1,90 +1,98 @@
-.overlay{
-    position: fixed; 
-    display: none; 
-    width: 100%; 
-    height: 100%; 
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: rgba(0,0,0,0.5); 
-    z-index: 2; 
-    cursor: pointer; 
-    transition: 1s;
-    }
+#overlay{
+  align-items: center;
+  display: none;
+  height: 100%;
+  justify-content: center;
+  left: 0;
+  pointer-events: none;
+  position: fixed;
+  top: 0;
+  transition: 0.2s cubic-bezier(0.25, 0.8, 0.25, 1);
+  width: 100%;
+  z-index: 6;
+  outline: none;
+  box-sizing: border-box;
+}
 
-    .prix-modal-box{
-        position: fixed; 
-        display: none; 
-        width: 80%; 
-        height: 80%; 
-        top: 10%;
-        left: 10%;
-        right: 5%;
-        bottom: 0%;
-        background-color: rgba(255, 255, 255, 0.911); 
-        z-index: 2; 
-        cursor: pointer; 
-        transition: 1s;
+#contentModal{
+  box-shadow: 0 11px 15px -7px rgba(0,0,0,.2),0 24px 38px 3px rgba(0,0,0,.14),0 9px 46px 8px rgba(0,0,0,.12);
+  border-radius: 2px;
+  margin: 24px;
+  overflow-y: auto;
+  pointer-events: auto;
+  width: 100%;
+  z-index: inherit;
+  box-sizing: inherit;
+  max-height: 90%;
+  display: flex;
+  flex-direction: column;
+  animation: appear 0.25s ease-in-out;
+}
+
+#headerModal {
+  padding: 16px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  box-sizing: inherit;
+}
+
+#headerModal > * {
+  margin: 0;
+}
+
+#bodyModal {
+  padding: 16px;
+  width: 100%;
+  overflow-y: auto;
+  box-sizing: inherit;
+}
+
+#bodyModal > * {
+  margin: 0;
+}
+
+#footerModal {
+  padding: 10px;
+  box-sizing: inherit;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.modal-button {
+  background-color: transparent;
+  border-style: none;
+  margin: 4px 2px;
+  padding: 0 15px 0 15px;
+  font-size: .875rem;
+  font-weight: 500;
+  letter-spacing: .0892857143em;
+  text-transform: uppercase;
+  min-width: 75px;
+  height: 36px;
+  vertical-align: middle;
+}
+
+#cancelButton {
+  color: #b52626;
+  background-color: white;
+}
+
+#okButton {
+  color: #43a047;
+  background-color: white;
+  float: right;
+}
+
+.dismiss{
+  float: right;
+  font-size: 4vh;
+}
+
+@keyframes appear {
+  from {
+    opacity: 0;
+    transform: scale3d(0.3, 0.3, 0.3);
   }
 
-  .prix-modal-message{
-      align-content: center;
-      margin: 20%;
-      padding: 2%;
+  50% {
+    opacity: 1;
   }
-
-  .dismiss{
-      color: white;
-      font-size: 200%;
-      margin: 2%;
-      padding: 2%;
-      float: right;     
-      transition: 1s;
-  }
-
-  .prix-button{
-      position: relative;
-      display: block;
-      height: 25px;
-      width: auto; 
-      color: white;
-      margin: 1%;
-      background-color:#e20177;
-      border-radius: 25px;
-  }
-
-
-  .prix-modal-button{
-      background-color: transparent;
-      border-radius: 2px;
-      text-align: center;
-      align-content: center;
-      font-size: 100%;
-      padding: 1% 5%;
-      bottom: 3%;
-      margin: 0% 2%
-  }
-  #accept.prix-modal-button{
-      position: absolute;
-      right: 2%; 
-      margin-right: 2%;
-  }
-
-  #cancel.prix-modal-button{
-    position: absolute;
-    left: 3%; 
-    margin: 0 0.5%;
-  }
-
-  
-
-
-   @media screen and (max-width: 600px) {
-
-    #showGrid{
-        display: block;
-        margin: 0.5%;
-    }
-   
-   }
+}
