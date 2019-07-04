@@ -46,11 +46,13 @@ export class modal {
   @Method()
   async showModal() {
     document.getElementById("overlay").style.display = "flex";
+    this.onOk();
   }
 
   @Method()
   async hideModal() {
     document.getElementById("overlay").style.display = "none";
+    this.onCancel();
   }
 
   /**
