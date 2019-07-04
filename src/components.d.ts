@@ -39,6 +39,9 @@ export namespace Components {
     'color': string;
     'dark': boolean;
     'data'?: any;
+    /**
+    * COMMON ATTRIBUTES
+    */
     'message': string;
   }
 }
@@ -108,6 +111,9 @@ declare namespace LocalJSX {
     'color'?: string;
     'dark'?: boolean;
     'data'?: any;
+    /**
+    * COMMON ATTRIBUTES
+    */
     'message'?: string;
   }
 

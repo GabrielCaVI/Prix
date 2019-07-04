@@ -1,89 +1,79 @@
-import { Component, Prop, h, State } from '@stencil/core';
+import { Component, Prop, h, State } from "@stencil/core";
 @Component({
-  tag: 'prix-multi-level',
-  styleUrl: 'multi-level.scss',
+  tag: "prix-multi-level",
+  styleUrl: "multi-level.scss"
 })
 export class multiLevel {
-
+  /**
+   * COMMON ATTRIBUTES
+   */
   @Prop() message: string;
-  @Prop() color: string;
+  @Prop() color: string = '#0033a0';
   @Prop() data?: any = {}; 
   @Prop({ mutable: true }) dark: boolean = false;
+  @State() internalItems =  [];
 
-  @State() value: string = this.message;
-  @State() colour: string = this.color;
-  @State () internalItems =  [];
+  /**
+   * PUBLIC API
+   */
 
+  //Toggle open sideMenu function
   handleToggle = () => {
+    let button = document.getElementById("openButton");
+    let inner = document.getElementById("inner-menu");
+    let content = document.getElementById("content");
 
-    let button = document.getElementById('openButton');
-    let inner = document.getElementById('inner-menu');
-    let content = document.getElementById('content');
+    button.classList.toggle("toggle");
+    button.classList.toggle("transition");
 
-    button.classList.toggle('toggle');
-    button.classList.toggle('transition');
+    inner.classList.toggle("toggle");
+    inner.classList.toggle("showMenu");
+    inner.classList.toggle("transition");
 
-    inner.classList.toggle('toggle');
-    inner.classList.toggle('showMenu')
-    inner.classList.toggle('transition');
+    content.classList.toggle("toggle");
+    content.classList.toggle("transition");
+    content.classList.toggle("hide");
 
-    content.classList.toggle('toggle');
-    content.classList.toggle('transition');
-    content.classList.toggle('hide');
-
-    setTimeout(function () {
+    setTimeout(function() {
       button.classList.toggle("transition");
       inner.classList.toggle("transition");
     }, 350);
 
   }
-
+  //Inner Menu transition method
   menuToggle() {
-
-    let item = document.getElementById('item')
-    item.classList.toggle('toggle');
-    item.classList.toggle('transition');
-    setTimeout(function () {
+    let item = document.getElementById("item");
+    item.classList.toggle("toggle");
+    item.classList.toggle("transition");
+    setTimeout(function() {
       item.classList.toggle("transition");
     }, 350);
   }
 
-  setValue(color) {
-    this.color = color;
-  }
-  init(){
-    this.internalItems = this.data.items;
-  }
+  /**
+   * LIFECYCLE METHODS
+   */
   componentWillLoad(){
     this.init();
   }
-
-  darkTheme (){
-    let inn = document.getElementById('inner-menu');
-    let but = document.getElementById('openButton');
-
-    inn.classList.toggle('dark');
-    but.classList.toggle('dark')
-  }
-
   render() {
     const items = this.internalItems;
     return (
-
       <div id="menu">
-        <div id="bg-opacity">
-        </div>
         <div id="wrapper" class="center">
-          <button id="openButton" onClick={() => this.handleToggle()} 
-        class="float hide noselect" >
+          <button
+            id="openButton"
+            onClick={() => this.handleToggle()}
+            class="float hide noselect"
+          >
             <div class="chevron"></div>
           </button>
-          <div id="inner-menu" class="">
-          <span id="dark">  <button id="dark" onClick={() => this.darkTheme()}><i  class ="fas fa-moon"></i></button> </span>
-        
+          <div id="inner-menu">
+            <br/>
+            <slot name="icon"/>
             <div id="content" class="hide center">
-              <p>{this.value}</p>
-           {
+              <p>{this.message}</p>
+              {
                 items.map((item)=>(
                   <div class="item">
                     <input type="checkbox" id={item.title} value={item.title}/>
@@ -107,17 +97,47 @@ export class multiLevel {
                   </div>
                 ))
               }
-
               <div class="help22" id="help">
-                <ul>
-                  <li><a href="#"><span class="far"></span>Help Center</a></li>
-                </ul>
+                <a href="#">
+                  <span class="far"></span>Help Center
+                </a>
               </div>
-
             </div>
           </div>
         </div>
       </div>
     );
+  }
+  componentDidRender(){
+    if(this.dark){
+      this.darkTheme();
+    }else{
+      this.setColor();
+    }
+  }
+
+  /**
+   * PRIVATE METHODS
+   */
+
+   //Loading Data from document
+  private init(){
+    this.internalItems = this.data.items;
+  }
+  
+  // Dark theme implementation
+  private darkTheme (){
+    let inn = document.getElementById('inner-menu');
+    let but = document.getElementById('openButton');
+    inn.classList.toggle('dark');
+    but.classList.toggle('dark');
+  }
+  private setColor(){
+    let inn = document.getElementById('inner-menu');
+    let but = document.getElementById('openButton');
+    if(this.color !== ''){
+      inn.style.backgroundColor = this.color;
+      but.style.backgroundColor = this.color;
+    }
   }
 }
