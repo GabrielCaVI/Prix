@@ -1,0 +1,28 @@
+* {
+    box-sizing: border-box;
+}
+.item ul li{
+    font-size: 25px;
+  }
+.link{
+    color: #0a707e;
+    text-decoration: none;
+}
+.rule {
+    height: 5px;
+    width: 50%;
+    background-color: #00B4CC;
+}
+@media screen and (min-width: 661px) and (max-width: 1200px) {
+    .rule {
+      height: 3px;
+      width: 50%;
+    }
+}
+
+@media screen and (max-width: 660px) {
+    .rule {
+      height: 3px;
+      width: 100%;
+    }
+}

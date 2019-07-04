@@ -3,7 +3,10 @@ body {
   font-size: 15px;
   line-height: 19px;
   color: #031f51;
-  font-family: "Montserrat", sans-serif;
+  font-family: Ubuntu,Arial, Helvetica, sans-serif;
+}
+.wrapper-md, .wrapper-sm, #openModal, #modalLabel{
+  display: none;
 }
 ul {
   list-style: none;
@@ -17,34 +20,32 @@ ul {
 
 .topnav {
   overflow: hidden;
-  background-color: #f0fcff;
+  background-color: white;
   display: block;
 }
 .topnav input,
 .topnav label {
   float: left;
   display: block;
-  color: #093f9b;
+  color:#093f9b ;
   text-align: center;
-  padding: 1%;
   text-decoration: none;
-  font-size: 17px;
-  border-radius: 10px;
+  font-size: 20px;
+  font-weight: 400;
+  
 }
 
 .search-container {
-  margin-left: 1%;
-  margin-right: 1%;
-  margin-bottom: 1%;
+  margin-top: 0.5%;
+  margin-right: 5%;
 }
 .item {
   display: none;
 }
-#showGrid {
-  display: none;
-}
+
 #letters {
   display: block;
+  margin-left: 12%;
 }
 
 .pagnLink input[type="checkbox"],
@@ -73,120 +74,170 @@ ul {
 }
 
 .pagnLink input[type="checkbox"]:checked + label {
-  color: black;
+  color: #00B4CC;
   font-weight: bold;
 }
 
-/* Change the color of links on hover */
-.topnav label.active:hover {
-  background-color: #031f51;
-  color: white;
+/* Change the color of button on hover */
+.topnav label.active:hover{
+  background-color: #009baf;
+  box-shadow: 1px 1px 10px #006b79;
 }
 .allSelected {
   color: white;
-  background-color: #093f9b;
+  background-color: #00b4cc;
 }
-
-/* Style the "active" element to highlight the current page */
-.topnav label.active {
+.topnav label.active{
+  margin-top: 10px;
+  margin-bottom:30px;
+  border-radius: 2em;
   cursor: pointer;
-  background-color: #093f9b;
+  background-color: #00B4CC;
   color: white;
+  font-weight: 600;
+  width: 170px;
+  height: auto;
+  padding: 0.5% 1%;
+  display: inline-block;
+  transition: all 0.2s;
 }
 
 /* Style the search box inside the navigation bar */
 .topnav input[type="text"] {
+  margin-top: 2px;
   align-content: center;
   padding: 2%;
   border: none;
-  margin-top: 5%;
-  margin-right: 2%;
   font-size: 17px;
+  width: 100%;
+  border: 3px solid #00B4CC;
+  border-radius: 2em;
+  outline: none;
+  color: #9dbfaf;
+  transition: all 0.2s;
+}
+.topnav input[type="text"]:focus {
+  color:  #00B4CC;
+  box-shadow: 1px 1px 7px #006b79;
 }
 .topnav .search-container {
   float: right;
 }
-.rule {
-  height: 2px;
-  background-color: black;
-}
-.fas {
-  display: inline-block;
-  font-size: inherit;
-  text-rendering: auto;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  transform: translate(0, 0);
+.item-container{
+  display: inline-grid;
+  grid-template-columns: 500px 500px 500px;
+  margin-top: 5px;
 }
 
 @media screen and (min-width: 661px) and (max-width: 1200px) {
+  .wrapper-md{
+    display: contents;
+  }
+  .wrapper-lg, .wrapper-sm, #openModal, #modalLabel{
+    display:none;
+  }
   .topnav {
     display: block;
+    position: relative;
+  }
+  .topnav .search-container, .topnav #letters{
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    margin: 0;
+  }
+  .topnav #letters{
+    align-content: center;
+    width: 374px;
+    margin-left: 25%;
+  }
+  .topnav .search-container{
+    margin-left: 67%
+  }
+  .topnav ul{
+    padding: 0;
+  }
+  #searchbox {
+    width: 60%;
+    margin-left: 30%;
   }
 
   #letters {
-    column-count: 16;
+    display:grid;
+    grid-template-columns: auto;
+    column-count: 15;
+  }
+  .item-container{
+    grid-template-columns: 180% 180%;
   }
 }
 @media screen and (max-width: 660px) {
+  .wrapper-sm{
+    display:contents;
+  }
+  #openModal,#modalLabel{
+    display: inline-block;
+  }
+  .wrapper-lg, .wrapper-md{
+    display:none;
+  }
   #letters,
   #select-all,
-  #select-all-label {
+  #select-all-label{
     display: none;
   }
   .topnav {
     overflow: hidden;
-    background-color: #f0fcff;
     display: block;
     margin: 0;
   }
 
-  // .search-container input{
-
-  // }
+  #lettersList {
+    display: grid;
+    grid-template-columns: auto auto auto;
+    margin: 4%;
+    padding: 5%;
+  }
 
   #search-box input {
     margin: 2%;
   }
-  #showGrid {
-    display: block;
-    margin-left: 6%;
-    margin-top: 10%;
-    border-radius: 9px;
+
+  #searchbox {
+    width: 95%;
+    margin-top: 0;
   }
 
-  .overlay {
-    position: fixed;
-    display: none;
-    width: 100%;
-    height: 100%;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: rgba(0, 0, 0, 0.5);
-    z-index: 2;
-    cursor: pointer;
-    transition: 0.35s;
-  }
-
-  #letters ul {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    font-size: 50px;
-    color: white;
-    transform: translate(-50%, -50%);
-    -ms-transform: translate(-50%, -50%);
-  }
-  #lettersModal {
-    display: block;
+  .topnav input,
+  .topnav label {
+    color: black;
   }
   #lettersListMobile {
-    column-count: 4;
+    display: grid;
+    grid-template-columns: auto auto auto;
+    margin: 4%;
+    padding: 1%;
   }
 
-  .show {
-    display: block;
+  #lettersListMobile > li {
+    padding: 5%;
+    color: black;
+  }
+  .item-container{
+    grid-template-columns: auto;
+  }
+  .search-container{
+    width: 40%;
+  }
+  #searchbox{
+    margin-top: 1.5%;
+    width: 100%;
+  }
+  #modalLabel{
+    width: 45%;
+    height: 30px;
+    margin-top: 1.5%;
   }
 }

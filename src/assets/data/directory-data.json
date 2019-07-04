@@ -4,9 +4,297 @@
       "direction": "asc",
       "byField": "index"
     },
-    "sort-level": {
-      "direction": "asc",
-      "byField": "title"
+    "styling":{
+        "colorscheme":""
+    },
+    "data":{
+        "items":[
+            {
+                "index":"#",
+                "content":[
+                    {
+                        "title":"2",
+                        "url":"https://en.wikipedia.org/wiki/Two-element_Boolean_algebra"
+                    }
+                ]
+            },
+            {
+                "index": "A",
+                "content": [
+                    {
+                        "title": "Amazon",
+                        "url" : "https://www.amazon.com.mx/ref=nav_logo"
+                    },
+                    {
+                        "title": "Aeromexico",
+                        "url": "https://www.aeromexico.com"
+                    },
+                    {
+                        "title":"Antara",
+                        "url": "http://www.antara.com.mx/"
+                    }
+                ]
+            },
+            {
+                "index": "B",
+                "content": [
+                    {
+                       "title": "Base22",
+                        "url" : "https://base22.com/" 
+                    },
+                    {
+                        "title": "Bootstrap",
+                        "url": "https://getbootstrap.com/"
+                    }
+                ]
+            },
+            {
+                "index": "C",
+                "content": [
+                    {
+                        "title": "Casetify",
+                        "url" : "https://www.casetify.com/es_ES/"
+                    },
+                    {
+                        "title": "Costco",
+                        "url": "https://www.costco.com.mx/"
+                    },
+                    {
+                        "title":"Cisco",
+                        "url":"https://www.cisco.com/"
+                    },
+                    {
+                        "title":"Cortana",
+                        "url":"https://www.microsoft.com/es-mx/windows/cortana"
+                    },
+                    {
+                        "title":"CitizenFour",
+                        "url":"https://citizenfourfilm.com/"
+                    }
+                ]
+            },
+            {
+                "index": "D",
+                "content": [
+                    {
+                        "title": "DHL",
+                        "url" : "https://shipping.dhl.com.mx/GoogleSEA2017/landing-14957TL-508772Q.html?"
+                    }
+                ]
+                
+            },
+            {
+                "index": "E",
+                "content": [
+                    {
+                        "title": "ESPN",
+                        "url" : "https://www.espn.com.mx/"
+                    }
+                ]
+            },
+            {
+                "index": "F",
+                "content": [
+                    {
+                        "title": "Forbes",
+                        "url" : "https://www.forbes.com.mx/"
+                    }
+                ]
+            },
+            {
+                "index": "G",
+                "content": [
+                    {
+                        "title": "Google",
+                        "url" : "https://www.google.com.mx/"
+                    }
+                ]      
+            },
+            {
+                "index": "H",
+                "content": [
+                    {
+                        "title": "HUAWEI",
+                        "url" : "https://consumer.huawei.com/mx/"
+                    }
+                ]       
+            },
+            {
+                "index": "I",
+                "content": [
+                    {
+                        "title": "Interjet",
+                        "url" : "https://www.interjet.com/es-mx"
+                    }
+                ]        
+            },
+            {
+                "index": "J",
+                "content": [
+                    {
+                        "title": "Java",
+                        "url" : "https://www.java.com/es/"
+                    }
+                ]       
+            },
+            {
+                "index": "K",
+                "content": [
+                    {
+                        "title": "KIA",
+                        "url" : "https://www.kia.com/mx/main.html"
+                    }
+                ]      
+            },
+            {
+                "index": "L",
+                "content": [
+                    {
+                        "title": "Linkedin",
+                        "url" : "https://mx.linkedin.com/"
+                    }
+                ]        
+            },
+            {
+                "index": "M",
+                "content": [
+                    {
+                        "title": "Maps",
+                        "url" : "https://www.google.com.mx/maps"
+                    }
+                ]
+            },
+            {
+                "index": "N",
+                "content": [
+                    {
+                        "title": "Netflix",
+                        "url" : "https://www.netflix.com/browse"
+                    }
+                ]         
+            },
+            {
+                "index": "Ñ",
+                "content": [
+                    {
+                        "title": "Ñu",
+                        "url" : "https://www.nationalgeographic.es/animales/nu"
+                    }
+                ]         
+            },
+            {
+                "index": "O",
+                "content": [
+                    {
+                        "title": "Outlook",
+                        "url" : "https://outlook.live.com/owa/"
+                    }
+                ]
+                
+            },
+            {
+                "index": "P",
+                "content": [
+                    {
+                        "title": "Paypal",
+                        "url" : "https://www.paypal.com/mx/home"
+                    }
+                ]       
+            },
+            {
+                "index": "Q",
+                "content": [
+                    {
+                        "title": "Quick learning",
+                        "url" : "https://www.quicklearning.com/"
+                    }
+                ]       
+            },
+            {
+                "index": "R",
+                "content": [
+                    {
+                        "title": "Redpack",
+                        "url" : "https://www.redpack.com.mx/"
+                    }
+                ]
+                        
+            },
+            {
+                "index": "S",
+                "content": [
+                    {
+                        "title": "Spotify",
+                        "url" : "https://www.spotify.com/mx/"
+                    }
+                ]    
+            },
+            {
+                "index": "T",
+                "content": [
+                    {
+                        "title": "Tableau",
+                        "url" : "https://www.tableau.com/es-mx/products/desktop"
+                    }
+                ]          
+            },
+            {
+                "index": "U",
+                "content": [
+                    {
+                        "title": "Uber",
+                        "url" : "https://www.uber.com/es-MX/sign-in/"
+                    }
+                ]         
+            },
+            {
+                "index": "V",
+                "content": [
+                    {
+                        "title": "Volaris",
+                        "url" : "https://www.volaris.com/"
+                    }
+                ]        
+            },
+            {
+                "index": "W",
+                "content": [
+                    {
+                        "title": "Whatsapp",
+                        "url" : "https://web.whatsapp.com/"
+                    }
+                ]       
+            },
+            {
+                "index": "X",
+                "content": [
+                    {
+                        "title": "Xcode",
+                        "url" : "https://developer.apple.com/xcode/"
+                    }
+                ]
+                        
+            },
+            {
+                "index": "Y",
+                "content": [
+                    {
+                        "title": "YouTube",
+                        "url" : "https://www.youtube.com/?hl=es-419&gl=MX"
+                    }
+                ]      
+            },
+            {
+                "index": "Z",
+                "content": [
+                    {
+                        "title": "Zoom",
+                        "url" : "https://zoom.us/"
+                    }
+                ]
+                        
+            }
+        ]
     }
   },
   "styling": {
