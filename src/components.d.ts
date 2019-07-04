@@ -33,14 +33,27 @@ export namespace Components {
   }
   interface PrixModal {
     'acceptLabel': string;
-    'canceLabel': string;
-    'configuration'?: any;
+    'acceptLabelColor': string;
+    'acceptLabelColorText': string;
+    'cancelLabel': string;
+    'cancelLabelColor': string;
+    'cancelLabelColorText': string;
+    'colorBody': string;
+    'colorBodyText': string;
+    'colorFooter': string;
     /**
     * Common attributes
     */
-    'data'?: any;
-    'label': string;
-    'styling'?: any;
+    'colorHeader': string;
+    'colorHeaderText': string;
+    'expandSizeWidth': string;
+    'hideModal': () => Promise<void>;
+    'onCancelEvent': () => Promise<void>;
+    /**
+    * Public API Methods
+    */
+    'onOkEvent': () => Promise<void>;
+    'showModal': () => Promise<void>;
   }
   interface PrixMultiLevel {
     'color': string;
@@ -107,14 +120,25 @@ declare namespace LocalJSX {
   }
   interface PrixModal extends JSXBase.HTMLAttributes<HTMLPrixModalElement> {
     'acceptLabel'?: string;
-    'canceLabel'?: string;
-    'configuration'?: any;
+    'acceptLabelColor'?: string;
+    'acceptLabelColorText'?: string;
+    'cancelLabel'?: string;
+    'cancelLabelColor'?: string;
+    'cancelLabelColorText'?: string;
+    'colorBody'?: string;
+    'colorBodyText'?: string;
+    'colorFooter'?: string;
     /**
     * Common attributes
     */
-    'data'?: any;
-    'label'?: string;
-    'styling'?: any;
+    'colorHeader'?: string;
+    'colorHeaderText'?: string;
+    'expandSizeWidth'?: string;
+    'onTriggerCancel'?: (event: CustomEvent<any>) => void;
+    /**
+    * Event Emmitters
+    */
+    'onTriggerOk'?: (event: CustomEvent<any>) => void;
   }
   interface PrixMultiLevel extends JSXBase.HTMLAttributes<HTMLPrixMultiLevelElement> {
     'color'?: string;
