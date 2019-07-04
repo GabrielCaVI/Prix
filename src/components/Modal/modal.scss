@@ -31,7 +31,7 @@
 
 #headerModal {
   padding: 16px;
-  border-bottom: 1px solid gray;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
   box-sizing: inherit;
 }
 
@@ -53,7 +53,7 @@
 #footerModal {
   padding: 10px;
   box-sizing: inherit;
-  border-top: 1px solid black;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
 }
 
 .modal-button {
@@ -75,7 +75,7 @@
   background-color: white;
 }
 
-#acceptButton {
+#okButton {
   color: #43a047;
   background-color: white;
   float: right;

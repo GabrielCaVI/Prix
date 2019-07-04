@@ -41,11 +41,11 @@ export namespace Components {
     'colorHeaderText': string;
     'expandSizeWidth': string;
     'hideModal': () => Promise<void>;
-    'onCancel': () => Promise<void>;
+    'onCancelEvent': () => Promise<void>;
     /**
     * Public API Methods
     */
-    'onOk': () => Promise<void>;
+    'onOkEvent': () => Promise<void>;
     'showModal': () => Promise<void>;
   }
   interface PrixMultiLevel {

@@ -34,25 +34,25 @@ export class modal {
     Public API Methods
   */
   @Method()
-  async onOk() {
+  async onOkEvent() {
     this.triggerOk.emit('okEvent');
   }
 
   @Method()
-  async onCancel() {
+  async onCancelEvent() {
     this.triggerCancel.emit('cancelEvent');
   }
 
   @Method()
   async showModal() {
     document.getElementById("overlay").style.display = "flex";
-    this.onOk();
+    this.onOkEvent();
   }
 
   @Method()
   async hideModal() {
     document.getElementById("overlay").style.display = "none";
-    this.onCancel();
+    this.onCancelEvent();
   }
 
   /**
@@ -77,13 +77,13 @@ export class modal {
     let modalCancelButtonText = document.getElementById("cancelButton");
     modalCancelButtonText.style.color = this.cancelLabelColorText;
 
-    let modalAcceptButtonText = document.getElementById("acceptButton");
+    let modalAcceptButtonText = document.getElementById("okButton");
     modalAcceptButtonText.style.color = this.acceptLabelColorText;
 
     let modalCancelButton = document.getElementById("cancelButton");
     modalCancelButton.style.backgroundColor = "transparent";
 
-    let modalAcceptButton = document.getElementById("acceptButton");
+    let modalAcceptButton = document.getElementById("okButton");
     modalAcceptButton.style.backgroundColor = "transparent";
   }
 
@@ -100,8 +100,8 @@ export class modal {
               <slot name="bodyModalContent"></slot>
             </div>
             <div id ="footerModal">
-              <button class="modal-button" id ="cancelButton" onClick={() => this.hideModal()} onMouseOver={() => this.setCancelButtonColor()} onMouseOut={() => this.setCancelButtonColor()}>{this.cancelLabel}</button>
-              <button class="modal-button" id ="acceptButton" onClick={() => this.hideModal()} onMouseOver={() => this.setAcceptButtonColor()} onMouseOut={() => this.setAcceptButtonColor()}>{this.acceptLabel}</button>
+              <button class="modal-button" id ="cancelButton" onClick={() => this.onCancelEvent()} onMouseOver={() => this.setCancelButtonColor()} onMouseOut={() => this.setCancelButtonColor()}>{this.cancelLabel}</button>
+              <button class="modal-button" id ="okButton" onClick={() => this.onOkEvent()} onMouseOver={() => this.setOkButtonColor()} onMouseOut={() => this.setOkButtonColor()}>{this.acceptLabel}</button>
             </div>
           </div>
         </div>
@@ -122,12 +122,12 @@ export class modal {
     }
   }
 
-  private setAcceptButtonColor(){
-    let modalacceptButton = document.getElementById("acceptButton");
-    if (modalacceptButton.style.backgroundColor === "transparent"){
-      modalacceptButton.style.backgroundColor = this.acceptLabelColor;
+  private setOkButtonColor(){
+    let modalokButton = document.getElementById("okButton");
+    if (modalokButton.style.backgroundColor === "transparent"){
+      modalokButton.style.backgroundColor = this.acceptLabelColor;
     } else {
-      modalacceptButton.style.backgroundColor = "transparent";
+      modalokButton.style.backgroundColor = "transparent";
     }
   }
 }
