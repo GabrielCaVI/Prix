@@ -1,9 +1,14 @@
 {
-  "configuration": {},
-  "styling": {
-    "colorscheme": ""
-  },
-  "data": {
-    "items": []
-  }
+    "configuration":{
+        "color":{"value" : ""},
+        "expandSize":{"value" : ""},
+        "side":{"value" : ""},
+        "opacity":{"value" : ""}
+    },
+    "styling":{
+        "colorscheme":""
+    },
+    "data":{
+        "slot":{ "elements": []}
+    }
 }
