@@ -1,18 +1,27 @@
-import { Component, State, Prop, h, Method } from "@stencil/core";
+import { Component, Prop, Method, h } from "@stencil/core";
 
 @Component({
   tag: "prix-drawer",
   styleUrl: "drawer.scss"
 })
 export class TestMenu {
-  @State() open: string;
+  //Props
+  /**
+    * Common attributes
+  */
   @Prop({ mutable: true }) color: string = "";
   @Prop({ mutable: true }) expandSize: string = "";
   @Prop({ mutable: true }) side: string = "";
   @Prop({ mutable: true }) opacity: boolean = false;
 
+  //Methods
+  /**
+    * Public API
+  */
   @Method()
   async showDrawer() {
+    let content = document.getElementById("drawerContent");
+    content.classList.remove("hide");
     let wrapper = document.getElementById("drawer-wrapper");
     switch(this.expandSize) {
       case "small": {
@@ -56,12 +65,9 @@ export class TestMenu {
 
   @Method()
   async hideDrawer() {
-    /*if (this.side == "es-top" || this.side == "es-bottom") {
-      document.getElementById("drawer-wrapper").style.height = "0%";
-    } else {
-      document.getElementById("drawer-wrapper").style.width = "0%";
-    }*/
     let wrapper = document.getElementById("drawer-wrapper");
+    let content = document.getElementById("drawerContent");
+    content.classList.add("hide");
 
     switch(this.expandSize) {
       case "small": {
@@ -103,7 +109,10 @@ export class TestMenu {
     }
   }
 
-
+  //Methods
+  /**
+    * Lifecyle Methods
+  */
   componentDidLoad() {
     let wrapper = document.getElementById("drawer-wrapper");
     document.getElementById("drawer-wrapper").style.backgroundColor = this.color;
@@ -136,8 +145,8 @@ export class TestMenu {
     return (
       <div>
         <div id="drawer-wrapper">
-          <div id="drawer-content">
-          <slot name ="drawer-content"></slot>
+          <div id="drawerContent">
+            <slot name ="drawer-content"></slot>
           </div>
         </div>
       </div>

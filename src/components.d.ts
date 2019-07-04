@@ -18,10 +18,16 @@ export namespace Components {
     'styling'?: any;
   }
   interface PrixDrawer {
+    /**
+    * Common attributes
+    */
     'color': string;
     'expandSize': string;
     'hideDrawer': () => Promise<void>;
     'opacity': boolean;
+    /**
+    * Public API
+    */
     'showDrawer': () => Promise<void>;
     'side': string;
   }
@@ -88,6 +94,9 @@ declare namespace LocalJSX {
     'styling'?: any;
   }
   interface PrixDrawer extends JSXBase.HTMLAttributes<HTMLPrixDrawerElement> {
+    /**
+    * Common attributes
+    */
     'color'?: string;
     'expandSize'?: string;
     'opacity'?: boolean;
