@@ -5,6 +5,9 @@ body {
   color: #031f51;
   font-family: Ubuntu,Arial, Helvetica, sans-serif;
 }
+.wrapper-md, .wrapper-sm{
+  display: none;
+}
 ul {
   list-style: none;
 }
@@ -122,10 +125,13 @@ ul {
 }
 .item-container{
   margin-top: 5px;
-  //column-count: 1; //sets content to fit 3 columns
+}
+.col{
+  display: table-cell;
+  width: 500px;
 }
 .display{
-  display:inline-table;
+  display:contents;
 }
 
 .prix-button {
@@ -137,6 +143,12 @@ ul {
 }
 
 @media screen and (min-width: 661px) and (max-width: 1200px) {
+  .wrapper-md{
+    display: contents;
+  }
+  .wrapper-lg, .wrapper-sm{
+    display:none;
+  }
   .topnav {
     display: block;
     position: relative;
@@ -170,11 +182,17 @@ ul {
     grid-template-columns: auto;
     column-count: 15;
   }
-  .item-container{
-    column-count: 2;
+  .col{
+    width: 75%;
   }
 }
 @media screen and (max-width: 660px) {
+  .wrapper-sm{
+    display:contents
+  }
+  .wrapper-lg, .wrapper-md{
+    display:none;
+  }
   #letters,
   #select-all,
   #select-all-label {
@@ -229,5 +247,8 @@ ul {
     height: 20px;
     align-content: center;
     font-weight: 300;
+  }
+  .col{
+    width: 100%;
   }
 }

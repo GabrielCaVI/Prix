@@ -145,6 +145,13 @@ export class directory {
 
     render() {
         const items = this.internalItems;
+        let temp = items;
+        const set1 = temp.slice(0,items.length/3);
+        const set2 = temp.slice(items.length/3,items.length*2/3);
+        const set3 = temp.slice(items.length*2/3,items.length);
+
+        const set4 = temp.slice(0,items.length/2);
+        const set5 = temp.slice(items.length/2,items.length);
         return (
             <span>
                 <div class="topnav">
@@ -180,26 +187,50 @@ export class directory {
                    
                 </div>
                 <div class="item-container">
-                    {items.map((item)=>(
-                        <prix-directory-item item={item}>
-                        </prix-directory-item>
-                    ))}
-                </div>
-                {/* <div class="item-container">
-                    {items.map((item) => (
-                        <div class="item">
-                            <div>
-                                <h1>{item.index}</h1>
-                                <div class="rule"></div>
-                                <ul>
-                                    {item.content.map(contentItem => (
-                                        <a class="link" href={contentItem.url}><li>{contentItem.title}</li></a>
-                                    ))}
-                                </ul>
-                            </div>
+                    <div class="wrapper-lg">
+                        <div class="col">
+                            {set1.map((item)=>(
+                                <prix-directory-item item={item}>
+                                </prix-directory-item>
+                            ))}
                         </div>
-                    ))}
-                </div> */}
+                        
+                        <div class="col">
+                            {set2.map((item)=>(
+                                <prix-directory-item item={item}>
+                                </prix-directory-item>
+                            ))}
+                        </div>
+                        <div class="col">
+                            {set3.map((item)=>(
+                                <prix-directory-item item={item}>
+                                </prix-directory-item>
+                            ))}
+                        </div>
+                    </div>
+                    <div class="wrapper-md">
+                        <div class="col">
+                            {set4.map((item)=>(
+                                <prix-directory-item item={item}>
+                                </prix-directory-item>
+                            ))}
+                        </div>
+                        <div class="col">
+                            {set5.map((item)=>(
+                                <prix-directory-item item={item}>
+                                </prix-directory-item>
+                            ))}
+                        </div>
+                    </div>
+                    <div class="wrapper-sm">
+                        <div class="col">
+                            {items.map((item)=>(
+                                <prix-directory-item item={item}>
+                                </prix-directory-item>
+                            ))}
+                        </div>
+                    </div>
+                </div>
             </span>
         )
     }
