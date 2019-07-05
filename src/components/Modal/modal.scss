@@ -1,3 +1,24 @@
+.modal-button {
+  background-color: transparent;
+  border-style: none;
+  margin: 4px 2px;
+  padding: 0 15px 0 15px;
+  font-size: .875rem;
+  font-weight: 500;
+  letter-spacing: .0892857143em;
+  text-transform: uppercase;
+  min-width: 75px;
+  height: 36px;
+  vertical-align: middle;
+}
+
+/*Style of the close/dismiss button for the header portion in the modal*/
+.dismiss{
+  float: right;
+  font-size: 4vh;
+}
+
+/*Style of the overlay that will display the modal*/
 #overlay{
   align-items: center;
   display: none;
@@ -9,11 +30,12 @@
   top: 0;
   transition: 0.2s cubic-bezier(0.25, 0.8, 0.25, 1);
   width: 100%;
-  z-index: 6;
+  z-index: 999;  
   outline: none;
   box-sizing: border-box;
 }
 
+/*Style of the content inside the box*/
 #contentModal{
   box-shadow: 0 11px 15px -7px rgba(0,0,0,.2),0 24px 38px 3px rgba(0,0,0,.14),0 9px 46px 8px rgba(0,0,0,.12);
   border-radius: 2px;
@@ -29,6 +51,7 @@
   animation: appear 0.25s ease-in-out;
 }
 
+/*Style of the container for the header in the modal*/
 #headerModal {
   padding: 16px;
   border-bottom: 1px solid rgba(0, 0, 0, 0.1);
@@ -39,6 +62,7 @@
   margin: 0;
 }
 
+/*Style of the container for the body in the box in the modal*/
 #bodyModal {
   padding: 16px;
   width: 100%;
@@ -50,40 +74,24 @@
   margin: 0;
 }
 
+/*Style of the container for the footer in the modal*/
 #footerModal {
   padding: 10px;
   box-sizing: inherit;
   border-top: 1px solid rgba(0, 0, 0, 0.1);
 }
 
-.modal-button {
-  background-color: transparent;
-  border-style: none;
-  margin: 4px 2px;
-  padding: 0 15px 0 15px;
-  font-size: .875rem;
-  font-weight: 500;
-  letter-spacing: .0892857143em;
-  text-transform: uppercase;
-  min-width: 75px;
-  height: 36px;
-  vertical-align: middle;
-}
-
+/*Style of the cancel button for the footer in the modal*/
 #cancelButton {
   color: #b52626;
   background-color: white;
 }
 
+/*Style of the ok button for the footer in the modal*/
 #okButton {
   color: #43a047;
   background-color: white;
   float: right;
-}
-
-.dismiss{
-  float: right;
-  font-size: 4vh;
 }
 
 @keyframes appear {

@@ -23,6 +23,7 @@ ul {
   background-color: white;
   display: block;
 }
+/*Style of the labels on top of the directory */
 .topnav input,
 .topnav label {
   float: left;
@@ -34,7 +35,7 @@ ul {
   font-weight: 400;
   
 }
-
+/*Spacing for the search container*/
 .search-container {
   margin-top: 0.5%;
   margin-right: 5%;
@@ -42,12 +43,6 @@ ul {
 .item {
   display: none;
 }
-
-#letters {
-  display: block;
-  margin-left: 12%;
-}
-
 .pagnLink input[type="checkbox"],
 .topnav input[type="checkbox"] {
   opacity: 0;
@@ -59,15 +54,6 @@ ul {
 .pagnLink label {
   margin: 0%;
   padding: 0.05%;
-}
-
-#letters ul {
-  list-style: none;
-  text-decoration: none;
-}
-#letters ul li {
-  margin: 0;
-  padding: 0;
 }
 .checkLabel {
   cursor: pointer;
@@ -128,6 +114,20 @@ ul {
   grid-template-columns: 500px 500px 500px;
   margin-top: 5px;
 }
+/*Style of the list of letters in the alphabet on the top of the directory*/
+#letters {
+  display: block;
+  margin-left: 12%;
+}
+#letters ul {
+  list-style: none;
+  text-decoration: none;
+}
+#letters ul li {
+  margin: 0;
+  padding: 0;
+}
+
 
 @media screen and (min-width: 661px) and (max-width: 1200px) {
   .wrapper-md{
@@ -163,36 +163,45 @@ ul {
     width: 60%;
     margin-left: 30%;
   }
+  .item-container{
+    grid-template-columns: 180% 180%;
+  }
 
   #letters {
     display:grid;
     grid-template-columns: auto;
     column-count: 15;
   }
-  .item-container{
-    grid-template-columns: 180% 180%;
-  }
+  
 }
 @media screen and (max-width: 660px) {
   .wrapper-sm{
     display:contents;
   }
+/*Button to show the content in mobile position specification*/
+.wrapper-lg, .wrapper-md, #modal{
+  display:none;
+}
+.topnav {
+  overflow: hidden;
+  display: block;
+  margin: 0;
+}
+.topnav input,
+.topnav label {
+  color: black;
+}
+
   #openModal,#modalLabel{
     display: inline-block;
   }
-  .wrapper-lg, .wrapper-md, #modal{
-    display:none;
-  }
+
   #letters,
   #select-all,
   #select-all-label{
     display: none;
   }
-  .topnav {
-    overflow: hidden;
-    display: block;
-    margin: 0;
-  }
+ 
 
   #lettersList {
     display: grid;
@@ -210,10 +219,7 @@ ul {
     margin-top: 0;
   }
 
-  .topnav input,
-  .topnav label {
-    color: black;
-  }
+  
   #lettersListMobile {
     display: grid;
     grid-template-columns: auto auto auto;

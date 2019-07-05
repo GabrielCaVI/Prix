@@ -32,6 +32,7 @@ export namespace Components {
     'expandSize': string;
     'hideDrawer': () => Promise<void>;
     'opacity': boolean;
+    'overflowY': boolean;
     /**
     * Public API
     */
@@ -137,6 +138,7 @@ declare namespace LocalJSX {
     'color'?: string;
     'expandSize'?: string;
     'opacity'?: boolean;
+    'overflowY'?: boolean;
     'side'?: string;
   }
   interface PrixModal extends JSXBase.HTMLAttributes<HTMLPrixModalElement> {
