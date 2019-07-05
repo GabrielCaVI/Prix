@@ -13,6 +13,7 @@ export class drawer {
   @Prop({ mutable: true }) expandSize: string = "";
   @Prop({ mutable: true }) side: string = "";
   @Prop({ mutable: true }) opacity: boolean = false;
+  @Prop({ mutable: true }) overflowY: boolean = false;
 
   //Methods
   /**
@@ -20,9 +21,7 @@ export class drawer {
   */
   @Method()
   async showDrawer() {
-    let content = document.getElementById("drawerContent");
-    content.classList.remove("hide");
-    let wrapper = document.getElementById("drawer-wrapper");
+    let wrapper = document.getElementById("drawerWrapper");
     switch(this.expandSize) {
       case "small": {
         if (this.side == "es-top" || this.side == "es-bottom") {
@@ -58,6 +57,9 @@ export class drawer {
       }
     }
 
+    let content = document.getElementById("drawerContent");
+    content.classList.remove("hide");
+
     if(this.opacity) {
       document.body.style.backgroundColor = "rgba(0,0,0,0.2)";
     }
@@ -65,10 +67,7 @@ export class drawer {
 
   @Method()
   async hideDrawer() {
-    let wrapper = document.getElementById("drawer-wrapper");
-    let content = document.getElementById("drawerContent");
-    content.classList.add("hide");
-
+    let wrapper = document.getElementById("drawerWrapper");
     switch(this.expandSize) {
       case "small": {
         if (this.side == "es-top" || this.side == "es-bottom") {
@@ -104,6 +103,9 @@ export class drawer {
       }
     }
 
+    let content = document.getElementById("drawerContent");
+    content.classList.add("hide");
+
     if(this.opacity) {
       document.body.style.backgroundColor = "white";
     }
@@ -114,8 +116,8 @@ export class drawer {
     * Lifecyle Methods
   */
   componentDidLoad() {
-    let wrapper = document.getElementById("drawer-wrapper");
-    document.getElementById("drawer-wrapper").style.backgroundColor = this.color;
+    let wrapper = document.getElementById("drawerWrapper");
+    wrapper.style.backgroundColor = this.color;
 
     switch(this.side) {
       case "es-left": {
@@ -139,14 +141,18 @@ export class drawer {
         break;
       }
     }
+
+    if(this.overflowY) {
+      wrapper.style.overflowY = "auto";
+    }
   }
 
   render() {
     return (
       <div>
-        <div id="drawer-wrapper">
+        <div id="drawerWrapper" class=".drawer">
           <div id="drawerContent">
-            <slot name ="drawer-content"></slot>
+            <slot name ="drawerContentSlot"></slot>
           </div>
         </div>
       </div>
