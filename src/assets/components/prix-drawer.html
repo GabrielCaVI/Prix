@@ -31,16 +31,18 @@
     body {
       background-color: #F4F4F4;
     }
-</style>
+  </style>
 </head>
 <body>
-    <prix-drawer style="color:white;"
+    <prix-drawer
         color="#4286F4"
-        expand-size="medium"
-        side="es-bottom"
-        opacity="true">
-        <div slot="drawer-content">
+        expand-size="small"
+        side="es-top"
+        opacity="true"
+        overflow-y = "true">
+        <div slot="drawerContentSlot" style="color:white;">
           <h1>Base 22 Drawer</h1>
+          <p>Some Content</p>
           <p>Some Content</p>
           <p>Some Content</p>
           <p>Some Content</p>
@@ -49,8 +51,6 @@
     </prix-drawer>
     <div style ="text-align: center;">
       <button id="openDrawer" class ="button" style ="position: absolute;top: 50%;">Open</button>
-      <button id="closeDrawer" class ="button button2" style ="position: absolute;top: 60%;">Close</button>
-      <button id="closeDrawer" class ="button button2" style ="position: absolute;top: 60%;">Close</button>
     </div>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script type="text/javascript" src="./utils.js"></script>

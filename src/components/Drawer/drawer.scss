@@ -1,65 +1,61 @@
-@charset "UTF-8";
-html,
-body {
-  height: 100%;
-  margin:0;
-  padding: 0;
-}
-
-#drawerContent{
-  margin-left: 2%;
-}
-
-.hide {
-  display: none;
-}
-
 .drawer-left {
   height: 100%;
-  position:fixed;
-  z-index: 1;
   top: 0;
   left: 0;
   width: 0%;
+  position:fixed;
+  z-index: 1;
   background-color: #AFA;
+  overflow-y: hidden;
   overflow-x: hidden;
   transition: 0.5s;
 }
 
 .drawer-right {
   height: 100%;
-  position: fixed;
-  z-index: 1;
   top: 0;
   right: 0;
   width: 0%;
+  position: fixed;
+  z-index: 1;
   background-color: #AFA;
+  overflow-y: hidden;
   overflow-x: hidden;
   transition: 0.5s;
 }
 
 .drawer-top {
   height: 0%;
-  position: fixed;
-  z-index: 1;
   top: 0;
   left: 0;
   width: 100%;
+  position: fixed;
+  z-index: 1;
   background-color: #AFA;
+  overflow-y: hidden;
   overflow-x: hidden;
   transition: 0.5s;
 }
 
 .drawer-bottom {
   height: 0%;
-  position: fixed;
-  z-index: 1;
   bottom: 0;
   left: 0;
   width: 100%;
+  position: fixed;
+  z-index: 1;
   background-color: #AFA;
+  overflow-y: hidden;
   overflow-x: hidden;
   transition: 0.5s;
+}
+
+.hide {
+  display: none;
+}
+
+#drawerContent{
+  margin-left: 2%;
 }
 
 /* Small devices (portrait tablets and large phones, 600px and up) */
