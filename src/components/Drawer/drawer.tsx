@@ -149,7 +149,7 @@ export class drawer {
 
   render() {
     return (
-      <div id="drawerWrapper" class=".drawer">
+      <div id="drawerWrapper">
         <div id="drawerContent">
           <slot name ="drawerContentSlot"></slot>
         </div>
