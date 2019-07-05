@@ -11,28 +11,30 @@
   height: 36px;
   vertical-align: middle;
 }
+
 /*Style of the close/dismiss button for the header portion in the modal*/
 .dismiss{
   float: right;
   font-size: 4vh;
 }
+
 /*Style of the overlay that will display the modal*/
 #overlay{
   align-items: center;
-  display: flex;
+  display: none;
   height: 100%;
   justify-content: center;
   left: 0;
   pointer-events: none;
   position: fixed;
   top: 0;
-  // transition: 0.2s cubic-bezier(0.25, 0.8, 0.25, 1);
+  transition: 0.2s cubic-bezier(0.25, 0.8, 0.25, 1);
   width: 100%;
   z-index: 6;
   outline: none;
-  z-index: 202;
   box-sizing: border-box;
 }
+
 /*Style of the content inside the box*/
 #contentModal{
   box-shadow: 0 11px 15px -7px rgba(0,0,0,.2),0 24px 38px 3px rgba(0,0,0,.14),0 9px 46px 8px rgba(0,0,0,.12);
@@ -40,44 +42,51 @@
   margin: 24px;
   overflow-y: auto;
   pointer-events: auto;
-  //transition: .3s cubic-bezier(.25,.8,.25,1);
   width: 100%;
   z-index: inherit;
   box-sizing: inherit;
+  max-height: 90%;
+  display: flex;
+  flex-direction: column;
   animation: appear 0.25s ease-in-out;
 }
+
 /*Style of the container for the header in the modal*/
 #headerModal {
   padding: 16px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
   box-sizing: inherit;
-  border-bottom: 1px solid gray;
 }
-/*Style of the container for the header in the modal*/
 
 #headerModal > * {
   margin: 0;
 }
+
 /*Style of the container for the body in the box in the modal*/
 #bodyModal {
   padding: 16px;
   width: 100%;
+  overflow-y: auto;
   box-sizing: inherit;
 }
 
 #bodyModal > * {
   margin: 0;
 }
+
 /*Style of the container for the footer in the modal*/
 #footerModal {
   padding: 10px;
   box-sizing: inherit;
-  border-top: 1px solid black;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
 }
+
 /*Style of the cancel button for the footer in the modal*/
 #cancelButton {
   color: #b52626;
   background-color: white;
 }
+
 /*Style of the ok button for the footer in the modal*/
 #okButton {
   color: #43a047;
@@ -85,28 +94,13 @@
   float: right;
 }
 
-
-
-
-
-  @media screen and (min-width: 601px) and (max-width:1200px) {
-  
-    .modal-content{
-      width: 80%;
-      height: 40%;
-    }
-
-    .modal-footer{
-      display: inline-block;
-    }
-
-  
+@keyframes appear {
+  from {
+    opacity: 0;
+    transform: scale3d(0.3, 0.3, 0.3);
   }
-     @media screen and (max-width: 600px) {
-      .modal-content{
-        margin: 2%;
-      }
-     }
 
-
-
+  50% {
+    opacity: 1;
+  }
+}
