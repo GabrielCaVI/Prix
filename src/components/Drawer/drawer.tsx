@@ -149,11 +149,9 @@ export class drawer {
 
   render() {
     return (
-      <div>
-        <div id="drawerWrapper" class=".drawer">
-          <div id="drawerContent">
-            <slot name ="drawerContentSlot"></slot>
-          </div>
+      <div id="drawerWrapper" class=".drawer">
+        <div id="drawerContent">
+          <slot name ="drawerContentSlot"></slot>
         </div>
       </div>
     );

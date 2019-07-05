@@ -6,7 +6,7 @@ import { Component, Prop, Method,Event, EventEmitter, h} from '@stencil/core'
 export class modal {
 
   //Props
-  /** 
+  /**
     * Common attributes
   */
   @Prop({ mutable: true }) colorHeader: string = "white";
@@ -90,20 +90,18 @@ export class modal {
 
   render() {
     return (
-      <div>
-        <div id ="overlay">
-          <div id ="contentModal">
-            <div id ="headerModal">
-              <span class="dismiss"><i onClick={() => this.hideModal()} class="far fa-window-close"></i></span>
-              <slot name="headerModalContent"></slot>
-            </div>
-            <div id ="bodyModal">
-              <slot name="bodyModalContent"></slot>
-            </div>
-            <div id ="footerModal">
-              <button class="modal-button" id ="cancelButton" onClick={() => this.onCancelEvent()} onMouseOver={() => this.setCancelButtonColor()} onMouseOut={() => this.setCancelButtonColor()}>{this.cancelLabel}</button>
-              <button class="modal-button" id ="okButton" onClick={() => this.onOkEvent()} onMouseOver={() => this.setOkButtonColor()} onMouseOut={() => this.setOkButtonColor()}>{this.acceptLabel}</button>
-            </div>
+      <div id ="overlay">
+        <div id ="contentModal">
+          <div id ="headerModal">
+            <span class="dismiss"><i onClick={() => this.hideModal()} class="far fa-window-close"></i></span>
+            <slot name="headerModalContent"></slot>
+          </div>
+          <div id ="bodyModal">
+            <slot name="bodyModalContent"></slot>
+          </div>
+          <div id ="footerModal">
+            <button class="modal-button" id ="cancelButton" onClick={() => this.onCancelEvent()} onMouseOver={() => this.setCancelButtonColor()} onMouseOut={() => this.setCancelButtonColor()}>{this.cancelLabel}</button>
+            <button class="modal-button" id ="okButton" onClick={() => this.onOkEvent()} onMouseOver={() => this.setOkButtonColor()} onMouseOut={() => this.setOkButtonColor()}>{this.acceptLabel}</button>
           </div>
         </div>
       </div>
