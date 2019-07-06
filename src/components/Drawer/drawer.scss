@@ -1,4 +1,8 @@
 /*Main drawer Design */
+
+#drawerWrapper{
+  z-index: 999;
+}
 .drawer-left {
   height: 100%;
   top: 0;
