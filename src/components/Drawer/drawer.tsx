@@ -21,7 +21,7 @@ export class drawer {
   */
   @Method()
   async showDrawer() {
-    let wrapper = document.getElementById("drawerWrapper");
+    let wrapper = document.getElementById("prixDrawerWrapper");
     switch(this.expandSize) {
       case "small": {
         if (this.side == "es-top" || this.side == "es-bottom") {
@@ -57,7 +57,7 @@ export class drawer {
       }
     }
 
-    let content = document.getElementById("drawerContent");
+    let content = document.getElementById("prixDrawerContent");
     content.classList.remove("hide");
 
     if(this.opacity) {
@@ -67,7 +67,7 @@ export class drawer {
 
   @Method()
   async hideDrawer() {
-    let wrapper = document.getElementById("drawerWrapper");
+    let wrapper = document.getElementById("prixDrawerWrapper");
     switch(this.expandSize) {
       case "small": {
         if (this.side == "es-top" || this.side == "es-bottom") {
@@ -103,7 +103,7 @@ export class drawer {
       }
     }
 
-    let content = document.getElementById("drawerContent");
+    let content = document.getElementById("prixDrawerContent");
     content.classList.add("hide");
 
     if(this.opacity) {
@@ -116,7 +116,7 @@ export class drawer {
     * Lifecyle Methods
   */
   componentDidLoad() {
-    let wrapper = document.getElementById("drawerWrapper");
+    let wrapper = document.getElementById("prixDrawerWrapper");
     wrapper.style.backgroundColor = this.color;
 
     switch(this.side) {
@@ -149,9 +149,9 @@ export class drawer {
 
   render() {
     return (
-      <div id="drawerWrapper">
-        <div id="drawerContent">
-          <slot name ="drawerContentSlot"></slot>
+      <div id="prixDrawerWrapper">
+        <div id="prixDrawerContent">
+          <slot name ="prixDrawerContentSlot"></slot>
         </div>
       </div>
     );
