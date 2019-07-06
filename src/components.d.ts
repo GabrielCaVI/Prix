@@ -72,6 +72,13 @@ export namespace Components {
     */
     'message': string;
   }
+  interface PrixMultiLevelItem {
+    'selfTitle'?: string;
+    'url'?: string;
+  }
+  interface PrixMultiLevelSubmenu {
+    'item'?: any;
+  }
 }
 
 declare global {
@@ -106,12 +113,26 @@ declare global {
     prototype: HTMLPrixMultiLevelElement;
     new (): HTMLPrixMultiLevelElement;
   };
+
+  interface HTMLPrixMultiLevelItemElement extends Components.PrixMultiLevelItem, HTMLStencilElement {}
+  var HTMLPrixMultiLevelItemElement: {
+    prototype: HTMLPrixMultiLevelItemElement;
+    new (): HTMLPrixMultiLevelItemElement;
+  };
+
+  interface HTMLPrixMultiLevelSubmenuElement extends Components.PrixMultiLevelSubmenu, HTMLStencilElement {}
+  var HTMLPrixMultiLevelSubmenuElement: {
+    prototype: HTMLPrixMultiLevelSubmenuElement;
+    new (): HTMLPrixMultiLevelSubmenuElement;
+  };
   interface HTMLElementTagNameMap {
     'prix-directory': HTMLPrixDirectoryElement;
     'prix-directory-item': HTMLPrixDirectoryItemElement;
     'prix-drawer': HTMLPrixDrawerElement;
     'prix-modal': HTMLPrixModalElement;
     'prix-multi-level': HTMLPrixMultiLevelElement;
+    'prix-multi-level-item': HTMLPrixMultiLevelItemElement;
+    'prix-multi-level-submenu': HTMLPrixMultiLevelSubmenuElement;
   }
 }
 
@@ -172,6 +193,13 @@ declare namespace LocalJSX {
     */
     'message'?: string;
   }
+  interface PrixMultiLevelItem extends JSXBase.HTMLAttributes<HTMLPrixMultiLevelItemElement> {
+    'selfTitle'?: string;
+    'url'?: string;
+  }
+  interface PrixMultiLevelSubmenu extends JSXBase.HTMLAttributes<HTMLPrixMultiLevelSubmenuElement> {
+    'item'?: any;
+  }
 
   interface IntrinsicElements {
     'prix-directory': PrixDirectory;
@@ -179,6 +207,8 @@ declare namespace LocalJSX {
     'prix-drawer': PrixDrawer;
     'prix-modal': PrixModal;
     'prix-multi-level': PrixMultiLevel;
+    'prix-multi-level-item': PrixMultiLevelItem;
+    'prix-multi-level-submenu': PrixMultiLevelSubmenu;
   }
 }
 

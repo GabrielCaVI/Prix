@@ -3,6 +3,7 @@
 #drawerWrapper{
   z-index: 999;
 }
+
 .drawer-left {
   height: 100%;
   top: 0;
@@ -61,7 +62,7 @@
 
 /*Content inside Drawer*/
 #drawerContent{
-  margin-left: 2%;
+  margin: 2%;
 }
 
 /* Small devices (portrait tablets and large phones, 600px and up) */
