@@ -1,0 +1,28 @@
+
+.item input[type="checkbox"] {
+    display: none;
+    z-index: 10;
+  }
+  .item ul {
+    display: none;
+  }
+  .item input:checked ~ ul {
+    display: block;
+    transition: 0.35s;
+    animation: menu3 300ms ease-in-out forwards;
+  }
+  .item input:checked ~ label span {
+    transition: 0.35s;
+    transform: rotate(90deg);
+    padding: 2% 2%;
+  }
+  .item input:not(:checked) ~ label span {
+    transition: 0.35s;
+    transform: rotate(0deg);
+    padding-left: 5%;
+  }
+  .item input:checked {
+    transition: 0.35s;
+    transform: rotate(180deg) translateY(-25px);
+    margin-inline: 2px;
+  }

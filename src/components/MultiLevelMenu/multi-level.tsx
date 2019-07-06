@@ -73,8 +73,14 @@ export class multiLevel {
             <slot name="icon"/>
             <div id="content" class="hide center">
               <p>{this.message}</p>
+              <ul>
               {
                 items.map((item)=>(
+                  item.url?
+                  <prix-multi-level-item selfTitle={item.title} url={item.url}></prix-multi-level-item>
+                  :<prix-multi-level-submenu item={item}></prix-multi-level-submenu>
+                ))
+                /* items.map((item)=>(
                   <div class="item">
                     <input type="checkbox" id={item.title} value={item.title}/>
                     <label htmlFor={item.title}>{item.title} <span class="fas fa-chevron-right arrow"></span></label>
@@ -95,8 +101,9 @@ export class multiLevel {
                       ))}
                     </ul>
                   </div>
-                ))
+                )) */
               }
+              </ul>
               <div class="help22" id="help">
                 <a href="#">
                   <span class="far"></span>Help Center
